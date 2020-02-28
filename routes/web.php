@@ -21,6 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shop/{filter}','ProductController@navbar');
+Route::get('/shop-single/{id}','ProductController@shop');
+
+Route::get('/produit', function () {
+    return view('screens/product');
+});
 
 Route::get('/principal','pricipalController@index');
 
@@ -29,6 +35,18 @@ Route::get('/p', function () {
 });
 
 Route::get('products/{filter}','ProductController@navbar');
+
+
+// man
+Route::get('products/man','ProductController@navbar');
+// woman
+Route::get('products/woman','ProductController@navbar');
+// child
+Route::get('products/child','ProductController@navbar');
+
+// contact
+Route::get('contact-message','ContactSupportController@contact');
+
 
 Auth::routes();
 

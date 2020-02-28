@@ -1,0 +1,375 @@
+#topthing {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+    height: 70%;
+}
+
+#prod {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+#imgslider {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+#selling {
+    width: 40%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#imageprod img {
+    max-width: 90%;
+    max-height: 300px;
+}
+
+#imageprod {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    height: calc(300px + 2rem);
+}
+
+#prixprod {
+    align-self: flex-end;
+    font-family: "Exo 2", sans-serif;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    transform: skew(10deg);
+    letter-spacing: 2px;
+}
+
+.mini_img {
+    /* max-height: 100px;
+     max-width: 15%;*/
+    height: 80px;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.mini_img:hover {
+    border: 1.5px solid black;
+    border-radius: 3px;
+}
+
+.mini_img img {
+    max-height: 70px;
+    max-width: 100%;
+}
+
+.arrow_img_slider {
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrow_img_slider:first-of-type {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.arrow_img_slider:nth-of-type(2) {
+    right: 0;
+}
+
+.container_mini_imgs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: max-content;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+.slideronme {
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#title_product {
+    width: 100%;
+    font-family: "Exo 2", sans-serif;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+#color, #size,#rating{
+    height: 100px;
+    margin-bottom: 1rem;
+
+}
+
+#color h3, #size h3 ,#rating h3{
+    font-family: "Exo 2", sans-serif;
+    height: 30px;
+}
+
+.containdivs {
+    width: 100%;
+    height: calc(100% - 30px);
+    display: flex;
+}
+
+#color .mini_img {
+    height: 90%;
+}
+
+#color .mini_img img {
+    max-height: 90%;
+}
+
+.containdivs ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.containdivs ul li {
+    border: 1px solid gray;
+    padding: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+ #size .containdivs ul li:hover , #color .containdivs ul li:hover {
+    border: 1px solid #000 !important;
+    padding: 3px;
+}
+
+.activee {
+    border: 1.5px solid #000 !important;
+    display: block;
+    padding: 3px;
+}
+
+#buyit {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: skew(10deg);
+}
+
+#buyit div {
+    border: 1.5px solid black;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Exo 2", sans-serif;
+    cursor: pointer;
+}
+
+#buyit div:last-of-type {
+    background-color: black;
+    color: white;
+}
+
+#similar_prods {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 320px;
+}
+
+#similar_prods .produit {
+    height: 300px;
+    width: 200px !important;
+}
+
+#similar_prods .produit .details {
+    line-height: 1;
+    font-family: "Exo 2", sans-serif;
+}
+
+#similar_prods h1 {
+    font-family: "Exo 2", sans-serif;
+    margin-left: 2rem;
+}
+
+@media (max-width: 659px) {
+    #topthing {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    #prod {
+        width: 100%;
+    }
+
+    #selling {
+        width: 100%;
+    }
+}
+
+.closesearsh {
+    position: relative;
+    margin: 1rem;
+    width: 30px;
+    height: 30px;
+}
+
+.closesearsh span {
+    display: inline-block;
+    height: 3px;
+    width: 30px;
+    background-color: black;
+    border-radius: 3px;
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    transform: rotate(45deg);
+}
+
+.closesearsh span:last-of-type {
+    transform: rotate(-45deg);
+
+}
+.star {
+    border: none !important;
+}
+
+.star path{
+    stroke: #ffc107 ;
+    stroke-width: 1.5px;
+    fill: white;
+}
+.checked path{
+    fill: #ffc107;
+}
+#avis h1{
+    font-family: "Exo 2", sans-serif;
+}
+#avis{
+    width: 100%;
+    height: fit-content;
+    max-height: 70%;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+#showmore{
+position: absolute;
+    bottom: 0;
+    left: calc(50% - 50px);
+    display: flex;
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: "Exo 2", sans-serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+#showmore:hover{
+    text-decoration: underline;
+}
+.comment{
+    height: fit-content;
+    display: flex;
+    width: 100%;
+    /*break-inside: avoid;*/
+}
+.comment div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+}
+.comment span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Exo 2", sans-serif;
+    width: 100%;
+    cursor: pointer;
+}
+.profpic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-image: url("../images/EN.png");
+    background-size: cover;
+    background-position: center;
+    margin: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.comment .detailcomment{
+    font-family: "Exo 2", sans-serif;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+.comment .likesdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+}
+.like svg{
+    fill: white;
+    stroke: black;
+    stroke-width: 1.5px;
+}
+.likeyes svg{
+    transform: rotate(180deg);
+}
+.like svg:hover path{
+    fill: #ffc107;
+    stroke: #ffc107;
+}
+.likethis svg{
+    fill: #ffc107 !important;
+    stroke: #ffc107 !important;
+}
+
+
+/*////////////////////////////////////////////*/
+
+

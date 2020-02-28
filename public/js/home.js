@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 
 const vid1 = document.querySelector("#firstvideo");
 const play1 = document.querySelector("#play");
@@ -39,208 +38,211 @@ devis.addEventListener("mouseout", () => {
   devisdrop.style.display = "none";
 });*/
 if(vid1){
-vid1.parentElement.addEventListener("click", () => {
-  if (vid1.paused) {
-    vid1.play();
-    play1.style.display = "none";
-  } else {
-    vid1.pause();
-    play1.style.display = "block";
-  }
-});}if(vid2){
+    vid1.parentElement.addEventListener("click", () => {
+        if (vid1.paused) {
+            vid1.play();
+            play1.style.display = "none";
+        } else {
+            vid1.pause();
+            play1.style.display = "block";
+        }
+    });}
+if(vid2){
 
     vid2.addEventListener("click", () => {
-  if (vid2.paused) {
-    vid2.play();
-    play2.style.display = "none";
-  } else {
-    vid2.pause();
-    play2.style.display = "block";
-  }
-});}
+        if (vid2.paused) {
+            vid2.play();
+            play2.style.display = "none";
+        } else {
+            vid2.pause();
+            play2.style.display = "block";
+        }
+    });}
 //  FIXME
-if(panier){
-panier.addEventListener("click", () => {
-  carddiv.style.display = "block";
-});}
-if(closecard){
-closecard.addEventListener("click", () => {
-  carddiv.style.display = "none";
-});
-}
-carddiv.style.height = window.innerHeight + "px";
-removeccard.forEach(element => {
-  element.addEventListener("click", () => {
-    $(element.parentElement).remove();
-  });
-});
-$(carddiv).on("click", function(e) {
-  if (e.target === carddiv) {
-    carddiv.style.display = "none";
-  }
-});
+// if(panier){
+//     panier.addEventListener("click", () => {
+//         carddiv.style.display = "block";
+//     });}
+// if(closecard){
+//     closecard.addEventListener("click", () => {
+//         carddiv.style.display = "none";
+//     });
+// }
+// carddiv.style.height = window.innerHeight + "px";
+// removeccard.forEach(element => {
+//     element.addEventListener("click", () => {
+//         $(element.parentElement).remove();
+//     });
+// });
+// $(carddiv).on("click", function(e) {
+//     if (e.target === carddiv) {
+//         carddiv.style.display = "none";
+//     }
+// });
 //  FIXME
 
 /*play1.addEventListener("click", () => {
   vid1.play();
   $(play1).hide();
 });*/
-/*play2.addEventListener("click", () => {
+play2.addEventListener("click", () => {
   vid2.play();
   $(play2).hide();
   console.log(vid2);
-});*/
+});
 // TODO
 /*
 sliderprod.onchange = () => {
   maxprod.textContent = sliderproddiv.length;
 };*/
 if(maxprod){
-maxprod.textContent = sliderproddiv.length;
+    maxprod.textContent = sliderproddiv.length;
 
-let imgs = parseInt(maxprod.textContent) * 100;
-sliderproddiv.forEach(element => {
-  //element.style.width = sliderprod.parentElement.style.width;
-  element.style.width = "50vw";
-  if (window.matchMedia("(max-width: 817px)").matches) {
-    element.style.width = "100%";
-  }
-});
-sliderprod.style.width = imgs + "%"; //setting size 600% of slider
-nextimg.addEventListener("click", () => {
-  if (parseInt(currentprod.textContent) != maxprod.textContent) {
-    $(sliderprod).animate({
-      left: parseInt(currentprod.textContent) * -100 + "%"
+    let imgs = parseInt(maxprod.textContent) * 100;
+    sliderproddiv.forEach(element => {
+        //element.style.width = sliderprod.parentElement.style.width;
+        element.style.width = "50vw";
+        if (window.matchMedia("(max-width: 817px)").matches) {
+            element.style.width = "100%";
+        }
     });
-    currentprod.textContent = parseInt(currentprod.textContent) + 1;
-  }
-});
-previmg.addEventListener("click", () => {
-  if (currentprod.textContent != 1) {
-    currentprod.textContent = parseInt(currentprod.textContent) - 1;
-    $(sliderprod).animate({
-      left: parseInt(currentprod.textContent) * -100 + 100 + "%"
+    sliderprod.style.width = imgs + "%"; //setting size 600% of slider
+    nextimg.addEventListener("click", () => {
+        if (parseInt(currentprod.textContent) != maxprod.textContent) {
+            $(sliderprod).animate({
+                left: parseInt(currentprod.textContent) * -100 + "%"
+            });
+            currentprod.textContent = parseInt(currentprod.textContent) + 1;
+        }
     });
-  }
-});
-Qteproduct.oninput = () => {
-  let chars = "0123456789";
-  if (!chars.includes(Qteproduct.value[Qteproduct.value.length - 1])) {
-    Qteproduct.value = Qteproduct.value.substring(
-      0,
-      Qteproduct.value.length - 1
-    );
-  }
-  if (Qteproduct.value == "0") Qteproduct.value = 1;
-};
+    previmg.addEventListener("click", () => {
+        if (currentprod.textContent != 1) {
+            currentprod.textContent = parseInt(currentprod.textContent) - 1;
+            $(sliderprod).animate({
+                left: parseInt(currentprod.textContent) * -100 + 100 + "%"
+            });
+        }
+    });
+    Qteproduct.oninput = () => {
+        let chars = "0123456789";
+        if (!chars.includes(Qteproduct.value[Qteproduct.value.length - 1])) {
+            Qteproduct.value = Qteproduct.value.substring(
+                0,
+                Qteproduct.value.length - 1
+            );
+        }
+        if (Qteproduct.value == "0") Qteproduct.value = 1;
+    };
 }
 // TODO
 // ANCHOR //////////////////////////////////////////////// brands events  start/////////////////////////////////////////////////////////////////
 if(brandpuma){
-brandpuma.addEventListener("mouseover", () => {
-  brandpuma.setAttribute("src", "images/Puma_white.png");
-});
-brandpuma.addEventListener("click", () => {
-  brandpuma.setAttribute("src", "images/Puma_white.png");
-  brandadidas.setAttribute("src", "images/adidas-gris.png");
-  brandReebok.setAttribute("src", "images/Reebok-gris.png");
-  brandnike.setAttribute("src", "images/Nike-gris.png");
-  brand_selected = "puma";
-});
+    brandpuma.addEventListener("mouseover", () => {
+        brandpuma.setAttribute("src", "images/Puma_white.png");
+    });
+    brandpuma.addEventListener("click", () => {
+        brandpuma.setAttribute("src", "images/Puma_white.png");
+        brandadidas.setAttribute("src", "images/adidas-gris.png");
+        brandReebok.setAttribute("src", "images/Reebok-gris.png");
+        brandnike.setAttribute("src", "images/Nike-gris.png");
+        brand_selected = "puma";
+    });
 
-brandpuma.addEventListener("mouseout", () => {
-  if (brand_selected !== "puma")
-    brandpuma.setAttribute("src", "images/Puma_gris.png");
-});
+    brandpuma.addEventListener("mouseout", () => {
+        if (brand_selected !== "puma")
+            brandpuma.setAttribute("src", "images/Puma_gris.png");
+    });
 
-brandadidas.addEventListener("mouseover", () => {
-  brandadidas.setAttribute("src", "images/adidas-white.png");
-});
-brandadidas.addEventListener("click", () => {
-  brandadidas.setAttribute("src", "images/adidas-white.png");
-  brandpuma.setAttribute("src", "images/Puma_gris.png");
-  brandReebok.setAttribute("src", "images/Reebok-gris.png");
-  brandnike.setAttribute("src", "images/Nike-gris.png");
-  brand_selected = "adidas";
-});
+    brandadidas.addEventListener("mouseover", () => {
+        brandadidas.setAttribute("src", "images/adidas-white.png");
+    });
+    brandadidas.addEventListener("click", () => {
+        brandadidas.setAttribute("src", "images/adidas-white.png");
+        brandpuma.setAttribute("src", "images/Puma_gris.png");
+        brandReebok.setAttribute("src", "images/Reebok-gris.png");
+        brandnike.setAttribute("src", "images/Nike-gris.png");
+        brand_selected = "adidas";
+    });
 
-brandadidas.addEventListener("mouseout", () => {
-  if (brand_selected !== "adidas")
-    brandadidas.setAttribute("src", "images/adidas-gris.png");
-});
+    brandadidas.addEventListener("mouseout", () => {
+        if (brand_selected !== "adidas")
+            brandadidas.setAttribute("src", "images/adidas-gris.png");
+    });
 
-brandReebok.addEventListener("mouseover", () => {
-  brandReebok.setAttribute("src", "images/Reebok-white.png");
-});
-brandReebok.addEventListener("click", () => {
-  brandReebok.setAttribute("src", "images/Reebok-white.png");
-  brandadidas.setAttribute("src", "images/adidas-gris.png");
-  brandpuma.setAttribute("src", "images/Puma_gris.png");
-  brandnike.setAttribute("src", "images/Nike-gris.png");
-  brand_selected = "reebok";
-});
+    brandReebok.addEventListener("mouseover", () => {
+        brandReebok.setAttribute("src", "images/Reebok-white.png");
+    });
+    brandReebok.addEventListener("click", () => {
+        brandReebok.setAttribute("src", "images/Reebok-white.png");
+        brandadidas.setAttribute("src", "images/adidas-gris.png");
+        brandpuma.setAttribute("src", "images/Puma_gris.png");
+        brandnike.setAttribute("src", "images/Nike-gris.png");
+        brand_selected = "reebok";
+    });
 
-brandReebok.addEventListener("mouseout", () => {
-  if (brand_selected !== "reebok")
-    brandReebok.setAttribute("src", "images/Reebok-gris.png");
-});
+    brandReebok.addEventListener("mouseout", () => {
+        if (brand_selected !== "reebok")
+            brandReebok.setAttribute("src", "images/Reebok-gris.png");
+    });
 
-brandnike.addEventListener("mouseover", () => {
-  brandnike.setAttribute("src", "images/Nike-white.png");
-});
+    brandnike.addEventListener("mouseover", () => {
+        brandnike.setAttribute("src", "images/Nike-white.png");
+    });
 
-brandnike.addEventListener("click", () => {
-  brandnike.setAttribute("src", "images/Nike-white.png");
-  brandadidas.setAttribute("src", "images/adidas-gris.png");
-  brandpuma.setAttribute("src", "images/Puma_gris.png");
-  brandReebok.setAttribute("src", "images/Reebok-gris.png");
-  brand_selected = "nike";
-});
+    brandnike.addEventListener("click", () => {
+        brandnike.setAttribute("src", "images/Nike-white.png");
+        brandadidas.setAttribute("src", "images/adidas-gris.png");
+        brandpuma.setAttribute("src", "images/Puma_gris.png");
+        brandReebok.setAttribute("src", "images/Reebok-gris.png");
+        brand_selected = "nike";
+    });
 
-brandnike.addEventListener("mouseout", () => {
-  if (brand_selected !== "nike")
-    brandnike.setAttribute("src", "images/Nike-gris.png");
-});}
+    brandnike.addEventListener("mouseout", () => {
+        if (brand_selected !== "nike")
+            brandnike.setAttribute("src", "images/Nike-gris.png");
+    });}
 // ANCHOR //////////////////////////////////////////////// brands events  end/////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////// trends events  start/////////////////////////////////////////////////////////////////
 $(document).ready(function() {
-  $(".produitslider").slick({});
-  if (window.matchMedia("(min-width: 1160px)").matches) {
-    $(".produitslider").slick("slickSetOption", "slidesToShow", 3);
-  } else {
-    if (window.matchMedia("(min-width: 769px)").matches) {
-      $(".produitslider").slick("slickSetOption", "slidesToShow", 2);
-    } else {
-      $(".produitslider").slick("slickSetOption", "slidesToShow", 1);
-    }
-  }
-  window.onresize = () => {
+    $(".produitslider").slick({});
     if (window.matchMedia("(min-width: 1160px)").matches) {
-      $(".produitslider").slick("slickSetOption", "slidesToShow", 3);
+        $(".produitslider").slick("slickSetOption", "slidesToShow", 3);
     } else {
-      if (window.matchMedia("(min-width: 769px)").matches) {
-        $(".produitslider").slick("slickSetOption", "slidesToShow", 2);
-      } else {
-        $(".produitslider").slick("slickSetOption", "slidesToShow", 1);
-      }
+        if (window.matchMedia("(min-width: 769px)").matches) {
+            $(".produitslider").slick("slickSetOption", "slidesToShow", 2);
+        } else {
+            $(".produitslider").slick("slickSetOption", "slidesToShow", 1);
+        }
     }
-    carddiv.style.height = window.innerHeight + "px"; //this is for the card to get the 100% height
-    searchdiv.style.height = window.innerHeight + "px"; //this is for the card to get the 100% height
-  };
-  $(".produitslider button:nth-of-type(1)").text("←");
-  $(".produitslider button:nth-of-type(2)").text("→");
+    window.onresize = () => {
+        if (window.matchMedia("(min-width: 1160px)").matches) {
+            $(".produitslider").slick("slickSetOption", "slidesToShow", 3);
+        } else {
+            if (window.matchMedia("(min-width: 769px)").matches) {
+                $(".produitslider").slick("slickSetOption", "slidesToShow", 2);
+            } else {
+                $(".produitslider").slick("slickSetOption", "slidesToShow", 1);
+            }
+        }
+      //  carddiv.style.height = window.innerHeight + "px"; //this is for the card to get the 100% height
+    //    searchdiv.style.height = window.innerHeight + "px"; //this is for the card to get the 100% height
+    };
+    $(".produitslider button:nth-of-type(1)").text("←");
+    $(".produitslider button:nth-of-type(2)").text("→");
 });
-const searchdiv = document.getElementById("searchdiv");
-const search = document.getElementById("searchli");
-search.addEventListener("click", () => {
-  searchdiv.style.display = "block";
-});
-searchdiv.style.height = window.innerHeight + "px";
-$(searchdiv).on("click", function(e) {
-  if (e.target === searchdiv) {
-    searchdiv.style.display = "none";
-  }
-});
+
+/// Search
+// const searchdiv = document.getElementById("searchdiv");
+// const search = document.getElementById("searchli");
+// search.addEventListener("click", () => {
+//     searchdiv.style.display = "block";
+// });
+// searchdiv.style.height = window.innerHeight + "px";
+// $(searchdiv).on("click", function(e) {
+//     if (e.target === searchdiv) {
+//         searchdiv.style.display = "none";
+//     }
+// });
 
 ////////////////////////////////////////////////// trends events  end/////////////////////////////////////////////////////////////////
 
@@ -309,6 +311,24 @@ const nav2 = document.getElementsByClassName('exo');
 const allnav = document.getElementById('allnav');
 const body = document.getElementsByTagName('body');
 
+<<<<<<< HEAD
+// allnav.addEventListener("mouseout",()=>{
+//     bigmenu.style.display = 'none';
+//     console.log('sff');
+// });
+// bigmenu.addEventListener("mouseover",()=>{
+//     console.log('sff');
+//     bigmenu.style.display = 'flex';
+// });
+// for(let i = 1;i<6;i++){
+//     nav2[i].addEventListener("mouseover",()=>{
+//         console.log('sff');
+//         bigmenu.style.display = 'flex';
+//         body.style.backgroundColor = "red";
+//     });
+//
+// }
+=======
 allnav.addEventListener("mouseout",()=>{
     bigmenu.style.display = 'none';
     console.log('sff');
@@ -325,31 +345,32 @@ for(let i = 1;i<6;i++){
     });
 
 }
+>>>>>>> ba4dcd729e3797c4c5b8725a56988f852a3b3df5
 ////////////////
 const navs = document.getElementById('allnav');
-let sticky = navs.offsetTop;
+//let sticky = navs.offsetTop;
 
-window.onscroll = ()=>{
-    if(window.pageYOffset > sticky + 30){
-        navs.style.position = 'fixed';
-        navs.style.width = '100%';
-        navs.style.zIndex = '100000';
-    }else{
-        navs.style.position = 'relative';
-    }
-};
+// window.onscroll = ()=>{
+//     if(window.pageYOffset > sticky + 30){
+//         navs.style.position = 'fixed';
+//         navs.style.width = '100%';
+//         navs.style.zIndex = '100000';
+//     }else{
+//         navs.style.position = 'relative';
+//     }
+// };
 ////////////////
 const  btn =document.getElementById('navmobile');
 
-btn.addEventListener("click", ()=>{
-    if(nav2[0].parentElement.style.height != '360px'){
-    for(let i = 1;i<nav2.length;i++){
-        nav2[i].style.display = 'flex';
-        }
-    nav2[0].parentElement.style.height = '360px';}else{
-        for(let i = 1;i<nav2.length;i++){
-            nav2[i].style.display = 'none';
-        }
-        nav2[0].parentElement.style.height = '40px';
-    }
-})
+// btn.addEventListener("click", ()=>{
+//     if(nav2[0].parentElement.style.height != '360px'){
+//         for(let i = 1;i<nav2.length;i++){
+//             nav2[i].style.display = 'flex';
+//         }
+//         nav2[0].parentElement.style.height = '360px';}else{
+//         for(let i = 1;i<nav2.length;i++){
+//             nav2[i].style.display = 'none';
+//         }
+//         nav2[0].parentElement.style.height = '40px';
+//     }
+// })

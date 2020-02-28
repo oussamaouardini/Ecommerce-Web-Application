@@ -20,6 +20,7 @@ class CreateShipmentsTable extends Migration
             $table->bigInteger('order_id');
             $table->string('status')->default('pending');
             $table->dateTime('shipment_date')->nullable();
+            $table->string('carrier')->nullable();
             $table->timestamps();
         });
     }

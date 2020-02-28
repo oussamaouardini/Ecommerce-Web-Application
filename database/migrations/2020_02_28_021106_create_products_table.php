@@ -14,24 +14,24 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('product_id');
-            $table->string('product_title');
-            $table->mediumText('product_description');
-            $table->string('product_images');
-            $table->string('product_category');
-            $table->string('gender');
-            $table->string('product_brand');
-            $table->string('product_tags');
-            $table->double('product_profit_price');
-            $table->double('product_compare_to_price');
-            $table->double('cost_per_item');
-            $table->double('profit_margin');
-            $table->string('product_barcode');
-            $table->string('product_sku');
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->mediumText('description');
+            $table->string('product_images')->nullable();
+            $table->bigInteger('category_id');
+            $table->string('gender')->nullable();
+            $table->string('product_brand')->nullable();
+            $table->string('product_tags')->nullable();
+            $table->double('price');
+            $table->double('old_price')->nullable();
+            $table->double('cost_per_item')->nullable();
+            $table->double('profit_margin')->nullable();
+            $table->string('product_barcode')->nullable();
+            $table->string('product_sku')->nullable();
             $table->integer('product_quantity')->default(50);
-            $table->double('product_wheight');
-            $table->double('product_height');
-            $table->string('product_carrier');
+            $table->double('product_weight')->nullable();
+            $table->double('product_height')->nullable();
+            $table->string('product_carrier')->nullable();
             $table->double('product_size')->nullable();
             $table->string('product_colors')->nullable();
             $table->integer('nb_sales')->default(0);
