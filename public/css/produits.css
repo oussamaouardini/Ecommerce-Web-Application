@@ -1,0 +1,291 @@
+#nav2 li {
+  position: relative;
+}
+
+@media (max-width: 420px) {
+  #nav2 ul {
+    flex-flow: column nowrap;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #nav2 ul li {
+    height: 40px;
+  }
+}
+
+
+
+#body {
+  display: flex;
+  height: fit-content;
+  /*width: 100%;*/
+  width: 100%;
+  height: fit-content;
+  border-top: 1.5px solid #ededed;
+  border-bottom: 1.5px solid #ededed;
+  position: relative;
+}
+
+#filterhider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  background-image: url("/images/filter.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: none;
+}
+
+#filter {
+  min-width: 250px;
+  /* background-color: crimson;*/
+  border-right: 1.5px solid #ededed;
+  background-color: white;
+}
+
+#products {
+  height: 100%;
+  width: fit-content;
+  /*max-width: calc(100% - 250px);*/
+  /*background-color: coral;*/
+  /*
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: flex-start;
+  align-items: flex-start;
+*/
+  background-color: white;
+}
+
+#brand {
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+#brand span {
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  #brand {
+    width: 100%;
+    border-right-width: 0px !important;
+    float: none;
+  }
+
+  #body {
+    position: relative;
+  }
+
+  #products {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product {
+    float: none;
+  }
+}
+
+.product {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  margin: 0;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: default;
+}
+
+.product img {
+  max-width: 75%;
+  max-height: 75%;
+}
+
+.sale,
+.love {
+  position: absolute;
+  top: 0;
+  height: 30px;
+  z-index: 6;
+}
+
+.love {
+  right: 0;
+  width: 40px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.love:hover svg path {
+  fill: #e74c41;
+}
+
+.infos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ededed73;
+  z-index: 5;
+
+  display: none;
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  text-align: center;
+  line-height: 1;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.product:hover .infos {
+  display: flex;
+}
+
+.infos div:nth-of-type(2) span:last-of-type {
+  color: gray;
+  margin-left: 5px;
+  text-decoration: line-through;
+}
+
+.infos div:nth-of-type(2) {
+  margin-top: 10px;
+}
+
+.sale {
+  left: 0;
+  background-color: #ededed;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.product,
+#brand {
+  border-bottom: 2px solid #ededed;
+  border-right: 2px solid #ededed;
+}
+
+.lifilter {
+  border-bottom: 1.5px solid #ededed;
+  padding: 0.7rem 1.5rem 0.7rem 2rem;
+  max-height: 240px;
+}
+
+.lifilter:last-of-type {
+  border: none;
+}
+
+.lifilter ul {
+  overflow: auto;
+  max-height: 160px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 0.3rem;
+  position: relative;
+}
+
+.title div {
+  width: 0;
+  height: 0;
+  border-top: 10px solid black;
+  border-right: 10px solid transparent;
+  /*
+    border-left: 15px solid black;
+    border-right: 15px solid black;*/
+  position: absolute;
+  top: calc(50% - 7.5px);
+  left: -15px;
+  /* transform: rotate(-225deg);*/
+  transform: rotate(-135deg);
+}
+
+.title input {
+  display: none;
+}
+
+.title input:checked + div {
+  transform: rotate(45deg);
+}
+
+.sublifilter label {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+}
+
+.sublifilter label input {
+  display: none;
+}
+
+.sublifilter label input:checked ~ div {
+  background-color: black;
+}
+
+.sublifilter label div {
+  background-color: white;
+  border: 1px solid black;
+  width: 15px;
+  height: 15px;
+  margin-right: 1rem;
+}
+
+#filter ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+@media (max-width: 817px) {
+  #filterhider {
+    display: block;
+  }
+
+  #filter {
+    padding-top: 40px;
+    position: absolute;
+    left: -250px;
+    top: 0;
+    z-index: 8;
+  }
+  .product {
+    border-left: 2px solid #ededed;
+  }
+}

@@ -1,0 +1,264 @@
+/*
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+*/
+.main button:first-of-type{
+    background-color: white;
+    border: white;
+    color: black;
+}
+.main {
+    /* background-color: cyan;*/
+    /*min-width: 250px;*/
+    width: 100%;
+    max-width: 700px;    height: fit-content;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-left:  2rem;
+    padding-right:  2rem;
+
+}
+
+body #backnav {
+    height: 50px !important;
+}
+
+.main .infoship {
+    height: 120px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1.5px solid #929090;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.main .grid {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.main .grid span:nth-of-type(1) {
+    width: 120px;
+}
+
+.main .grid span:nth-of-type(2) {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.main .infoship hr {
+    margin: 0;
+    border-top: 1.5px solid #929090;
+    width: 90%;
+}
+
+.main h3,
+.main h6 {
+    margin-top: 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+.main h6 {
+    margin-top: 0;
+}
+
+.main .shippingways {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    border: 1.5px solid #929090;
+}
+
+.shippingways .shipping {
+    height: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.shippingways .shipping:last-of-type {
+    height: 70px;
+}
+
+.shippingways .shipping label {
+    margin: 0;
+}
+
+.shippingways .shipping label input {
+    display: none;
+}
+
+.shippingways .shipping label div {
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+    /*border: 8px solid black;*/
+    border: 1.5px solid black;
+    border-width: 1.5px;
+}
+
+.shippingways .shipping span:first-of-type {
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.shippingways .shipping:last-of-type span:first-of-type {
+    position: relative;
+    height: 24px;
+}
+
+.shippingways .shipping:last-of-type span span {
+    color: gray;
+    position: absolute;
+    bottom: 5px;
+    left: 0.5px;
+    font-weight: normal;
+}
+
+.shippingways .shipping span:last-of-type {
+    font-weight: bold;
+}
+
+.main button {
+    outline: none;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    height: 60px;
+    width: 240px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.main div:nth-of-type(4) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.main div:first-of-type {
+    width: 100%;
+
+}
+
+.payment {
+    border-radius: 8px;
+    border: 1.5px solid #929090;
+    width: 100%;
+    height: fit-content;
+}
+
+.paytype {
+    height: 50px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.centerpay {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: column wrap;
+    border-top: 1.5px solid #929090;
+    border-bottom: 1.5px solid #929090;
+    width: 100%;
+    min-height: 200px;
+}
+
+.centerpay div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.centerpay div input {
+    width: 49%;
+}
+
+.centerpay input {
+    height: 50px;
+    border-radius: 8px;
+    border: 1.5px solid #929090;
+    width: 100%;
+    padding-left: 0.5rem;
+}
+
+.paytype span {
+    flex-grow: 1;
+}
+
+.paytype label input {
+    display: none;
+}
+
+.paytype label {
+    width: 20px;
+    margin: 0;
+    margin-right: 0.6rem;
+}
+
+.paytype label div {
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+    /*border: 8px solid black;*/
+    border: 1.5px solid black;
+}
+
+@media(max-width:450px) {
+    .centerpay div input {
+        width: 100%;
+    }
+
+    .centerpay div {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 110px;
+    }
+
+    .centerpay {
+        height: 250px;
+    }
+}
+
+@media(max-width:378px) {
+    .main .infoship {
+        height: fit-content;
+    }
+
+    .main .grid {
+        flex-direction: column;
+    }
+
+    .main .grid span:nth-of-type(1) {
+        width: fit-content;
+    }
+}

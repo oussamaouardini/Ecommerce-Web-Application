@@ -1,0 +1,186 @@
+.center {
+    height: fit-content;
+    margin: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    padding-right: 2rem;
+    padding-left: 2rem;
+   /* border-left: 1.5px solid gray;*/
+    width: 400px;
+}
+
+
+#listecards {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.produitcard2 {
+    height: 80px !important;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0px 0;
+}
+
+.center #listecards .imageprodcard {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.2px solid gray;
+    margin-right: 0.5rem;
+    border-radius: 12px;
+    position: relative;
+}
+
+.imageprodcard div {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: gray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.center #listecards .imageprodcard img {
+    max-height: 100%;
+    max-width: 68px;
+    border-radius: 12px;
+}
+
+.center hr {
+    border-top: 1.5px solid gray;
+    width: 80%;
+    margin: 10px 0;
+}
+
+.detailsprodcard {
+    flex-shrink: 1;
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.3rem 0.5rem;
+    line-height: 1.2;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+
+.subdetails {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.center .closecardprod {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.closecardprod span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+    background-color: black;
+    display: inline-block;
+    margin: 0;
+    transform: rotate(45deg);
+}
+
+.closecardprod span:last-of-type {
+    transform: rotate(-45deg);
+}
+
+.detailsend {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 99%;
+}
+
+/*
+.detailsend:last-of-type {
+    height: 35px;
+}
+*/
+.detailsend div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.detailsend div span:last-of-type {
+    font-weight: bold;
+}
+
+.detailsend div span:last-of-type i {
+    font-weight: lighter;
+}
+
+#shipping {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    height: 40px;
+    width: 130px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+    font-weight: bold;
+}
+
+@media(max-width:600px) {
+    .center {
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .center #listecards .imageprodcard img {
+        max-height: 100%;
+        max-width: 60px;
+        border-radius: 12px;
+    }
+
+    .center #listecards .imageprodcard {
+        width: 60px;
+        height: 60px;
+    }
+
+    .subdetails {
+        font-size: 0.7rem;
+    }
+
+    .produitcard2 {
+        height: 70px;
+    }
+}
