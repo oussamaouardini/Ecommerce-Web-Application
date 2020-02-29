@@ -1,6 +1,5 @@
 @extends('layouts.nav');
-@section("content")
-
+@section('content')
     <div class="site-wrap">
         <div class="bg-light py-3">
             <div class="container">

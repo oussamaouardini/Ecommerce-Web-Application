@@ -31,14 +31,19 @@ Route::get('/', function () {
 Route::get('/shop/{filter}','ProductController@navbar');
 Route::get('/shop-single/{id}','ProductController@shop');
 
+Route::get('/shopFinal',function ()
+{
+    return view('screens/finalshop');
+});
+
 Route::get('/produit', function () {
     return view('screens/product');
 });
 
 Route::get('/principal','pricipalController@index');
 
-Route::get('/p', function () {
-    return view('screens/products');
+Route::get('/product', function () {
+    return view('screens/productClick');
 });
 
 Route::get('products/{filter}','ProductController@navbar');

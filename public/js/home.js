@@ -43,20 +43,28 @@ if(vid1){
         if (vid1.paused) {
             vid1.play();
             play1.style.display = "none";
+            vid2.pause();
+            play2.style.display = "block";
         } else {
             vid1.pause();
             play1.style.display = "block";
+            vid2.pause();
+            play2.style.display = "block";
         }
     });}
 if(vid2){
-
     vid2.addEventListener("click", () => {
-        if (vid2.paused) {
+        if (vid2.paused ) {
             vid2.play();
             play2.style.display = "none";
-        } else {
+            vid1.pause();
+            play1.style.display = "block";
+
+        } else if(vid2.played) {
             vid2.pause();
             play2.style.display = "block";
+            vid1.pause();
+            play1.style.display = "block";
         }
     });}
 //  FIXME

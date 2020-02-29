@@ -33,101 +33,149 @@
             </div>
         </div>
     </div>
-    <div id="nav3">
-        <ul>
-            <li class="line"></li>
-            <li class="dot">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="13px"
-                    height="12px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        fill="rgb(255, 255, 255)"
-                        d="M6.500,0.178 C3.303,0.178 0.679,2.803 0.679,5.999 C0.679,9.198 3.303,11.821 6.500,11.821 C9.699,11.821 12.321,9.198 12.321,5.999 C12.321,2.803 9.699,0.178 6.500,0.178 Z"
-                    />
-                </svg>
-            </li>
-            <li class = "exo">Foot Ball</li>
-            <li class="dot">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="13px"
-                    height="12px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        fill="rgb(255, 255, 255)"
-                        d="M6.500,0.178 C3.303,0.178 0.679,2.803 0.679,5.999 C0.679,9.198 3.303,11.821 6.500,11.821 C9.699,11.821 12.321,9.198 12.321,5.999 C12.321,2.803 9.699,0.178 6.500,0.178 Z"
-                    />
-                </svg>
-            </li>
-            <li class = "exo">Basket Ball</li>
-            <li class="dot">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="13px"
-                    height="12px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        fill="rgb(255, 255, 255)"
-                        d="M6.500,0.178 C3.303,0.178 0.679,2.803 0.679,5.999 C0.679,9.198 3.303,11.821 6.500,11.821 C9.699,11.821 12.321,9.198 12.321,5.999 C12.321,2.803 9.699,0.178 6.500,0.178 Z"
-                    />
-                </svg>
-            </li>
-            <li class = "exo">Hand Ball</li>
-            <li class="dot">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="13px"
-                    height="12px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        fill="rgb(255, 255, 255)"
-                        d="M6.500,0.178 C3.303,0.178 0.679,2.803 0.679,5.999 C0.679,9.198 3.303,11.821 6.500,11.821 C9.699,11.821 12.321,9.198 12.321,5.999 C12.321,2.803 9.699,0.178 6.500,0.178 Z"
-                    />
-                </svg>
-            </li>
-            <li class = "exo">Runnig</li>
-            <li class="dot">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="13px"
-                    height="12px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        fill="rgb(255, 255, 255)"
-                        d="M6.500,0.178 C3.303,0.178 0.679,2.803 0.679,5.999 C0.679,9.198 3.303,11.821 6.500,11.821 C9.699,11.821 12.321,9.198 12.321,5.999 C12.321,2.803 9.699,0.178 6.500,0.178 Z"
-                    />
-                </svg>
-            </li>
-            <li class = "exo">Swimming</li>
-            <li class="dot">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="13px"
-                    height="12px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        fill="rgb(255, 255, 255)"
-                        d="M6.500,0.178 C3.303,0.178 0.679,2.803 0.679,5.999 C0.679,9.198 3.303,11.821 6.500,11.821 C9.699,11.821 12.321,9.198 12.321,5.999 C12.321,2.803 9.699,0.178 6.500,0.178 Z"
-                    />
-                </svg>
-            </li>
-            <li class="line"></li>
-        </ul>
+    <div class="banner-section spad">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-banner">
+                        <img src="images/img/banner-1.jpg" alt="">
+                        <div class="inner-text">
+                            <h4>Foot Ball</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-banner">
+                        <img src="images/img/banner-2.jpg" alt="">
+                        <div class="inner-text">
+                            <h4>Basket Ball</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-banner">
+                        <img src="images/img/banner-3.jpg" alt="">
+                        <div class="inner-text">
+                            <h4>Hand Ball</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <section class="women-banner spad">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="product-large set-bg" data-setbg="images/img/products/women-large.jpg">
+                        <h2>Women’s</h2>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="filter-control">
+                        <ul>
+                            <li class="active">Clothings</li>
+                            <li>Shoes</li>
+                            <li>Accessories</li>
+                        </ul>
+                    </div>
+                    <div class="product-slider owl-carousel">
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/women-1.jpg" alt="">
+                                <div class="sale">Sale</div>
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Coat</div>
+                                <a href="#">
+                                    <h5>Pure Pineapple</h5>
+                                </a>
+                                <div class="product-price">
+                                    $14.00
+                                    <span>$35.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/women-2.jpg" alt="">
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Shoes</div>
+                                <a href="#">
+                                    <h5>Guangzhou sweater</h5>
+                                </a>
+                                <div class="product-price">
+                                    $13.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/women-3.jpg" alt="">
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Towel</div>
+                                <a href="#">
+                                    <h5>Pure Pineapple</h5>
+                                </a>
+                                <div class="product-price">
+                                    $34.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/women-4.jpg" alt="">
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Towel</div>
+                                <a href="#">
+                                    <h5>Converse Shoes</h5>
+                                </a>
+                                <div class="product-price">
+                                    $34.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div id="video1">
         <video
             class="vid1"
@@ -316,7 +364,157 @@
             </svg>
         </div>
     </div>
-
+    <section class="man-banner spad">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="filter-control">
+                        <ul>
+                            <li class="active">Clothings</li>
+                            <li>Shoes</li>
+                            <li>Accessories</li>
+                        </ul>
+                    </div>
+                    <div class="product-slider owl-carousel">
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/man-1.jpg" alt="">
+                                <div class="sale">Sale</div>
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Coat</div>
+                                <a href="#">
+                                    <h5>Pure Pineapple</h5>
+                                </a>
+                                <div class="product-price">
+                                    $14.00
+                                    <span>$35.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/man-2.jpg" alt="">
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Shoes</div>
+                                <a href="#">
+                                    <h5>Guangzhou sweater</h5>
+                                </a>
+                                <div class="product-price">
+                                    $13.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/man-3.jpg" alt="">
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Towel</div>
+                                <a href="#">
+                                    <h5>Pure Pineapple</h5>
+                                </a>
+                                <div class="product-price">
+                                    $34.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="images/img/products/man-4.jpg" alt="">
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Towel</div>
+                                <a href="#">
+                                    <h5>Converse Shoes</h5>
+                                </a>
+                                <div class="product-price">
+                                    $34.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="product-large set-bg m-large" data-setbg="images/img/products/man-large.jpg">
+                        <h2>Men’s</h2>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="instagram-photo">
+        <div class="insta-item set-bg" data-setbg="images/img/insta-1.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">Bingo_Collection</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="images/img/insta-2.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">Bingo_Collection</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="images/img/insta-3.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">Bingo_Collection</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="images/img/insta-4.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">Bingo_Collection</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="images/img/insta-5.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">Bingo_Collection</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="images/img/insta-6.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">Bingo_Collection</a></h5>
+            </div>
+        </div>
+    </div>
     <div id="grid">
         <div id="top">
             <div id="gridtopleft">
@@ -465,28 +663,43 @@
             <div id="gridbotleft"></div>
         </div>
     </div>
-
-    <div id="Markes">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="70px"
-            height="61px"
-        >
-            <path
-                fill-rule="evenodd"
-                fill="rgb(255, 255, 255)"
-                d="M53.553,56.512 C38.191,67.804 54.762,54.084 58.467,32.810 C56.793,33.385 55.004,33.711 53.135,33.711 C44.042,33.711 36.670,26.331 36.670,17.227 C36.670,8.124 44.041,0.744 53.135,0.744 C62.229,0.744 69.600,8.124 69.600,17.227 C69.600,17.235 69.599,17.242 69.599,17.250 C69.619,17.730 70.587,43.991 53.553,56.512 ZM17.329,56.512 C1.968,67.804 18.539,54.084 22.245,32.810 C20.570,33.385 18.781,33.711 16.912,33.711 C7.819,33.711 0.447,26.331 0.447,17.227 C0.447,8.124 7.818,0.744 16.912,0.744 C26.006,0.744 33.377,8.124 33.377,17.227 C33.377,17.235 33.376,17.242 33.376,17.250 C33.395,17.730 34.364,43.991 17.329,56.512 Z"
-            />
-        </svg>
-        <p>
-            You can’t just open a website and expect people to flood in. If you really want to succeed you have to create traffic
-        </p>
-        <div id="iconbrands">
-            <img src="images/Puma_white.png" alt="images/Puma_white.png" />
-            <img src="images/adidas-gris.png" alt="images/adidas-gris.png" />
-            <img src="images/Reebok-gris.png" alt="images/Reebok-gris.png" />
-            <img src="images/Nike-gris.png" alt="images/Nike-gris.png" />
+    <div class="benif" style="padding-top: 50px; padding-bottom: 50px;">
+        <div class="benefit-items" style="margin-top: 0px;">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="images/img/icon-1.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6 style="color: white">Free Shipping</h6>
+                            <p style="color: white">For all order over 99$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="images/img/icon-2.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6 style="color: white">Delivery On Time</h6>
+                            <p style="color: white">If good have prolems</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="images/img/icon-1.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6 style="color: white">Secure Payment</h6>
+                            <p style="color: white">100% secure payment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="Tending">
@@ -495,7 +708,6 @@
             class="produitslider"
             data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
             @isset($falshsales)
-
                 @foreach($falshsales as $product)
                     <div class="produit">
                         <div class="imageproduit">
@@ -507,9 +719,7 @@
                             <span>{{$product->price}} $ </span>
                         </div>
                     </div>
-
                 @endforeach
-
             @endisset
         </div>
     </div>
