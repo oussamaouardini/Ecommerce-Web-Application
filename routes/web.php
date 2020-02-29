@@ -17,6 +17,13 @@ use App\Image;
 use App\Product;
 use App\User;
 
+
+// Search
+Route::get('products/search/{search}','ProductController@search');
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -75,7 +82,9 @@ Route::get('/tagtest', function (){
 
 
 //user_is_admin
-Route::group(['auth','user_is_admin'],function (){
+Route::group(['auth'],function (){
+
+    Route::post('carts','CartController@addProductToCart');
     // units
     Route::get('units','UnitController@index')->name('units');
     Route::post('units','UnitController@store')->name('units');

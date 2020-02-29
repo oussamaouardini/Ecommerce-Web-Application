@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Http\Resources\ProductResource;
+use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -14,7 +17,22 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $cart = $user->cart;
+        $cartItems = json_decode($cart->cart_items);
+        $finalCartItems = [];
+        foreach ($cartItems as $cartItem){
+            $product = Product::find(intval($cartItem->product->id));
+            $finalcartItem = new \stdClass();
+            $finalcartItem->product = new ProductResource($product);
+            $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
+            array_push($finalCartItems,$finalcartItem);
+        }
+        return [
+            'cart_items'=>$finalCartItems,
+            'id'=>$cart->id,
+            'total'=>number_format(doubleval($cart->total),2),
+        ];
     }
 
     /**

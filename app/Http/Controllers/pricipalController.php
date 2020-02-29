@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class pricipalController extends Controller
 {
@@ -16,7 +18,27 @@ class pricipalController extends Controller
     {
         $falshsales = Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(6)->get();
         $topsales = Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(1)->get();
-        return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales));
+
+        // get cart
+        $user = Auth::user();
+        if($user != null){
+            $cart = $user->cart;
+            $cartItems = json_decode($cart->cart_items);
+            $finalCartItems = [];
+            foreach ($cartItems as $cartItem){
+                $product = Product::find(intval($cartItem->product->id));
+                $finalcartItem = new Product();
+                $finalcartItem->product = new ProductResource($product);
+                $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
+                array_push($finalCartItems,$finalcartItem);
+            }
+
+            return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'cart_items'=>$finalCartItems,'id'=>$cart->id,'total'=>number_format(doubleval($cart->total),2),));
+        }else{
+            return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'login'=>true));
+        }
+
+
     }
 
     /**

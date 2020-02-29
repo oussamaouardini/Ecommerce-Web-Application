@@ -3,16 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="13897a47-42e2-4da9-85ee-a048c2f0b175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/ecome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecome.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/pricipalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/pricipalController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,12 +157,6 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\bingoFinal\public\css" />
-      <recent name="C:\xampp\htdocs\bingoFinal\public\js" />
-      <recent name="C:\Apache24\htdocs\Ecome\ecome\public\css" />
-      <recent name="C:\xampp\htdocs\Ecome\ecome\resources\views\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Ecome\ecome\public\css" />
       <recent name="C:\xampp\htdocs\Ecome\ecome\public\js" />
@@ -171,24 +164,30 @@
       <recent name="C:\xampp\htdocs\Ecome\ecome\public" />
       <recent name="C:\Apache24\htdocs\Ecome\ecome\resources\sass" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\bingoFinal\public\css" />
+      <recent name="C:\xampp\htdocs\bingoFinal\public\js" />
+      <recent name="C:\Apache24\htdocs\Ecome\ecome\public\css" />
+      <recent name="C:\xampp\htdocs\Ecome\ecome\resources\views\Admin" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -246,6 +245,7 @@
       <workItem from="1582898226314" duration="6689000" />
       <workItem from="1582907309298" duration="763000" />
       <workItem from="1582914282164" duration="14582000" />
+      <workItem from="1582952967102" duration="9429000" />
     </task>
     <servers />
   </component>

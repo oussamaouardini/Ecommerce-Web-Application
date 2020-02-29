@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Resources\ProductResource;
 use App\Product;
 use http\Env;
 use Illuminate\Http\Request;
@@ -24,6 +25,14 @@ class ProductController extends Controller
             'cur'=>$currencyCode
             ]);
     }
+
+
+    public function search($search)
+    {
+        $products = Product::query()->where('title', 'LIKE', "%{$search}%")->get();
+        return  ProductResource::collection($products) ;
+    }
+
     public function navbar($filter)
     {
         $category = Category::where('name',$filter )->first();

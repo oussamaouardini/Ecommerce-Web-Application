@@ -267,9 +267,17 @@
                         </div>
                     </div>
                     <div id="buy">
-                        <div id="addtocard">
+                        @isset($login)
+
+                        <div id="addtocard" onclick="" >
                             Add to cart
                         </div>
+                        @endisset
+                            @isset($total)
+                                <div id="addtocard" onclick="addtocart()" >
+                                    Add to cart
+                                </div>
+                            @endisset
                         <div id="buynow">
                             Buy it now
                         </div>
@@ -549,5 +557,11 @@
             element3.classList.remove("activee");
             element4.classList.remove("activee");
         }
+
+        function addtocart() {
+
+        }
+
+
     </script>
 @endsection

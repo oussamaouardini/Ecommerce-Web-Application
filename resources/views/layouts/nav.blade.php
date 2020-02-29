@@ -53,7 +53,7 @@
 {{--    <script src="{{asset("js/shop/aos.js")}}"></script>--}}
 {{--    <script src="{{asset("js/shop/main.js")}}"></script>--}}
 
-    <!-- shop   -->
+<!-- shop   -->
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <link rel="stylesheet" href="{{asset("fonts/icomoon/style.css")}}">
@@ -332,123 +332,46 @@
                         <h2>CART</h2>
                         <div id="close"><span></span> <span></span></div>
                     </div>
-                    <div class="cardproduct">
-                        2 products was added to your cart
-                    </div>
-                    <div id="listprod">
-                        <div class="produitcard">
-                            <div class="prodimg">
-                                <img src="images/produitcard.png" alt="" />
-                            </div>
-                            <div class="detailcard">
-                <span>
-                  ADIDAS MEN'S AC MILAN 3/4 TRAINING PANTS BLACK/CHARCOAL SOLID
-                  GREY/VICTORY RED (XS)
-                </span>
-                                <div class="prixunites">
-                                    <span>$49.99 </span> <span>$49.99</span>
+                    @isset($cart_items)
+                        <div class="cardproduct">
+                            products in your cart
+                        </div>
+
+
+                        @foreach($cart_items as $cart_item)
+                        <!-- product -->
+                            <div id="listprod">
+                                <div class="produitcard">
+                                    <div class="prodimg">
+                                        <img src="images/produitcard.png" alt="" />
+                                    </div>
+
+                                    <div class="detailcard">
+                                    <span>
+                                      {{$cart_item['product']->title}}
+                                    </span>
+                                        <div class="prixunites">
+                                            <span>{{$cart_item['product']->price}} </span> <span>$49.99</span>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="removeccard">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    -->
                                 </div>
                             </div>
-                            <div class="removeccard">
-                                <span></span>
-                                <span></span>
-                            </div>
+
+                        @endforeach
+                    @endisset
+
+                    @isset($total)
+                        <div id="total">
+                            <h2>Total : $<span>{{$total}}</span></h2>
+                            <span> Shipping & taxes calculated at checkout</span>
                         </div>
-                        <div class="produitcard">
-                            <div class="prodimg">
-                                <img src="images/produitcard.png" alt="" />
-                            </div>
-                            <div class="detailcard">
-                <span>
-                  ADIDAS MEN'S AC MILAN 3/4 TRAINING PANTS BLACK/CHARCOAL SOLID
-                  GREY/VICTORY RED (XS)
-                </span>
-                                <div class="prixunites">
-                                    <span>$49.99 </span> <span>$49.99</span>
-                                </div>
-                            </div>
-                            <div class="removeccard">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="produitcard">
-                            <div class="prodimg">
-                                <img src="images/produitcard.png" alt="" />
-                            </div>
-                            <div class="detailcard">
-                <span>
-                  ADIDAS MEN'S AC MILAN 3/4 TRAINING PANTS BLACK/CHARCOAL SOLID
-                  GREY/VICTORY RED (XS)
-                </span>
-                                <div class="prixunites">
-                                    <span>$49.99 </span> <span>$49.99</span>
-                                </div>
-                            </div>
-                            <div class="removeccard">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="produitcard">
-                            <div class="prodimg">
-                                <img src="images/produitcard.png" alt="" />
-                            </div>
-                            <div class="detailcard">
-                <span>
-                  ADIDAS MEN'S AC MILAN 3/4 TRAINING PANTS BLACK/CHARCOAL SOLID
-                  GREY/VICTORY RED (XS)
-                </span>
-                                <div class="prixunites">
-                                    <span>$49.99 </span> <span>$49.99</span>
-                                </div>
-                            </div>
-                            <div class="removeccard">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="produitcard">
-                            <div class="prodimg">
-                                <img src="images/produitcard.png" alt="" />
-                            </div>
-                            <div class="detailcard">
-                <span>
-                  ADIDAS MEN'S AC MILAN 3/4 TRAINING PANTS BLACK/CHARCOAL SOLID
-                  GREY/VICTORY RED (XS)
-                </span>
-                                <div class="prixunites">
-                                    <span>$49.99 </span> <span>$49.99</span>
-                                </div>
-                            </div>
-                            <div class="removeccard">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="produitcard">
-                            <div class="prodimg">
-                                <img src="images/produitcard.png" alt="" />
-                            </div>
-                            <div class="detailcard">
-                <span>
-                  ADIDAS MEN'S AC MILAN 3/4 TRAINING PANTS BLACK/CHARCOAL SOLID
-                  GREY/VICTORY RED (XS)
-                </span>
-                                <div class="prixunites">
-                                    <span>$49.99 </span> <span>$49.99</span>
-                                </div>
-                            </div>
-                            <div class="removeccard">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="total">
-                        <h2>Total : $<span>99.45</span></h2>
-                        <span> Shipping & taxes calculated at checkout</span>
-                    </div>
+
                     <div id="payment">
                         <div>
                             <div id="editcard">
@@ -491,6 +414,20 @@
                             </div>
                         </div>
                     </div>
+
+                    @endisset
+
+                    @isset($login)
+                        <div id="total">
+                            <h2><span>  Sorry You are not logged in </span></h2>
+                        </div>
+
+                        <div class="row">
+                            <a href="#">Log In</a>
+                            <a href="#">Sign Up</a>
+                        </div>
+                        @endisset
+
                 </div>
             </div>
         </ul>
@@ -498,256 +435,222 @@
 </div>
 
 {{--new navbar--}}
-    <section>
+<section>
     <div class="content">
-    @yield('content')
-    <div id="newsletter">
-        <h1>Sign up to our newsletter</h1>
-        <span
-        >Sign up for offers and exclusive discounts. <br />
+        @yield('content')
+        <div id="newsletter">
+            <h1>Sign up to our newsletter</h1>
+            <span
+            >Sign up for offers and exclusive discounts. <br />
         Read our privacy policy.
       </span>
-        <div id="email" class="form-control">
-            <input type="email" placeholder="Email Address" />
-            <div id="signup">SIGN UP</div>
+            <div id="email" class="form-control">
+                <input type="email" placeholder="Email Address" />
+                <div id="signup">SIGN UP</div>
+            </div>
         </div>
-    </div>
-    <div id="botinfos">
-        <div id="info1" class="infodivs">
-            <ul>
-                <li class = "exo">TSHIRT</li>
-                <li class = "exo">HOODIES</li>
-                <li class = "exo">SNEAKERS</li>
-                <li class = "exo">PAINTS</li>
-                <li class = "exo">ACCESSORIES</li>
-            </ul>
-        </div>
-        <div id="info2" class="infodivs">
-            <h2>CUSTOMER SERVICE</h2>
-            <ul>
-                <li>Support Portal</li>
-                <li>Instruction</li>
-                <li>Replacements</li>
-                <li>Contact Us</li>
-                <div id="searchdiv">
+        <div id="botinfos">
+            <div id="info1" class="infodivs">
+                <ul>
+                    <li class = "exo">TSHIRT</li>
+                    <li class = "exo">HOODIES</li>
+                    <li class = "exo">SNEAKERS</li>
+                    <li class = "exo">PAINTS</li>
+                    <li class = "exo">ACCESSORIES</li>
+                </ul>
+            </div>
+            <div id="info2" class="infodivs">
+                <h2>CUSTOMER SERVICE</h2>
+                <ul>
+                    <li>Support Portal</li>
+                    <li>Instruction</li>
+                    <li>Replacements</li>
+                    <li>Contact Us</li>
+                    <div id="searchdiv">
 
-                    <div id="search" style="top: 0px">
-                        <input
-                            class="form-control form-control-sm "
-                            type="text"
-                            placeholder="Search"
-                            aria-label="Search"
-                            id="Searchbar"
-                        />
-                        <button>Search</button>
+                        <div id="search" style="top: 0px">
+                            <input
+                                class="form-control form-control-sm "
+                                type="text"
+                                placeholder="Search"
+                                aria-label="Search"
+                                id="Searchbar"
+                            />
+                            <button id="btnsearch" onclick="myFunction()" >Search</button>
+                        </div>
+                        <div>
+                            <h2>CART</h2>
+                            <div id="closeSearch"><span></span> <span></span></div>
+                        </div>
                     </div>
-                    <div>
-                        <h2>CART</h2>
-                        <div id="closeSearch"><span></span> <span></span></div>
-                    </div>
+                </ul>
+
+            </div>
+            <div class="bigmenu">
+                <div>
+                    <h3 class = "titles">Men</h3>
+                    <ul>
+                        <li class = "subTitles"><a href="{{url('/products/Men\'s Sweater')}}">Men\'s Sweater</a></li>
+                        <li class = "subTitles"><a href="">Men\'s Jacket</a></li>
+                        <li class = "subTitles"><a href="">Men\'s Footwear</a></li>
+                        <li class = "subTitles"><a href="">Men\'s Pants</a></li>
+                        <li class = "subTitles"><a href="">Men\'s T-Shirts</a></li>
+                        <li class = "subTitles"><a href="">Men\'s Sneakers</a></li>
+                    </ul>
                 </div>
-            </ul>
-
-        </div>
-        <div class="bigmenu">
-            <div>
-                <h3 class = "titles">Men</h3>
-                <ul>
-                    <li class = "subTitles"><a href="{{url('/products/Men\'s Sweater')}}">Men\'s Sweater</a></li>
-                    <li class = "subTitles"><a href="">Men\'s Jacket</a></li>
-                    <li class = "subTitles"><a href="">Men\'s Footwear</a></li>
-                    <li class = "subTitles"><a href="">Men\'s Pants</a></li>
-                    <li class = "subTitles"><a href="">Men\'s T-Shirts</a></li>
-                    <li class = "subTitles"><a href="">Men\'s Sneakers</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class = "titles">Women</h3>
-                <ul>
-                    <li class = "subTitles"><a href="">Women\'s Sweater</a></li>
-                    <li class = "subTitles"><a href="">Women\'s Jacket</a></li>
-                    <li class = "subTitles"><a href="">Women\'s Footwear</a></li>
-                    <li class = "subTitles"><a href="">Women\'s Pants</a></li>
-                    <li class = "subTitles"><a href="">Women\'s T-Shirts</a></li>
-                    <li class = "subTitles"><a href="">Women\'s Sneakers</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class = "titles">Child</h3>
-                <ul>
-                    <li class = "subTitles"><a href="">Child\'s Sweater</a></li>
-                    <li class = "subTitles"><a href="">Child\'s Jacket</a></li>
-                    <li class = "subTitles"><a href="">Child\'s Footwear</a></li>
-                    <li class = "subTitles"><a href="">Child\'s Pants</a></li>
-                    <li class = "subTitles"><a href="">Child\'s T-Shirts</a></li>
-                    <li class = "subTitles"><a href="">Child\'s Sneakers</a></li>
-                </ul>
-                <span
-                >Our team is available to assist you : <br />
+                <div>
+                    <h3 class = "titles">Women</h3>
+                    <ul>
+                        <li class = "subTitles"><a href="">Women\'s Sweater</a></li>
+                        <li class = "subTitles"><a href="">Women\'s Jacket</a></li>
+                        <li class = "subTitles"><a href="">Women\'s Footwear</a></li>
+                        <li class = "subTitles"><a href="">Women\'s Pants</a></li>
+                        <li class = "subTitles"><a href="">Women\'s T-Shirts</a></li>
+                        <li class = "subTitles"><a href="">Women\'s Sneakers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class = "titles">Child</h3>
+                    <ul>
+                        <li class = "subTitles"><a href="">Child\'s Sweater</a></li>
+                        <li class = "subTitles"><a href="">Child\'s Jacket</a></li>
+                        <li class = "subTitles"><a href="">Child\'s Footwear</a></li>
+                        <li class = "subTitles"><a href="">Child\'s Pants</a></li>
+                        <li class = "subTitles"><a href="">Child\'s T-Shirts</a></li>
+                        <li class = "subTitles"><a href="">Child\'s Sneakers</a></li>
+                    </ul>
+                    <span
+                    >Our team is available to assist you : <br />
           Monday-Friday: 8am to 4pm (MDT)
         </span>
-            </div>
-            <div id="info3" class="infodivs">
-                <h2>COMPANY</h2>
-                <ul>
-                    <li>Terms & Conditions</li>
-                    <li>Privacy Policy</li>
-                    <li>Accessibility Statement</li>
-                    <div>
-                        <h3 class = "titles">Price</h3>
-                        <ul>
-                            <li class = "subTitles"><a href="">Under $50</a></li>
-                            <li class = "subTitles"><a href="">$50 - $88</a></li>
-                            <li class = "subTitles"><a href="">$88 - $188</a></li>
-                            <li class = "subTitles"><a href="">$200 - $400</a></li>
-                            <li class = "subTitles"><a href="">$400 - $500</a></li>
-                        </ul>
-                    </div>
-                    <div id="info4" class="infodivs">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="31px"
-                            height="30px"
-                        >
-                            <defs>
-                                <filter id="Filter_0">
-                                    <feFlood
-                                        flood-color="rgb(153, 153, 153)"
-                                        flood-opacity="1"
-                                        result="floodOut"
+                </div>
+                <div id="info3" class="infodivs">
+                    <h2>COMPANY</h2>
+                    <ul>
+                        <li>Terms & Conditions</li>
+                        <li>Privacy Policy</li>
+                        <li>Accessibility Statement</li>
+                        <div>
+                            <h3 class = "titles">Price</h3>
+                            <ul>
+                                <li class = "subTitles"><a href="">Under $50</a></li>
+                                <li class = "subTitles"><a href="">$50 - $88</a></li>
+                                <li class = "subTitles"><a href="">$88 - $188</a></li>
+                                <li class = "subTitles"><a href="">$200 - $400</a></li>
+                                <li class = "subTitles"><a href="">$400 - $500</a></li>
+                            </ul>
+                        </div>
+                        <div id="info4" class="infodivs">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="31px"
+                                height="30px"
+                            >
+                                <defs>
+                                    <filter id="Filter_0">
+                                        <feFlood
+                                            flood-color="rgb(153, 153, 153)"
+                                            flood-opacity="1"
+                                            result="floodOut"
+                                        />
+                                        <feComposite
+                                            operator="atop"
+                                            in="floodOut"
+                                            in2="SourceGraphic"
+                                            result="compOut"
+                                        />
+                                        <feBlend mode="normal" in="compOut" in2="SourceGraphic" />
+                                    </filter>
+                                </defs>
+                                <g filter="url(#Filter_0)">
+                                    <path
+                                        fill-rule="evenodd"
+                                        fill="rgb(0, 0, 0)"
+                                        d="M15.500,0.715 C7.216,0.715 0.501,7.111 0.501,15.000 C0.501,22.890 7.216,29.285 15.500,29.285 C23.784,29.285 30.500,22.890 30.500,15.000 C30.500,7.111 23.784,0.715 15.500,0.715 ZM21.223,7.990 L19.148,7.991 C17.521,7.991 17.207,8.727 17.207,9.807 L17.207,12.189 L21.086,12.189 L21.084,15.920 L17.207,15.920 L17.207,25.495 L13.161,25.495 L13.161,15.920 L9.778,15.920 L9.778,12.189 L13.161,12.189 L13.161,9.438 C13.161,6.245 15.209,4.505 18.200,4.505 L21.223,4.510 L21.223,7.990 L21.223,7.990 Z"
                                     />
-                                    <feComposite
-                                        operator="atop"
-                                        in="floodOut"
-                                        in2="SourceGraphic"
-                                        result="compOut"
-                                    />
-                                    <feBlend mode="normal" in="compOut" in2="SourceGraphic" />
-                                </filter>
-                            </defs>
-                            <g filter="url(#Filter_0)">
-                                <path
-                                    fill-rule="evenodd"
-                                    fill="rgb(0, 0, 0)"
-                                    d="M15.500,0.715 C7.216,0.715 0.501,7.111 0.501,15.000 C0.501,22.890 7.216,29.285 15.500,29.285 C23.784,29.285 30.500,22.890 30.500,15.000 C30.500,7.111 23.784,0.715 15.500,0.715 ZM21.223,7.990 L19.148,7.991 C17.521,7.991 17.207,8.727 17.207,9.807 L17.207,12.189 L21.086,12.189 L21.084,15.920 L17.207,15.920 L17.207,25.495 L13.161,25.495 L13.161,15.920 L9.778,15.920 L9.778,12.189 L13.161,12.189 L13.161,9.438 C13.161,6.245 15.209,4.505 18.200,4.505 L21.223,4.510 L21.223,7.990 L21.223,7.990 Z"
-                                />
-                            </g>
-                        </svg>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="30px"
-                            height="30px"
-                        >
-                            <image
-                                x="0px"
-                                y="0px"
+                                </g>
+                            </svg>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="30px"
                                 height="30px"
-                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkARQBFSSpbnK+AAAC4UlEQVQ4y43VbWiVZRwG8N9zdjynuePaxJdKzFCwBQ2tnJIJlWY5KnohIxeLKCkQoggiPxRZqKREX8KN86UMU3AQRQMx7Y2Y+ZJM5wZr6QdLxEp0a9Ymc9vpw3nOc55t5nZ9ee7rf/+v+/7f1/3yBFmjUKbWY2rMkgF9zjnuK826R6cGI8QZa72g2tVwyqcaXfg/cY1talwLXV71dZEmoladb8aRcqsvvVKkJY/mv8/b7jrjI6lWvwPxmZdpiNUwHjZZXRiJ6T5WGnV12OGoHlcM510xSbkF6i2KZm9w3Ml82Zs8HEk3q9MiJSOjTMZkpRJ67NfokgcFYLIKXxBkb3LMjFD6veXu02j+mEX87g1NdqoLeb8l2hOei6RscYMmVWOkr3nZRxbabCCMlFpHwpNRyt9arTA9ZL/6wIs26sBh++Ss1uVslF2rIun2iPbqMztsN3rdZTP85R3v+lyvmaYZdCnKnuOeRMznQYPSoMU6CxzW6YSV3tauCmkMxhZTHV9dzrAS0GCKJotNVa3JHO8ZRkC4fXlUjBQXEo5a7OYwWu4Bv+gJ+3Kx/PRoX/MDlI24fhekpa5y0obj4kAQih/Xane0980ekYlVVkBfMkZKJEJDXrLTMw5Z6oT3VVoPhgg9yeOPhD8jkpLyD7jRXmts87SNVtlnLviXWPmXHUw4FNGpKrWH7bl26XRAp2Z3hLE2ZaZF2R3aEj6JHEx7yrf2Rt3zLFUVsVafqTUz4tsNBdlJjlgYBs5Y4rwNlpuiJDQwZ0ifFhvkHHFbmPmbO11MumKrXWFotv3e9FbM/+K+LrM1kvKhi/kHMLDDszEXj+nUbSA8TQkp15tvUeyu/eAhA4XXs9x37jJRdFmRv1350Xqt0TZB6Wn1hYtZKOWklfZMQHrQ/X4ukOI6znvCeueuIey2xSqni4Fg1L9qlrXqzRsjPGO3rFMjg0F27AyV7navW5RKGtLvrB/9FDvGEf4DVazDPlXXJ1wAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="29px"
-                            height="30px"
-                        >
-                            <image
-                                x="0px"
-                                y="0px"
+                            >
+                                <image
+                                    x="0px"
+                                    y="0px"
+                                    width="30px"
+                                    height="30px"
+                                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkARQBFSSpbnK+AAAC4UlEQVQ4y43VbWiVZRwG8N9zdjynuePaxJdKzFCwBQ2tnJIJlWY5KnohIxeLKCkQoggiPxRZqKREX8KN86UMU3AQRQMx7Y2Y+ZJM5wZr6QdLxEp0a9Ymc9vpw3nOc55t5nZ9ee7rf/+v+/7f1/3yBFmjUKbWY2rMkgF9zjnuK826R6cGI8QZa72g2tVwyqcaXfg/cY1talwLXV71dZEmoladb8aRcqsvvVKkJY/mv8/b7jrjI6lWvwPxmZdpiNUwHjZZXRiJ6T5WGnV12OGoHlcM510xSbkF6i2KZm9w3Ml82Zs8HEk3q9MiJSOjTMZkpRJ67NfokgcFYLIKXxBkb3LMjFD6veXu02j+mEX87g1NdqoLeb8l2hOei6RscYMmVWOkr3nZRxbabCCMlFpHwpNRyt9arTA9ZL/6wIs26sBh++Ss1uVslF2rIun2iPbqMztsN3rdZTP85R3v+lyvmaYZdCnKnuOeRMznQYPSoMU6CxzW6YSV3tauCmkMxhZTHV9dzrAS0GCKJotNVa3JHO8ZRkC4fXlUjBQXEo5a7OYwWu4Bv+gJ+3Kx/PRoX/MDlI24fhekpa5y0obj4kAQih/Xane0980ekYlVVkBfMkZKJEJDXrLTMw5Z6oT3VVoPhgg9yeOPhD8jkpLyD7jRXmts87SNVtlnLviXWPmXHUw4FNGpKrWH7bl26XRAp2Z3hLE2ZaZF2R3aEj6JHEx7yrf2Rt3zLFUVsVafqTUz4tsNBdlJjlgYBs5Y4rwNlpuiJDQwZ0ifFhvkHHFbmPmbO11MumKrXWFotv3e9FbM/+K+LrM1kvKhi/kHMLDDszEXj+nUbSA8TQkp15tvUeyu/eAhA4XXs9x37jJRdFmRv1350Xqt0TZB6Wn1hYtZKOWklfZMQHrQ/X4ukOI6znvCeueuIey2xSqni4Fg1L9qlrXqzRsjPGO3rFMjg0F27AyV7navW5RKGtLvrB/9FDvGEf4DVazDPlXXJ1wAAAAASUVORK5CYII="
+                                />
+                            </svg>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="29px"
                                 height="30px"
-                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAQAAAB6Dt0qAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkARQBFgnHnH0IAAACOUlEQVQ4y5XV32vNcRzH8cc5Z2wrRDqUmYUoM1l+pGwtieTiiKEVkZJf/wBXlFJ+heLGlNzMMjfIrxv5FZK1C4ZiF1vzOxrLr/k5F5tzzvd7zo7jffV9v97v5/f9/b7f78/3G6mXYTGV5qg0WqHv3nngnhbfwmkFIT+u1nozRUN6qwaNnqdLkUDVTbYrMZC9ddChVPXU3eNOOZoDJG63C0rD6CgX1fm3LXDF5HR0pDNm5wHCZGeVpdBj5uYJwhQnRfvQhNr/AKHKRiL1hZpNy5HW7JKoJabr9cqYfvWNiliizpZk2g+7lBmRBu60zlXXNOh0SqnxImCIrlhir0nJxC7LXVZjdL9/wzq/wXctuk1SmVyieFRVWo1iJR6rsc1TcDvw6BMtU5j0KqKGpQWH2GSwD/aZZakDmgNorbFpXiy4w+90KNGOj845F2rY8KAbXPNhWrQP0OlYeA5BdLDjyjNOTZ/NUJ4LZao9JmZFNxuUG4WOLFqNNWEp6nNISWiyItB34g6Fa/odDQ0AFqkOfD3KnDcjI6utQKN5SbfLcdfc9T6pFKuzw/gsr9AUqR/qfjLUq91lNz31UZFxqiw1NWvTulVE6lmtISPUY5CYgW2r/VE0upoRKsoJtjrSN5xeaz2Sv720Ss/fub6wzJM8wTdWekhqJdosdCMP8L6F7vRdprbpmcV26sqBfXLYfK1/3VgiFfrputO+KA0fL7x0wgYNvqakSJbf1QjVqk1QrMAvPTrddsvrcNofhBGA5xLabvoAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="29px"
-                            height="30px"
-                        >
-                            <image
-                                x="0px"
-                                y="0px"
+                            >
+                                <image
+                                    x="0px"
+                                    y="0px"
+                                    width="29px"
+                                    height="30px"
+                                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAQAAAB6Dt0qAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkARQBFgnHnH0IAAACOUlEQVQ4y5XV32vNcRzH8cc5Z2wrRDqUmYUoM1l+pGwtieTiiKEVkZJf/wBXlFJ+heLGlNzMMjfIrxv5FZK1C4ZiF1vzOxrLr/k5F5tzzvd7zo7jffV9v97v5/f9/b7f78/3G6mXYTGV5qg0WqHv3nngnhbfwmkFIT+u1nozRUN6qwaNnqdLkUDVTbYrMZC9ddChVPXU3eNOOZoDJG63C0rD6CgX1fm3LXDF5HR0pDNm5wHCZGeVpdBj5uYJwhQnRfvQhNr/AKHKRiL1hZpNy5HW7JKoJabr9cqYfvWNiliizpZk2g+7lBmRBu60zlXXNOh0SqnxImCIrlhir0nJxC7LXVZjdL9/wzq/wXctuk1SmVyieFRVWo1iJR6rsc1TcDvw6BMtU5j0KqKGpQWH2GSwD/aZZakDmgNorbFpXiy4w+90KNGOj845F2rY8KAbXPNhWrQP0OlYeA5BdLDjyjNOTZ/NUJ4LZao9JmZFNxuUG4WOLFqNNWEp6nNISWiyItB34g6Fa/odDQ0AFqkOfD3KnDcjI6utQKN5SbfLcdfc9T6pFKuzw/gsr9AUqR/qfjLUq91lNz31UZFxqiw1NWvTulVE6lmtISPUY5CYgW2r/VE0upoRKsoJtjrSN5xeaz2Sv720Ss/fub6wzJM8wTdWekhqJdosdCMP8L6F7vRdprbpmcV26sqBfXLYfK1/3VgiFfrputO+KA0fL7x0wgYNvqakSJbf1QjVqk1QrMAvPTrddsvrcNofhBGA5xLabvoAAAAASUVORK5CYII="
+                                />
+                            </svg>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="29px"
                                 height="30px"
-                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAQAAAB6Dt0qAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkARQBFjCYmfUAAAACb0lEQVQ4y4XUSWhUWRgF4K9eYjSiNs4GI7qwcQCnFqUVRRA1iESxBXGABkWCiiMdEXThoqFdNgoSg2K6wY1z3DgExNjBpkUFA4qQRUsEx6ARBxwSKy6qKnn3Valndd/5z+G/93/n3lStBPqqsNTPyvUDHZ6476J6raEwFViLrFVtkkJ4oc6fHvcQUaw41iV/f8XIYNVuWR3rU5lbVTplqm+jv1+UaJKOd13pnHLfR8oeR/Xq6TrLWb0TopvOqfevNsP0DSpTdLqWGVOJJjODYrM9GnRmv0artiWovzfPzQi/JYyHzHah20irrZZqjylKHdanqLLMcaUx+rxfdWSHss98n7WiRZtlMVWZB5HVBsWoD/Z1r98pt1ejAyLUuRbsrSqyIiAuasYYA5H2DGyzE10OBsoZkekBcQbsd8J8m6zPsrsNR6OnMWVUHPyUtP9RYqLJFsb4ocZ75qVWI2LeoGfaJ3QViEIafIxTobVYGTr8kzA+dBelRn7dSgX4XUvA7tKOn4z+lnW5QXhuuSvZUDy2wUmwRnFcmqpNnqzKkexqunHe+s9zMMYdP4Sne6N/YN3pdDZ0t92O8dtDI5Ebia4T7C8w4bk2J5iOyOk8WZU1CWaIw0oSXFPkpEcJMqXGtGBnR03Ma1ATaY8FPocBTsTeqEPBncmgQX2EYxrySj+6bDH6qbMxr/rKNp2Zx3SCq4bnCT47Y5wpBYa2WU0uEvet8iJPUGRlQeMfajIjyKDRPHd8H+9V2ZubXg73LPJXwVvTg2aLu7MWZLjNOgs0ZC9YEi12mBN/ZFK1+aIZlqgwSh9Funzy0nUXXPE6lH0BWxGZyjbSiq4AAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                </ul>
+                            >
+                                <image
+                                    x="0px"
+                                    y="0px"
+                                    width="29px"
+                                    height="30px"
+                                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAQAAAB6Dt0qAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkARQBFjCYmfUAAAACb0lEQVQ4y4XUSWhUWRgF4K9eYjSiNs4GI7qwcQCnFqUVRRA1iESxBXGABkWCiiMdEXThoqFdNgoSg2K6wY1z3DgExNjBpkUFA4qQRUsEx6ARBxwSKy6qKnn3Valndd/5z+G/93/n3lStBPqqsNTPyvUDHZ6476J6raEwFViLrFVtkkJ4oc6fHvcQUaw41iV/f8XIYNVuWR3rU5lbVTplqm+jv1+UaJKOd13pnHLfR8oeR/Xq6TrLWb0TopvOqfevNsP0DSpTdLqWGVOJJjODYrM9GnRmv0artiWovzfPzQi/JYyHzHah20irrZZqjylKHdanqLLMcaUx+rxfdWSHss98n7WiRZtlMVWZB5HVBsWoD/Z1r98pt1ejAyLUuRbsrSqyIiAuasYYA5H2DGyzE10OBsoZkekBcQbsd8J8m6zPsrsNR6OnMWVUHPyUtP9RYqLJFsb4ocZ75qVWI2LeoGfaJ3QViEIafIxTobVYGTr8kzA+dBelRn7dSgX4XUvA7tKOn4z+lnW5QXhuuSvZUDy2wUmwRnFcmqpNnqzKkexqunHe+s9zMMYdP4Sne6N/YN3pdDZ0t92O8dtDI5Ebia4T7C8w4bk2J5iOyOk8WZU1CWaIw0oSXFPkpEcJMqXGtGBnR03Ma1ATaY8FPocBTsTeqEPBncmgQX2EYxrySj+6bDH6qbMxr/rKNp2Zx3SCq4bnCT47Y5wpBYa2WU0uEvet8iJPUGRlQeMfajIjyKDRPHd8H+9V2ZubXg73LPJXwVvTg2aLu7MWZLjNOgs0ZC9YEi12mBN/ZFK1+aIZlqgwSh9Funzy0nUXXPE6lH0BWxGZyjbSiq4AAAAASUVORK5CYII="
+                                />
+                            </svg>
+                        </div>
+                    </ul>
+                </div>
             </div>
         </div>
-        </div>
-        </div>
-    </section>
-        <script src="{{asset('js/home.js')}}"></script>
-        <!-- ##### All Javascript Script ##### -->
-        <!-- jQuery-2.2.4 js -->
-        <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
-        <!-- Popper js -->
-        <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
-        <!-- Bootstrap js -->
-        <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
-        <!-- All Plugins js -->
-        <script src="{{asset('js/plugins/plugins.js')}}"></script>
-        <!-- Active js -->
-        <script src="{{asset('js/active.js')}}"></script>
-        <!-- Live Chat Code :: Start of Tawk.to Script -->
-        <script src="{{asset('js/slick.js')}}"></script>
-        <script src="{{asset('js/cbpHorizontalMenu.min.js')}}"></script>
-        <script>
-            // var Tawk_API = Tawk_API || {},
-            //     Tawk_LoadStart = new Date();
-            // (function() {
-            //     var s1 = document.createElement("script"),
-            //         s0 = document.getElementsByTagName("script")[0];
-            //     s1.async = true;
-            //     s1.src = 'https://embed.tawk.to/5b55ea72df040c3e9e0bdf85/default';
-            //     s1.charset = 'UTF-8';
-            //     s1.setAttribute('crossorigin', '*');
-            //     s0.parentNode.insertBefore(s1, s0);
-            // })();
+    </div>
+</section>
+<script src="{{asset('js/home.js')}}"></script>
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
+<!-- Popper js -->
+<script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
+<!-- Bootstrap js -->
+<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
+<!-- All Plugins js -->
+<script src="{{asset('js/plugins/plugins.js')}}"></script>
+<!-- Active js -->
+<script src="{{asset('js/active.js')}}"></script>
+<!-- Live Chat Code :: Start of Tawk.to Script -->
+<script src="{{asset('js/slick.js')}}"></script>
+<script src="{{asset('js/cbpHorizontalMenu.min.js')}}"></script>
+<script>
 
 
-            $(function() {
-                cbpHorizontalMenu.init();
-            });
+    $(function() {
+        cbpHorizontalMenu.init();
+    });
 
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-                document.getElementById("myDropdown2").classList.remove("show");
-            }
 
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function(e) {
+    function myFunction() {
+        var val = document.getElementById("Searchbar");
+        if(val.value === ""){
 
-                if (!e.target.matches('.dropbtn')) {
-                    var myDropdown = document.getElementById("myDropdown");
-                    if (myDropdown.classList.contains('show')) {
-                        myDropdown.classList.remove('show');
-                    }
-                }
-            }
-
-            function myFunction2() {
-                document.getElementById("myDropdown2").classList.toggle("show");
-                document.getElementById("myDropdown").classList.remove("show");
-
-            }
-
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function(e) {
-                if (!e.target.matches('.dropbtn2')) {
-                    var myDropdown = document.getElementById("myDropdown2");
-                    if (myDropdown.classList.contains('show')) {
-                        myDropdown.classList.remove('show');
-                    }
-                }
-            }
-
-        </script>
+        }else{
+            window.location.pathname = 'products/search/'+val.value ;
+        }
+    }
+</script>
 </body>
 </html>
