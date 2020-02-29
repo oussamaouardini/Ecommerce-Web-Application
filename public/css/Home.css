@@ -27,6 +27,13 @@ html {
 #bigNavBar{
     position: relative;
 }
+
+#cardTable{
+    overflow-y:scroll;
+    height:339px;
+    display:block;
+}
+
 #allnav{
     position: relative;
 }
