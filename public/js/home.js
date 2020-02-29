@@ -24,6 +24,7 @@ const lang = document.querySelector("#lang");
 const langdrop = document.querySelector("#lang .dropme");
 const devis = document.querySelector("#devis");
 const devisdrop = document.querySelector("#devis .dropme");
+const numberCard = document.getElementById('Numpanier');
 /*
 lang.addEventListener("mouseover", () => {
   langdrop.style.display = "block";
@@ -59,27 +60,28 @@ if(vid2){
         }
     });}
 //  FIXME
-// if(panier){
-//     panier.addEventListener("click", () => {
-//         carddiv.style.display = "block";
-//     });}
-// if(closecard){
-//     closecard.addEventListener("click", () => {
-//         carddiv.style.display = "none";
-//     });
-// }
-// carddiv.style.height = window.innerHeight + "px";
-// removeccard.forEach(element => {
-//     element.addEventListener("click", () => {
-//         $(element.parentElement).remove();
-//     });
-// });
-// $(carddiv).on("click", function(e) {
-//     if (e.target === carddiv) {
-//         carddiv.style.display = "none";
-//     }
-// });
-//  FIXME
+if(panier){
+    panier.addEventListener("click", () => {
+        carddiv.style.display = "block";
+        numberCard.style.display = "none";
+    });}
+if(closecard){
+    closecard.addEventListener("click", () => {
+        carddiv.style.display = "none";
+        numberCard.style.display = "block";
+    });
+}
+carddiv.style.height = window.innerHeight + "px";
+removeccard.forEach(element => {
+    element.addEventListener("click", () => {
+        $(element.parentElement).remove();
+    });
+});
+$(carddiv).on("click", function(e) {
+    if (e.target === carddiv) {
+        carddiv.style.display = "none";
+    }
+});
 
 /*play1.addEventListener("click", () => {
   vid1.play();
@@ -232,17 +234,17 @@ $(document).ready(function() {
 });
 
 /// Search
-// const searchdiv = document.getElementById("searchdiv");
-// const search = document.getElementById("searchli");
-// search.addEventListener("click", () => {
-//     searchdiv.style.display = "block";
-// });
-// searchdiv.style.height = window.innerHeight + "px";
-// $(searchdiv).on("click", function(e) {
-//     if (e.target === searchdiv) {
-//         searchdiv.style.display = "none";
-//     }
-// });
+const searchdiv = document.getElementById("searchdiv");
+const search = document.getElementById("searchli");
+search.addEventListener("click", () => {
+    searchdiv.style.display = "block";
+});
+searchdiv.style.height = window.innerHeight + "px";
+$(searchdiv).on("click", function(e) {
+    if (e.target === searchdiv) {
+        searchdiv.style.display = "none";
+    }
+});
 
 ////////////////////////////////////////////////// trends events  end/////////////////////////////////////////////////////////////////
 
@@ -310,25 +312,6 @@ const bigmenu = document.getElementsByClassName('bigmenu')[0];
 const nav2 = document.getElementsByClassName('exo');
 const allnav = document.getElementById('allnav');
 const body = document.getElementsByTagName('body');
-
-<<<<<<< HEAD
-// allnav.addEventListener("mouseout",()=>{
-//     bigmenu.style.display = 'none';
-//     console.log('sff');
-// });
-// bigmenu.addEventListener("mouseover",()=>{
-//     console.log('sff');
-//     bigmenu.style.display = 'flex';
-// });
-// for(let i = 1;i<6;i++){
-//     nav2[i].addEventListener("mouseover",()=>{
-//         console.log('sff');
-//         bigmenu.style.display = 'flex';
-//         body.style.backgroundColor = "red";
-//     });
-//
-// }
-=======
 allnav.addEventListener("mouseout",()=>{
     bigmenu.style.display = 'none';
     console.log('sff');
@@ -345,32 +328,60 @@ for(let i = 1;i<6;i++){
     });
 
 }
->>>>>>> ba4dcd729e3797c4c5b8725a56988f852a3b3df5
+allnav.addEventListener("mouseout",()=>{
+    bigmenu.style.display = 'none';
+    console.log('sff');
+});
+bigmenu.addEventListener("mouseover",()=>{
+    console.log('sff');
+    bigmenu.style.display = 'flex';
+});
+for(let i = 1;i<6;i++){
+    nav2[i].addEventListener("mouseover",()=>{
+        console.log('sff');
+        bigmenu.style.display = 'flex';
+        body.style.backgroundColor = "red";
+    });
+
+}
 ////////////////
 const navs = document.getElementById('allnav');
-//let sticky = navs.offsetTop;
+let sticky = navs.offsetTop;
 
-// window.onscroll = ()=>{
-//     if(window.pageYOffset > sticky + 30){
-//         navs.style.position = 'fixed';
-//         navs.style.width = '100%';
-//         navs.style.zIndex = '100000';
-//     }else{
-//         navs.style.position = 'relative';
-//     }
-// };
+window.onscroll = ()=>{
+    if(window.pageYOffset > sticky + 30){
+        navs.style.position = 'fixed';
+        navs.style.width = '100%';
+        navs.style.zIndex = '100000';
+    }else{
+        navs.style.position = 'relative';
+    }
+};
 ////////////////
 const  btn =document.getElementById('navmobile');
 
-// btn.addEventListener("click", ()=>{
-//     if(nav2[0].parentElement.style.height != '360px'){
-//         for(let i = 1;i<nav2.length;i++){
-//             nav2[i].style.display = 'flex';
-//         }
-//         nav2[0].parentElement.style.height = '360px';}else{
-//         for(let i = 1;i<nav2.length;i++){
-//             nav2[i].style.display = 'none';
-//         }
-//         nav2[0].parentElement.style.height = '40px';
-//     }
-// })
+btn.addEventListener("click", ()=>{
+    if(nav2[0].parentElement.style.height != '360px'){
+        for(let i = 1;i<nav2.length;i++){
+            nav2[i].style.display = 'flex';
+        }
+        nav2[0].parentElement.style.height = '360px';}else{
+        for(let i = 1;i<nav2.length;i++){
+            nav2[i].style.display = 'none';
+        }
+        nav2[0].parentElement.style.height = '40px';
+    }
+})
+
+// Initial state
+var scrollPos = 0;
+// adding scroll event
+window.addEventListener('scroll', function(){
+    // detects new state and compares it with the new one
+    if ((document.body.getBoundingClientRect()).top > scrollPos)
+        document.getElementById('bigNavBar').classList.add('sticky');
+    else
+        document.getElementById('bigNavBar').classList.remove('sticky');
+    // saves the new position for iteration.
+    scrollPos = (document.body.getBoundingClientRect()).top;
+});

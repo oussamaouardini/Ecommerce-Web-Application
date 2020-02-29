@@ -50,7 +50,7 @@
                     />
                 </svg>
             </li>
-            <li class = "exo">SHIRTS</li>
+            <li class = "exo">Foot Ball</li>
             <li class="dot">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@
                     />
                 </svg>
             </li>
-            <li class = "exo">SNEAKERS</li>
+            <li class = "exo">Basket Ball</li>
             <li class="dot">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@
                     />
                 </svg>
             </li>
-            <li class = "exo">HOODIES</li>
+            <li class = "exo">Hand Ball</li>
             <li class="dot">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +95,7 @@
                     />
                 </svg>
             </li>
-            <li class = "exo">PANTS</li>
+            <li class = "exo">Runnig</li>
             <li class="dot">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@
                     />
                 </svg>
             </li>
-            <li class = "exo">ACCESORIES</li>
+            <li class = "exo">Swimming</li>
             <li class="dot">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
