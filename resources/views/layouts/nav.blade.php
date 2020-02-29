@@ -101,6 +101,7 @@
             <img src="{{asset('images/FR.png')}}" alt="FR">
         </div>
     </div>
+
     <div class="container">
         <div class="inner-header">
             <div class="row">
@@ -124,96 +125,49 @@
                     <ul class="nav-right">
                         <li class="heart-icon"><a href="#">
                                 <i class="icon_heart_alt"></i>
-                                <span>1</span>
+                                @isset($nbcartitems)
+                                    <span> {{$nbcartitems}} </span>
+                                @endisset
                             </a>
                         </li>
                         <li class="cart-icon"><a href="#">
                                 <i class="icon_bag_alt"></i>
-                                <span>3</span>
+                                @isset($nbcartitems)
+                                    <span> {{$nbcartitems}} </span>
+                                @endisset
                             </a>
+                            @isset($cart_items)
                             <div class="cart-hover">
                                 <div class="select-items">
                                     <table id = "cardTable">
                                         <tbody>
+
+                                        @foreach($cart_items as $cart_item)
+
                                         <tr>
                                             <td class="si-pic"><img src="images/img/select-product-1.jpg" alt=""></td>
                                             <td class="si-text">
                                                 <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
+                                                    <p>$ {{$cart_item['product']->price}} x {{ (int)$cart_item['quantity'] }}</p>
                                                     <h6>Kabino Bedside Table</h6>
                                                 </div>
                                             </td>
+                                            <!--
                                             <td class="si-close">
                                                 <i class="ti-close"></i>
                                             </td>
+                                            -->
                                         </tr>
-                                        <tr>
-                                            <td class="si-pic"><img src="images/img/select-product-2.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="si-pic"><img src="images/img/select-product-2.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="si-pic"><img src="images/img/select-product-2.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="si-pic"><img src="images/img/select-product-2.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
+                                            @endforeach
 
-                                        <tr>
-                                            <td class="si-pic"><img src="images/img/select-product-2.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="select-total">
                                     <span>total:</span>
-                                    <h5>$120.00</h5>
+                                    @isset($total)
+                                    <h5>${{$total}}</h5>
+                                    @endisset
                                 </div>
                                 <div class="select-button">
                                     <a href="#" class="primary-btn view-card">VIEW CARD</a>
@@ -221,12 +175,16 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="cart-price">$150.00</li>
+                        @endisset
+                        <li class="cart-price">@isset($total)
+                                <h5>${{$total}}</h5>
+                            @endisset</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="centered">
         <nav id="cbp-hrmenu" class="cbp-hrmenu ">
             <ul>

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Resources\ProductResource;
 use App\Product;
+use App\Review;
 use http\Env;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -21,7 +23,7 @@ class ProductController extends Controller
         $currencyCode = env("CURRENCY_CODE","$");
       //  return  $products ;
         return view('admin.products.products')->with([
-            'products'=>$products,
+            'products'=>ProductResource::collection($products),
             'cur'=>$currencyCode
             ]);
     }
@@ -33,11 +35,38 @@ class ProductController extends Controller
         return  ProductResource::collection($products) ;
     }
 
-    public function navbar($filter)
+    public function filter($filter)
     {
         $category = Category::where('name',$filter )->first();
-        $products = $category->products()->paginate(15);
-        return view('screens/products',compact('products'));
+        $product = $category->products()->paginate(15);
+        $products = ProductResource::collection($product);
+        return view('screens/finalshop',compact('products'));
+    }
+    public function singlePage($id)
+    {
+        $pr = Product::find($id) ;
+        $product = new ProductResource($pr) ;
+        $avg = Review::where('product_id', $product->id)->avg('stars');
+
+        $category = Category::find($product->category->id);
+        $relatedProducts = $category->products()->orderBy('title', 'ASC')->take(5)->get();
+
+        $user = Auth::user();
+        if($user != null){
+            return view('screens/productClick',compact('product'))->with([
+                'product'=>$product,
+                'avg_stars'=>doubleval(number_format($avg,2)),
+                'user'=>$user,
+                'relatedProducts'=>$relatedProducts
+            ]);
+        }else{
+            return view('screens/productClick',compact('product'))->with([
+                'product'=>$product,
+                'avg_stars'=>doubleval(number_format($avg,2)),
+                'relatedProducts'=>$relatedProducts
+            ]);
+        }
+
     }
 
     /**

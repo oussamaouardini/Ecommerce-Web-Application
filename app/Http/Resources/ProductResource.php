@@ -24,7 +24,20 @@ class ProductResource extends JsonResource
             'product_reviews_count' =>count($this->reviews) ,
             'product_reviews'       =>ReviewResource::collection($this->reviews),
             'product_nb_sales'      =>$this->nb_sales,
-            'product_quantity'      =>$this->product_quantity,
+            'product_quantity'      =>$this->product_quantity,// must add it in flutter
+            'product_gender'        =>$this->gender ,
+            'product_brand'         =>$this->brand ,
+            'product_old_price'     =>$this->old_price,
+            'product_barcode'       =>$this->product_barcode ,
+            'product_sku'           =>$this->product_sku ,
+            'product_weight'        =>$this->product_weight ,
+            'product_height'        =>$this->product_height ,
+            'product_carrier'       =>$this->product_carrier ,
+            'product_size'          =>$this->product_size ,
+            'product_colors'        =>$this->product_colors ,
+
+
+
 
         ];
     }

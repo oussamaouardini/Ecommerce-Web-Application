@@ -28,12 +28,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop/{filter}','ProductController@navbar');
-Route::get('/shop-single/{id}','ProductController@shop');
+Route::get('/shopFinal/{filter}','ProductController@filter');
+Route::get('/shopFinal-single/{id}','ProductController@singlePage');
 
 Route::get('/shopFinal',function ()
 {
     return view('screens/finalshop');
+});
+Route::get('/product', function () {
+    return view('screens/productClick');
 });
 
 Route::get('/newlogin',function ()
@@ -51,9 +54,7 @@ Route::get('/produit', function () {
 
 Route::get('/principal','pricipalController@index');
 
-Route::get('/product', function () {
-    return view('screens/productClick');
-});
+
 
 Route::get('products/{filter}','ProductController@navbar');
 

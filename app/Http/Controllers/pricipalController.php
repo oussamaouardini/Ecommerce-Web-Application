@@ -16,26 +16,38 @@ class pricipalController extends Controller
      */
     public function index()
     {
-        $falshsales = Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(6)->get();
-        $topsales = Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(1)->get();
+        $falshsales = ProductResource::collection(Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(6)->get()) ;
+        $womanproducts =  ProductResource::collection(Product::where('gender','woman')->orderBy('title', 'ASC')->take(6)->get());
+        $manproducts =ProductResource::collection(Product::where('gender','man')->orderBy('title', 'ASC')->take(6)->get());;
+        $childproducts = ProductResource::collection(Product::where('gender','child')->orderBy('title', 'ASC')->take(6)->get()) ;
+        $topsales =ProductResource::collection(Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(1)->get()) ;
+        $nblikes = 0;
+        $nbcartitems = 0;
+
 
         // get cart
         $user = Auth::user();
         if($user != null){
-            $cart = $user->cart;
-            $cartItems = json_decode($cart->cart_items);
-            $finalCartItems = [];
-            foreach ($cartItems as $cartItem){
-                $product = Product::find(intval($cartItem->product->id));
-                $finalcartItem = new Product();
-                $finalcartItem->product = new ProductResource($product);
-                $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
-                array_push($finalCartItems,$finalcartItem);
+            if($user->cart != null ){
+                $cart = $user->cart;
+                $cartItems = json_decode($cart->cart_items);
+                $finalCartItems = [];
+                foreach ($cartItems as $cartItem){
+                    $nbcartitems++ ;
+                    $product = Product::find(intval($cartItem->product->id));
+                    $finalcartItem = new Product();
+                    $finalcartItem->product = new ProductResource($product);
+                    $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
+                    array_push($finalCartItems,$finalcartItem);
+                }
+                return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'cart_items'=>$finalCartItems,'id'=>$cart->id,'total'=>number_format(doubleval($cart->total),2),'nbcartitems'=>$nbcartitems,'womanproducts'=>$womanproducts,'manproducts'=>$manproducts,'childproducts'=>$childproducts));
+            }else{
+                return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'login'=>true,'nblikes'=>$nblikes,'nbcartitems'=>$nbcartitems,'total'=>0,'womanproducts'=>$womanproducts,'manproducts'=>$manproducts,'childproducts'=>$childproducts));
             }
 
-            return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'cart_items'=>$finalCartItems,'id'=>$cart->id,'total'=>number_format(doubleval($cart->total),2),));
+
         }else{
-            return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'login'=>true));
+            return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'login'=>true,'nblikes'=>$nblikes,'nbcartitems'=>$nbcartitems,'total'=>0,'womanproducts'=>$womanproducts,'manproducts'=>$manproducts,'childproducts'=>$childproducts));
         }
 
 

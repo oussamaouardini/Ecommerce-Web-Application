@@ -40,7 +40,7 @@
                     <div class="single-banner">
                         <img src="images/img/banner-1.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Foot Ball</h4>
+                            <h4> <a href="/shopFinal/Football">Foot Ball</a></h4>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="single-banner">
                         <img src="images/img/banner-2.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Basket Ball</h4>
+                            <h4> <a href="/shopFinal/Running">Running</a></h4>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="single-banner">
                         <img src="images/img/banner-3.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Hand Ball</h4>
+                            <h4> <a href="/shopFinal/Cardio">Cardio</a></h4>
                         </div>
                     </div>
                 </div>
@@ -81,96 +81,34 @@
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/women-1.jpg" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/women-2.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Shoes</div>
-                                <a href="#">
-                                    <h5>Guangzhou sweater</h5>
-                                </a>
-                                <div class="product-price">
-                                    $13.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/women-3.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/women-4.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Converse Shoes</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
+                            @isset($womanproducts)
+                                @foreach($womanproducts as $product)
+                                    <div class="product-item">
+                                        <div class="pi-pic">
+                                            <img src="images/img/products/women-4.jpg" alt="">
+                                            <div class="icon">
+                                                <i class="icon_heart_alt"></i>
+                                            </div>
+                                            <ul>
+                                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                <li class="quick-view"><a href="{{url('/shopFinal-single/'.$product->id.'')}}">+ Quick View</a></li>
+                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="pi-text">
+                                            <div class="catagory-name">{{$product->title}}</div>
+                                            <a href="#">
+                                                <h5 style="overflow: hidden;height: 40px;"> {{$product->description}} </h5>
+                                            </a>
+                                            <div class="product-price">
+                                                ${{$product->price}}
+                                                <span>  ${{$product->old_price}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endisset
+
                     </div>
                 </div>
             </div>
@@ -201,20 +139,6 @@
                     xlink:href="data:img/png;base64,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"
                 />
             </svg>
-            <!-- <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              width="84px"
-              height="85px"
-            >
-              <image
-                x="0px"
-                y="0px"
-                width="84px"
-                height="85px"
-                xlink:href="data:img/png;base64,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"
-              />
-            </svg>-->
         </div>
     </div>
     <div id="popular">
@@ -376,96 +300,37 @@
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/man-1.jpg" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
+
+                        @isset($manproducts)
+                            @foreach($manproducts as $product)
+                                <div class="product-item">
+                                    <div class="pi-pic">
+                                        <img src="images/img/products/man-1.jpg" alt="">
+                                        <div class="sale">Sale</div>
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
+                                        </div>
+                                        <ul>
+                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="{{url('/shopFinal-single/'.$product->id.'')}}">+ Quick View</a></li>
+                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pi-text">
+                                        <div class="catagory-name">{{$product->title}}</div>
+                                        <a href="#">
+                                            <h5 style="overflow: hidden;height: 40px;"> {{$product->description}} </h5>
+                                        </a>
+                                        <div class="product-price">
+                                            ${{$product->price}}
+                                            <span>  ${{$product->old_price}}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/man-2.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Shoes</div>
-                                <a href="#">
-                                    <h5>Guangzhou sweater</h5>
-                                </a>
-                                <div class="product-price">
-                                    $13.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/man-3.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="images/img/products/man-4.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Converse Shoes</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endisset
+
+
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
@@ -713,7 +578,7 @@
                         <div class="imageproduit">
                             <img src="images/produit1.jpg" alt="" />
                         </div>
-                        <div class="details">
+                        <div class="details" >
                             <h6>{{$product->title}}</h6>
                             <span>{{$product->description}} <br /></span>
                             <span>{{$product->price}} $ </span>
