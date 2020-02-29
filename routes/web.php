@@ -36,6 +36,15 @@ Route::get('/shopFinal',function ()
     return view('screens/finalshop');
 });
 
+Route::get('/newlogin',function ()
+{
+    return view('screens/login');
+});
+
+Route::get('/registration', function () {
+    return view('screens/registration');
+});
+
 Route::get('/produit', function () {
     return view('screens/product');
 });

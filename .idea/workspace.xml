@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="13897a47-42e2-4da9-85ee-a048c2f0b175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/screens/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/shop.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -316,9 +309,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="177" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1582907398083" />
-    <state x="1225" y="339" key="NewPhpClassDialog" timestamp="1579446618434">
+    <state x="1225" y="339" key="NewPhpClassDialog" timestamp="1582995835107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="1225" y="339" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1582995835107" />
     <state x="1225" y="339" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579446618434" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1582916200148">
       <screen x="0" y="0" width="1920" height="1040" />
