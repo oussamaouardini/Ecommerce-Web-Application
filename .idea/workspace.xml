@@ -3,15 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="13897a47-42e2-4da9-85ee-a048c2f0b175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/pricipalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/pricipalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/screens/finalshop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/finalshop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/screens/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/screens/productClick.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/productClick.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/screens/registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/registration.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -250,7 +249,8 @@
       <workItem from="1582907309298" duration="763000" />
       <workItem from="1582914282164" duration="14582000" />
       <workItem from="1582952967102" duration="9429000" />
-      <workItem from="1583007730545" duration="5164000" />
+      <workItem from="1583007730545" duration="5256000" />
+      <workItem from="1583035198701" duration="9337000" />
     </task>
     <servers />
   </component>

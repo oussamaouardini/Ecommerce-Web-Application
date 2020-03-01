@@ -24,21 +24,21 @@
                         <div class="fw-brand-check">
                             <div class="bc-item">
                                 <label for="bc-Men">
-                                    Men
+                                    <a href="?categories=man">Men</a>
                                     <input type="checkbox" id="bc-Men">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="bc-item">
                                 <label for="bc-Women">
-                                    Women
+                                    <a href="?categories=woman">Women</a>
                                     <input type="checkbox" id="bc-Women">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="bc-item">
                                 <label for="bc-Kids">
-                                    Kids
+                                     <a href="?categories=child">Kids</a>
                                     <input type="checkbox" id="bc-Kids">
                                     <span class="checkmark"></span>
                                 </label>
@@ -50,28 +50,28 @@
                         <div class="fw-brand-check">
                             <div class="bc-item">
                                 <label for="bc-calvin">
-                                    Adidas
+                                     <a href="?brand=Adidas">Adidas</a>
                                     <input type="checkbox" id="bc-calvin">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="bc-item">
                                 <label for="bc-diesel">
-                                    Nike
+                                     <a href="Nike">Nike</a>
                                     <input type="checkbox" id="bc-diesel">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="bc-item">
                                 <label for="bc-polo">
-                                    Reebok
+                                     <a href="Reebook">Reebook</a>
                                     <input type="checkbox" id="bc-polo">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="bc-item">
                                 <label for="bc-tommy">
-                                    New Balance
+                                     <a href="Puma">Puma</a>
                                     <input type="checkbox" id="bc-tommy">
                                     <span class="checkmark"></span>
                                 </label>
@@ -101,19 +101,19 @@
                         <div class="fw-color-choose">
                             <div class="cs-item">
                                 <input type="radio" id="cs-black">
-                                <label class="cs-black" for="cs-black">Black</label>
+                                <label class="cs-black" for="cs-black"><a href="?color=black">Black</a></label>
                             </div>
                             <div class="cs-item">
                                 <input type="radio" id="cs-violet">
-                                <label class="cs-violet" for="cs-violet">Violet</label>
+                                <label class="cs-violet" for="cs-violet"><a href="?color=black">Violet</a></label>
                             </div>
                             <div class="cs-item">
                                 <input type="radio" id="cs-blue">
-                                <label class="cs-blue" for="cs-blue">Blue</label>
+                                <label class="cs-blue" for="cs-blue"><a href="?color=black">Blue</a></label>
                             </div>
                             <div class="cs-item">
                                 <input type="radio" id="cs-yellow">
-                                <label class="cs-yellow" for="cs-yellow">Yellow</label>
+                                <label class="cs-yellow" for="cs-yellow"><a href="?color=black">Yellow</a></label>
                             </div>
                         </div>
                     </div>

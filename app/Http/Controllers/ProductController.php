@@ -38,12 +38,35 @@ class ProductController extends Controller
     public function filter($filter)
     {
         $category = Category::where('name',$filter )->first();
-        $product = $category->products()->paginate(15);
+
+        if (isset( $_GET['categories'] )){
+            $product = $category->products()->where('gender',$_GET['categories'])->paginate(15);
+        }else{
+            $product = $category->products()->paginate(15);
+        }
+        if (isset( $_GET['color'] )){
+            $product = $category->products()->where('product_colors',$_GET['color'])->paginate(15);
+        }else{
+            $product = $category->products()->paginate(15);
+        }
+        if (isset( $_GET['brand'] )){
+            $product = $category->products()->where('product_brand',$_GET['brand'])->paginate(15);
+        }else{
+            $product = $category->products()->paginate(15);
+        }
+
+        $products = ProductResource::collection($product);
+        return view('screens/finalshop',compact('products'));
+    }
+
+    public function general(){
+        $product = Product::paginate(15);
         $products = ProductResource::collection($product);
         return view('screens/finalshop',compact('products'));
     }
     public function singlePage($id)
     {
+
         $pr = Product::find($id) ;
         $product = new ProductResource($pr) ;
         $avg = Review::where('product_id', $product->id)->avg('stars');
@@ -68,6 +91,7 @@ class ProductController extends Controller
         }
 
     }
+
 
     /**
      * Show the form for creating a new resource.

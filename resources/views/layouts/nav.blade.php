@@ -86,7 +86,40 @@
     <title>Home</title>
 </head>
 <body>
-{{--new navbar--}}
+{{--new navbar
+
+@guest
+        <div class="contact">
+            <li class="">
+                <a class="nav-link" href="/newlogin">{{ __('Login') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="/registration">{{ __('Register') }}</a>
+                </li>
+            @endif
+         @else
+                <li class=" dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+        </div>
+        @endguest
+
+
+
+--}}
 <div class="bigNavBar" id = "bigNavBar">
     <div id="topnav" class="d-flex justify-content-between">
         <div class="lang lang1">
@@ -96,6 +129,32 @@
         <div class="contact">
             FREE Staff Support on orders within te US over +(212) 567 498 409
         </div>
+
+        <div class="contact">
+            @guest
+               <h5 style="display: inline"> <a href="/newlogin">{{ __('Login') }}   </a></h5>
+                @if (Route::has('register'))
+                        <h5> <a href="/registration">{{ __('Register') }}</a></h5>
+                @endif
+            @else
+                <li class=" dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} oussama <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
+        </div>
+
         <div class="lang lang2">
             <span>French </span>
             <img src="{{asset('images/FR.png')}}" alt="FR">
@@ -189,40 +248,40 @@
         <nav id="cbp-hrmenu" class="cbp-hrmenu ">
             <ul>
                 <li>
-                    <a href="#" class = "exo">SHIRTS</a>
+                    <a href="#" class = "exo">PANTS</a>
                     <div class="cbp-hrsub">
                         <div class="cbp-hrsub-inner">
                             <div>
                                 <h4 class = "titles">MEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menpants?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menpants?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menpants?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menpants?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menpants?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menpants?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">WOMEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenPants?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenPants?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenPants?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenPants?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenPants?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenPants?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">Kids</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childPants?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childPants?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childPants?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childPants?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childPants?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childPants?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
@@ -235,114 +294,114 @@
                             <div>
                                 <h4 class = "titles">MEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menSneakers?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menSneakers?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menSneakers?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menSneakers?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menSneakers?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menSneakers?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">WOMEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenSneakers?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenSneakers?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenSneakers?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenSneakers?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenSneakers?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenSneakers?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">Kids</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childSneakers?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childSneakers?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childSneakers?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childSneakers?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childSneakers?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childSneakers?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
                     </div><!-- /cbp-hrsub -->
                 </li>
                 <li>
-                    <a href="#" class = "exo">PANTS</a>
+                    <a href="#" class = "exo">SHIRTS</a>
                     <div class="cbp-hrsub">
                         <div class="cbp-hrsub-inner">
                             <div>
                                 <h4 class = "titles">MEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menT-Shirts?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menT-Shirts?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menT-Shirts?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menT-Shirts?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menT-Shirts?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menT-Shirts?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">WOMEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenT-Shirts?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenT-Shirts?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenT-Shirts?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenT-Shirts?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenT-Shirts?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenT-Shirts?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">Kids</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childT-Shirts?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childT-Shirts?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childT-Shirts?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childT-Shirts?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childT-Shirts?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childT-Shirts?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
                     </div><!-- /cbp-hrsub -->
                 </li>
                 <li>
-                    <a href="#" class = "exo">HOODIES</a>
+                    <a href="#" class = "exo">FOOTWAR</a>
                     <div class="cbp-hrsub">
                         <div class="cbp-hrsub-inner">
                             <div>
                                 <h4 class = "titles">MEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menFootwar?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menFootwar?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menFootwar?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menFootwar?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menFootwar?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/menFootwar?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">WOMEN</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenFootwar?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenFootwar?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenFootwar?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenFootwar?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenFootwar?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/womenFootwar?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 class = "titles">Kids</h4>
                                 <ul>
-                                    <li class ="subTitles" ><a href="#">Adidas</a></li>
-                                    <li class ="subTitles" ><a href="#">Nike</a></li>
-                                    <li class ="subTitles" ><a href="#">Puma</a></li>
-                                    <li class ="subTitles" ><a href="#">Reabook</a></li>
-                                    <li class ="subTitles" ><a href="#">New Balance</a></li>
-                                    <li class ="subTitles" ><a href="#">Balenciaga</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childFootwar?brand=adidas">Adidas</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childFootwar?brand=Nike">Nike</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childFootwar?brand=Puma">Puma</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childFootwar?brand=Reebok">Reabook</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childFootwar?brand=NewBalance">New Balance</a></li>
+                                    <li class ="subTitles" ><a href="/shopFinal/childFootwar?brand=Balenciaga">Balenciaga</a></li>
                                 </ul>
                             </div>
                         </div><!-- /cbp-hrsub-inner -->
@@ -352,7 +411,7 @@
                     <a href="/shopFinal" class = "exo">SHOP</a>
                 </li>
                 <li>
-                    <a href="#" class = "exo">LOGIN</a>
+                    <a href="{{ url('/newlogin') }}" class = "exo">LOGIN</a>
                 </li>
                 <div id="carddiv">
                     <div id="card" style="top: 0px;">

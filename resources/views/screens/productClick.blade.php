@@ -189,8 +189,8 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">{{$product->product_color }}</td>
-                                                <td><span class="cs-color"></span></td>
+                                                <td class="p-catagory">Color</td>
+                                                <td><span class="cs-color"></span> </td>
                                             </tr>
                                             <tr>
                                                 <td class="p-catagory">Sku</td>

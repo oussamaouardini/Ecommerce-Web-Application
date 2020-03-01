@@ -31,6 +31,15 @@ Route::get('/', function () {
 Route::get('/shopFinal/{filter}','ProductController@filter');
 Route::get('/shopFinal-single/{id}','ProductController@singlePage');
 
+// log in
+Route::get('/newlogin',function () {return view('screens/login');})->name('newlogin');
+
+// registration
+
+Route::get('/registration',function () {return view('screens/registration');})->name('registration');
+
+
+
 Route::get('/shopFinal',function ()
 {
     return view('screens/finalshop');
@@ -39,10 +48,7 @@ Route::get('/product', function () {
     return view('screens/productClick');
 });
 
-Route::get('/newlogin',function ()
-{
-    return view('screens/login');
-});
+Route::get('/newlogin',function () {return view('screens/login');});
 
 Route::get('/registration', function () {
     return view('screens/registration');
