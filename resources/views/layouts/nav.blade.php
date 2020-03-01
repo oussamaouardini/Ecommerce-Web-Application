@@ -100,9 +100,6 @@
         <div class="contact">
             @guest
                <h5 style="display: inline"> <a href="/newlogin">{{ __('Login') }}   </a></h5>
-                @if (Route::has('register'))
-                        <h5> <a href="/registration">{{ __('Register') }}</a></h5>
-                @endif
             @else
                 <li class=" dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -153,7 +150,7 @@
                         <li class="heart-icon"><a href="#">
                                 <i class="icon_heart_alt"></i>
                                 @isset($nbcartitems)
-                                    <span> {{$nbcartitems}} </span>
+                                    <span> {{$nbcartitems}}</span>
                                 @endisset
                             </a>
                         </li>

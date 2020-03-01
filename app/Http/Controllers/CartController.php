@@ -53,7 +53,79 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return  $request ;
+    }
+
+    public function addProductToCart(Request $request){
+
+        $request->validate([
+            'product_id'=>'required',
+            'quantity'=>'required',
+        ]);
+
+
+        $user = Auth::user();
+        $product_id = $request->input('product_id');
+        $quantity = $request->input('quantity');
+        $product = Product::findOrFail($product_id);
+        // Get the user cart ;
+        /**
+         *  @var Cart
+         */
+        //    $cart = $this->CheckCartStatus($user->cart) ;
+        $cart = $user->cart ;
+        if (is_null($cart)){
+            $cart = new Cart();
+            $cart->cart_items = [] ;
+            $cart->total = 0 ;
+            $cart->user_id = Auth::user()->id ;
+            $user->cart_id = $cart->id ;
+
+        }
+        /** Check if the product is already in cart */
+
+        if ($cart->inItems($product_id)){
+            /// Increase Quantity
+            $cart->increaseProductInCart($product , $quantity  );
+        }else{
+            /// add product to cart
+            $cart->addProductToCart($product , $quantity);
+        }
+
+        $cart->save();
+        $user->cart_id = $cart->id ;
+        $user->save();
+        return redirect()->back() ;
+    }
+
+    public function RemoveProductFromCart( $id ){
+        $product = Product::find($id);
+        $user = Auth::user();
+
+        // Get the user cart ;
+        /**
+         *  @var Cart
+         */
+        //    $cart = $this->CheckCartStatus($user->cart) ;
+        $cart = $user->cart ;
+        if (is_null($cart)){
+            $cart = new Cart();
+            $cart->cart_items = [] ;
+            $cart->total = 0 ;
+            $cart->user_id = $user->id;
+
+        }
+        /** Check if the product is already in cart */
+
+        if ($cart->inItems($id)){
+            /// Increase Quantity
+            $cart->decrease($product);
+        }
+
+        $cart->save();
+        $user->cart_id = $cart->id ;
+        $user->save();
+        return $cart ;
     }
 
     /**

@@ -84,10 +84,15 @@
                                     </div>
                                 </div>
                                 <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                                    <form action="/addToCart" method="POST">
+                                        @csrf
+                                    <div >
+                                        <input class="pro-qty" type="number" min=1 value=1 name="quantity" >
+                                        <input class="pro-qty" type="hidden" min=1 value={{isset($product)?$product->id : null}} name="product_id" >
+                                        <input type="submit" class="primary-btn pd-cart" value="Add To Cart"  >
                                     </div>
-                                    <a href="#" class="primary-btn pd-cart">Add To Cart</a>
+
+                                    </form>
                                 </div>
                                 <ul class="pd-tags">
                                     <li><span>CATEGORIE</span>: {{$product->category->name}}</li>
@@ -275,7 +280,14 @@
                                                 <i class="icon_heart_alt"></i>
                                             </div>
                                             <ul>
-                                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                <li class="w-icon active">
+                                                    <form action="/addToCart" method="POST" >
+                                                        @csrf
+                                                        <input class="pro-qty" type="hidden" min=1 value=1 name="quantity" >
+                                                        <input class="pro-qty" type="hidden" min=1 value={{isset($relatedProduct)?$relatedProduct->id : null}} name="product_id" >
+                                                        <button  type="submit" > <i class="fa fa-cart-plus"></i> </button>
+                                                    </form>
+                                                </li>
                                                 <li class="quick-view"><a href="{{url('/shopFinal-single/'.$relatedProduct->id.'')}}">+ Quick View</a></li>
                                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                             </ul>

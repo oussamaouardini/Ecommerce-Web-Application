@@ -184,7 +184,14 @@
                                                     <i class="icon_heart_alt"></i>
                                                 </div>
                                                 <ul>
-                                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                    <li class="w-icon active">
+                                                        <form action="/addToCart" method="POST" >
+                                                            @csrf
+                                                            <input class="pro-qty" type="hidden" min=1 value=1 name="quantity" >
+                                                            <input class="pro-qty" type="hidden" min=1 value={{isset($product)?$product->id : null}} name="product_id" >
+                                                            <button  type="submit" > <i class="fa fa-cart-plus"></i> </button>
+                                                        </form>
+                                                    </li>
                                                     <li class="quick-view"><a href="{{url('/shopFinal-single/'.$product->id.'')}}">+ Quick View</a></li>
                                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                                 </ul>

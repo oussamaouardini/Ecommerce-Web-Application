@@ -42,6 +42,8 @@ Route::get('/registration',function () {return view('screens/registration');})->
 // comment
 Route::Post('/addComment','ReviewController@store')->name('addComment');
 
+// addToCart
+Route::Post('/addToCart','CartController@addProductToCart')->name('addToCart');
 
 Route::get('/shopFinal',function ()
 {
