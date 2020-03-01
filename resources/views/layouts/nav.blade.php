@@ -86,40 +86,7 @@
     <title>Home</title>
 </head>
 <body>
-{{--new navbar
-
-@guest
-        <div class="contact">
-            <li class="">
-                <a class="nav-link" href="/newlogin">{{ __('Login') }}</a>
-            </li>
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="/registration">{{ __('Register') }}</a>
-                </li>
-            @endif
-         @else
-                <li class=" dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-        </div>
-        @endguest
-
-
-
---}}
+{{--new navbar--}}
 <div class="bigNavBar" id = "bigNavBar">
     <div id="topnav" class="d-flex justify-content-between">
         <div class="lang lang1">
@@ -167,7 +134,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="#">
                             <img src="{{asset('images/logo.png')}}" alt="">
                         </a>
                     </div>
@@ -176,8 +143,8 @@
                     <div class="advanced-search">
                         <button type="button" class="category-btn">All Categories</button>
                         <form action="#" class="input-group">
-                            <input type="text" placeholder="What do you need?">
-                            <button type="button" style="right: -2px; padding-bottom: 15px; padding-top: 16px;"><i class="ti-search"></i></button>
+                            <input type="text" id="larecherche" placeholder="What do you need?">
+                            <button type="button"  style="right: -2px; padding-bottom: 15px; padding-top: 16px;"><i class="ti-search" onclick="myFunction()"></i></button>
                         </form>
                     </div>
                 </div>
@@ -670,10 +637,10 @@
         cbpHorizontalMenu.init();
     });
     function myFunction() {
-        var val = document.getElementById("Searchbar");
+        var val = document.getElementById("larecherche");
         if(val.value === ""){
         }else{
-            window.location.pathname = 'products/search/'+val.value ;
+            window.location.pathname = '/shopFinal/search/'+val.value ;
         }
     }
 </script>

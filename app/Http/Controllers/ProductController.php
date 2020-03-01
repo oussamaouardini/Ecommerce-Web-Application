@@ -31,8 +31,25 @@ class ProductController extends Controller
 
     public function search($search)
     {
-        $products = Product::query()->where('title', 'LIKE', "%{$search}%")->get();
-        return  ProductResource::collection($products) ;
+        $product = Product::query()->where('title', 'LIKE', "%{$search}%")->paginate(15);
+
+        if (isset( $_GET['categories'] )){
+            $product = Product::query()->where('title', 'LIKE', "%{$search}%")->where('gender',$_GET['categories'])->paginate(15);
+        }else{
+            $product = Product::query()->where('title', 'LIKE', "%{$search}%")->paginate(15);
+        }
+        if (isset( $_GET['color'] )){
+            $product = Product::query()->where('title', 'LIKE', "%{$search}%")->where('product_colors',$_GET['color'])->paginate(15);
+        }else{
+            $product = Product::query()->where('title', 'LIKE', "%{$search}%")->paginate(15);
+        }
+        if (isset( $_GET['brand'] )){
+            $product = Product::query()->where('title', 'LIKE', "%{$search}%")->where('product_brand',$_GET['brand'])->paginate(15);
+        }else{
+            $product = Product::query()->where('title', 'LIKE', "%{$search}%")->paginate(15);
+        }
+        $products =  ProductResource::collection($product) ;
+        return view('screens/finalshop',compact('products'));
     }
 
     public function filter($filter)
@@ -72,7 +89,7 @@ class ProductController extends Controller
         $avg = Review::where('product_id', $product->id)->avg('stars');
 
         $category = Category::find($product->category->id);
-        $relatedProducts = $category->products()->orderBy('title', 'ASC')->take(5)->get();
+        $relatedProducts = $category->products()->orderBy('title', 'ASC')->take(4)->get();
 
         $user = Auth::user();
         if($user != null){

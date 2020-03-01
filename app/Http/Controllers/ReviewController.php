@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -12,6 +13,12 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $reviews = Review::with(['product','customer'])->paginate(env('PAGINATION_COUNT'));
@@ -38,7 +45,16 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $review = new Review();
+        $review->user_id = Auth::user()->id;
+        $review->product_id = $request->product_id;
+        $review->stars = $request->stars ;
+        $review->review = $request->review ;
+
+        $review->save();
+
+
+        return  redirect()->back() ;
     }
 
     /**

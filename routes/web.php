@@ -30,6 +30,7 @@ Route::get('/', function () {
 
 Route::get('/shopFinal/{filter}','ProductController@filter');
 Route::get('/shopFinal-single/{id}','ProductController@singlePage');
+Route::get('/shopFinal/search/{search}','ProductController@search');
 
 // log in
 Route::get('/newlogin',function () {return view('screens/login');})->name('newlogin');
@@ -38,6 +39,8 @@ Route::get('/newlogin',function () {return view('screens/login');})->name('newlo
 
 Route::get('/registration',function () {return view('screens/registration');})->name('registration');
 
+// comment
+Route::Post('/addComment','ReviewController@store')->name('addComment');
 
 
 Route::get('/shopFinal',function ()

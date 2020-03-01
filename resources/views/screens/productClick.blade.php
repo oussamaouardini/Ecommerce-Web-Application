@@ -228,13 +228,15 @@
                                         @isset($user)
                                             <div class="leave-comment">
                                                 <h4>Leave A Comment</h4>
-                                                <form action="#" class="comment-form">
+                                                <form action="{{ route('addComment') }}" method="POST" class="comment-form">
+                                                    @csrf
                                                     <div class="row">
                                                         <div class="col-lg-7">
-                                                            <input type="number" placeholder="Your Raiting" min=0 max=5 maxlength=1 >
+                                                            <input type="number" placeholder="Your Raiting" min=0 max=5 maxlength=1  name="stars" required>
+                                                            <input type="hidden" name="product_id" value="{{isset($product)?$product->id : null}}" >
                                                         </div>
                                                         <div class="col-lg-7">
-                                                            <textarea placeholder="Comment"></textarea>
+                                                            <textarea placeholder="Comment" name="review" required></textarea>
                                                             <button type="submit" class="site-btn">Send Comment</button>
                                                         </div>
                                                     </div>
