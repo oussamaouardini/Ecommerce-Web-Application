@@ -18,7 +18,7 @@ class pricipalController extends Controller
     {
         $falshsales = ProductResource::collection(Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(6)->get()) ;
         $womanproducts =  ProductResource::collection(Product::where('gender','woman')->orderBy('title', 'ASC')->take(6)->get());
-        $manproducts =ProductResource::collection(Product::where('gender','man')->orderBy('title', 'ASC')->take(6)->get());;
+        $manproducts =ProductResource::collection(Product::where('gender','man')->orderBy('title', 'ASC')->take(6)->get());
         $childproducts = ProductResource::collection(Product::where('gender','child')->orderBy('title', 'ASC')->take(6)->get()) ;
         $topsales =ProductResource::collection(Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(1)->get()) ;
         $nblikes = 0;
