@@ -6,19 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('css/infos.css')}}">
-    <link rel="stylesheet" href="{{asset('css/Shipping.css')}}">
-    <link rel="stylesheet" href="{{asset('css/card.css')}}">
-    <link rel="stylesheet" href="{{asset('css/produit.css')}}">
-    {{--    navbar shit--}}
-    <link rel="stylesheet" type="text/css" href="{{asset("css/default.css")}}">
 
     <script src="{{asset("js/modernizr.custom.js")}}"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}" />
     <script src = "{{asset('js/bootstrap.js')}}"></script>
 
-    <link rel="stylesheet" href="{{asset('css/produits.css')}}">
     <script>
 
         $(document).ready(function(){
@@ -70,6 +62,9 @@
 
     {{--    new Css is here--}}
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("css/newCss/font-awesome.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/newCss/themify-icons.css")}}" type="text/css">
     <link rel="stylesheet" href="{{asset("css/newCss/elegant-icons.css")}}">
@@ -80,6 +75,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset("css/component.css")}}">
     <link rel="stylesheet" href="{{asset('css/Home.css')}}" />
     <link rel="stylesheet" href="{{asset("css/newCss/newTmpl.css")}}">
+    <link rel="stylesheet" href="{{asset("css/cardandCheckout/card.css")}}">
+
     {{--    new Css is here--}}
 
     <link href="https://fonts.googleapis.com/css?family=Anton|Exo+2|Poppins&display=swap" rel="stylesheet">
@@ -139,7 +136,7 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="advanced-search">
                         <button type="button" class="category-btn">All Categories</button>
-                        <form action="#" class="input-group">
+                        <form action="#" class="input-group" style="margin-right: 0px;right: -40;">
                             <input type="text" id="larecherche" placeholder="What do you need?">
                             <button type="button"  style="right: -2px; padding-bottom: 15px; padding-top: 16px;"><i class="ti-search" onclick="myFunction()"></i></button>
                         </form>
@@ -629,6 +626,8 @@
     <script src="{{asset('js/active.js')}}"></script>
     <!-- Live Chat Code :: Start of Tawk.to Script -->
     <script src="{{asset('js/slick.js')}}"></script>
+    <script src="{{asset('js/plugins.js')}}"></script>
+    <script src="{{asset('js/modernizr-3.5.0.min.js')}}"></script>
 <script>
     $(function() {
         cbpHorizontalMenu.init();

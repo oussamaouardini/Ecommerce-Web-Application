@@ -121,8 +121,19 @@ Route::group(['auth'],function (){
     Route::get('products','ProductController@index')->name('products');
     // tags
     Route::get('tags','TagController@index')->name('tags');
-    // TODO : shipment
-    // TODO : payments
+    //TODO: card
+    Route::get('mycard',function ()
+    {
+       return view('screens/myCard');
+    });
+    // TODO : payments and shipping
+    Route::get('checkout',function(){
+        return view('screens/checkout');
+    });
+    // TODO : Wishlist
+    Route::get('wishlist',function(){
+       return view('screens/wishlist');
+    });
     // TODO : orders
     // TODO : countries
     Route::get('countries','CountryController@index')->name('countries');
