@@ -21,7 +21,10 @@ use App\User;
 // Search
 Route::get('products/search/{search}','ProductController@search');
 
+Route::get('/creditCard', 'CartController@page');
 
+// remove product from cart
+Route::get('/creditCard/remove/{id}','CartController@remove');
 
 
 Route::get('/', function () {
@@ -44,6 +47,15 @@ Route::Post('/addComment','ReviewController@store')->name('addComment');
 
 // addToCart
 Route::Post('/addToCart','CartController@addProductToCart')->name('addToCart');
+
+// like
+Route::get('removewishuser/{id}/{id_product}','WishListController@remove');
+
+Route::get('addwishuser/{id}/{id_product}','WishListController@add');
+
+
+
+
 
 Route::get('/shopFinal',function ()
 {

@@ -25,6 +25,7 @@ const langdrop = document.querySelector("#lang .dropme");
 const devis = document.querySelector("#devis");
 const devisdrop = document.querySelector("#devis .dropme");
 const numberCard = document.getElementById('Numpanier');
+const heart = document.getElementById('heartIcon');
 /*
 lang.addEventListener("mouseover", () => {
   langdrop.style.display = "block";
@@ -38,6 +39,10 @@ devis.addEventListener("mouseover", () => {
 devis.addEventListener("mouseout", () => {
   devisdrop.style.display = "none";
 });*/
+heart.addEventListener("click", ()=>{
+    //hear.style.toggle('icon_heart_alt','icon_heart_alt'
+});
+
 if(vid1){
     vid1.parentElement.addEventListener("click", () => {
         if (vid1.paused) {

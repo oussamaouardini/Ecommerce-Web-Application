@@ -86,8 +86,10 @@
                                     <div class="product-item">
                                         <div class="pi-pic">
                                             <img src="images/img/products/women-4.jpg" alt="">
-                                            <div class="icon">
-                                                <i class="icon_heart_alt"></i>
+                                            <div class="icon"  >
+                                                @isset($userLikes)
+                                                    <a  id="id-{{$product->id}}" onclick="like({{$product->id}})">🤍</a>
+                                                @endisset
                                             </div>
                                             <ul>
                                                 <li class="w-icon active">
@@ -103,7 +105,7 @@
                                             </ul>
                                         </div>
                                         <div class="pi-text">
-                                            <div class="catagory-name">{{$product->title}}</div>
+                                            <div class="catagory-name">{{$product->id}}</div>
                                             <a href="#">
                                                 <h5 style="overflow: hidden;height: 40px;"> {{$product->description}} </h5>
                                             </a>
@@ -115,7 +117,6 @@
                                     </div>
                                 @endforeach
                             @endisset
-
                     </div>
                 </div>
             </div>
@@ -232,6 +233,7 @@
                     </div>
                     <div id="productQte">
                         <div
+                            style="cursor: pointer;"
                             id="minus"
                             onclick="if(parseInt($('#Qteproduct input').val())>1){$('#Qteproduct input').val(parseInt($('#Qteproduct input').val())-1);}"
                         >
@@ -239,6 +241,7 @@
                         </div>
                         <div id="Qteproduct"><input type="text" value="1" /></div>
                         <div
+                            style="cursor: pointer;"
                             id="plus"
                             onclick="$('#Qteproduct input').val(parseInt($('#Qteproduct input').val())+1);"
                         >
@@ -246,18 +249,17 @@
                         </div>
                     </div>
                     <div id="buy">
-                        @isset($login)
-
-                        <div id="addtocard" onclick="" >
-                            Add to cart
-                        </div>
-                        @endisset
                             @isset($total)
-                                <div id="addtocard" onclick="addtocart()" >
-                                    Add to cart
+                                <div id="addtocard" style="cursor: pointer" >
+                                    <form action="/addToCart" method="POST" >
+                                        @csrf
+                                        <input class="pro-qty" type="hidden" min=1 value=1 name="quantity" >
+                                        <input class="pro-qty" type="hidden" min=1 value={{isset($product)?$product->id : null}} name="product_id" >
+                                        <button  type="submit" style="background: none; border: none;" > Add to cart </button>
+                                    </form>
                                 </div>
                             @endisset
-                        <div id="buynow">
+                        <div id="buynow" style="cursor: pointer" onclick="byIt()">
                             Buy it now
                         </div>
                     </div>
@@ -315,7 +317,7 @@
                                         <img src="images/img/products/man-1.jpg" alt="">
                                         <div class="sale">Sale</div>
                                         <div class="icon">
-                                            <i class="icon_heart_alt"></i>
+                                            <i id = "heartIcon" class=" icon_heart_alt "></i>
                                         </div>
                                         <ul>
                                             <li class="w-icon active">
@@ -602,7 +604,12 @@
             @endisset
         </div>
     </div>
+
     <script>
+
+
+
+
         function size1() {
             var element1 = document.getElementById("s1");
             var element2 = document.getElementById("s2");
@@ -647,10 +654,29 @@
             element4.classList.remove("activee");
         }
 
-        function addtocart() {
+        function byIt() {
+            window.location.href = "/checkout";
+        }
+
+        function unlove(id){
 
         }
 
+        function like(id)
+        {
+            if((document).getElementById('id-'+id).innerHTML == "🤍")
+            {
+                (document).getElementById('id-'+id).innerHTML = "🧡";
+            }
+            else{
+                (document).getElementById('id-'+id).innerHTML = "🤍";
+            }
+        }
 
+        function love( id ) {
+           // addwishuser
+
+            window.location.href = "/addwishuser";
+        }
     </script>
 @endsection

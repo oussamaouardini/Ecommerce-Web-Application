@@ -27,6 +27,30 @@ class WishListController extends Controller
         //
     }
 
+    public function remove($id,$product_id)
+    {
+        WishList::where('user_id',$id)->where('product_id',$product_id)->delete();
+        return redirect()->back()  ;
+    }
+    public function add($id,$product_id)
+    {
+        $inlikes =  $this->inLikes($id,$product_id);
+        if(count($inlikes)>0){
+            // do nothing
+        }else{
+            $wishes = new WishList();
+            $wishes->user_id = $id ;
+            $wishes->product_id = $product_id ;
+            $wishes->save();
+        }
+
+        return redirect()->back() ;
+    }
+    public function inLikes($id,$product_id){
+        return   WishList::where('user_id',$id)->where('product_id',$product_id)->get();
+        // return $wishes ;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductResource;
 use App\Product;
+use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,8 +25,19 @@ class pricipalController extends Controller
         $nblikes = 0;
         $nbcartitems = 0;
 
+        /* user likes start*/
+        $userlikes = [];
 
-        // get cart
+        /* user likes end*/
+        $user = Auth::user();
+        if($user != null) {
+            $wishlist =  WishList::where('user_id',$user->id);
+            foreach ($wishlist as $wish){
+                return  $wish ;
+            }
+
+        }
+            // get cart
         $user = Auth::user();
         if($user != null){
             if($user->cart != null ){
@@ -40,8 +52,10 @@ class pricipalController extends Controller
                     $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
                     array_push($finalCartItems,$finalcartItem);
                 }
-                return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'cart_items'=>$finalCartItems,'id'=>$cart->id,'total'=>number_format(doubleval($cart->total),2),'nbcartitems'=>$nbcartitems,'womanproducts'=>$womanproducts,'manproducts'=>$manproducts,'childproducts'=>$childproducts));
+
+                return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'cart_items'=>$finalCartItems,'id'=>$cart->id,'total'=>number_format(doubleval($cart->total),2),'nbcartitems'=>$nbcartitems,'womanproducts'=>$womanproducts,'manproducts'=>$manproducts,'childproducts'=>$childproducts,'userLikes'=>$wishlist,'user'=>Auth::user()));
             }else{
+                $wishlist =  array();
                 return view('principal')->with(array('falshsales'=>$falshsales,'topsales'=>$topsales,'login'=>true,'nblikes'=>$nblikes,'nbcartitems'=>$nbcartitems,'total'=>0,'womanproducts'=>$womanproducts,'manproducts'=>$manproducts,'childproducts'=>$childproducts));
             }
 

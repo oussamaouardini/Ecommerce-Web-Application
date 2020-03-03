@@ -96,7 +96,7 @@
 
         <div class="contact">
             @guest
-               <h5 style="display: inline"> <a href="/newlogin">{{ __('Login') }}   </a></h5>
+               <h5 style="display: inline"> <a style = "color: white;" href="/newlogin">{{ __('Login') }}   </a></h5>
             @else
                 <li class=" dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -145,7 +145,7 @@
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
                         <li class="heart-icon"><a href="#">
-                                <i class="icon_heart_alt"></i>
+                                <i id = "hrtIcon" class="icon_heart_alt"></i>
                                 @isset($nbcartitems)
                                     <span> {{$nbcartitems}}</span>
                                 @endisset
@@ -170,7 +170,7 @@
                                             <td class="si-text">
                                                 <div class="product-selected">
                                                     <p>$ {{$cart_item['product']->price}} x {{ (int)$cart_item['quantity'] }}</p>
-                                                    <h6>Kabino Bedside Table</h6>
+                                                    <h6>{{$cart_item['product']->title}}</h6>
                                                 </div>
                                             </td>
                                             <!--
@@ -639,6 +639,9 @@
             window.location.pathname = '/shopFinal/search/'+val.value ;
         }
     }
+
+
+
 </script>
 </body>
 </html>

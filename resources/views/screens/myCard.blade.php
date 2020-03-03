@@ -18,30 +18,25 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="{{asset('css/cardandCheckout/images/p1.jpg')}}" alt="product img"></a></td>
-                                    <td class="product-name"><a href="#">Natoque penatibus</a></td>
-                                    <td class="product-price"><span class="amount">$165.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1"></td>
-                                    <td class="product-subtotal">$165.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="{{asset('css/cardandCheckout/images/p1.jpg')}}" alt="product img"></a></td>
-                                    <td class="product-name"><a href="#">Quisque fringilla</a></td>
-                                    <td class="product-price"><span class="amount">$50.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1"></td>
-                                    <td class="product-subtotal">$50.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="{{asset('css/cardandCheckout/images/p1.jpg')}}" alt="product img"></a></td>
-                                    <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                    <td class="product-price"><span class="amount">$50.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1"></td>
-                                    <td class="product-subtotal">$50.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
+                                @isset($cartItems)
+                                    @php
+                                        $i = 1
+                                    @endphp
+                                    @foreach($cartItems as $cartItem)
+
+                                    <tr>
+                                        <td class="product-thumbnail"><a href="#"><img src="{{asset('css/cardandCheckout/images/p1.jpg')}}" alt="product img"></a></td>
+                                        <td class="product-name"><a href="#"> {{$cartItem['product']->title}} -- {{$cartItem->id}}</a></td>
+                                        <td class="product-price"><span class="amount">$ {{$cartItem['product']->price}} </span></td>
+                                        <td class="product-quantity"><input type="number" value={{ (int)$cartItem['quantity'] }} ></td>
+                                        <td class="product-subtotal">$ {{(int)$cartItem['quantity']*(int)$cartItem['product']->price}} </td>
+                                        <td class="product-remove"><a href="/creditCard/remove/{{$i}}">X <input type="hidden"> </a></td>
+                                    </tr>
+                                        @php
+                                            $i++ ;
+                                        @endphp
+                                @endforeach
+                                @endisset
                                 </tbody>
                             </table>
                         </div>

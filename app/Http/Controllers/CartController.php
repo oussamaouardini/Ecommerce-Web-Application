@@ -18,6 +18,9 @@ class CartController extends Controller
     public function index()
     {
         $user = Auth::user();
+        if ($user == null){
+            return  redirect('/newlogin');
+        }
         $cart = $user->cart;
         $cartItems = json_decode($cart->cart_items);
         $finalCartItems = [];
@@ -33,6 +36,60 @@ class CartController extends Controller
             'id'=>$cart->id,
             'total'=>number_format(doubleval($cart->total),2),
         ];
+
+    }
+
+    public function page(){
+        $user = Auth::user();
+        if ($user == null){
+            return  redirect('/newlogin');
+        }
+        $cart = $user->cart;
+        $cartItems = json_decode($cart->cart_items);
+        $finalCartItems = [];
+        foreach ($cartItems as $cartItem){
+            $product = Product::find(intval($cartItem->product->id));
+            $finalcartItem = new Product();
+            $finalcartItem->product = new ProductResource($product);
+            $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
+            array_push($finalCartItems,$finalcartItem);
+        }
+
+        return view('screens/myCard')->with(array(
+                'cartItems'=>$finalCartItems,
+                'ide'=>$cart->id,
+                'totale'=>number_format(doubleval($cart->total),2),)
+        );
+    }
+    public function remove($id){
+        $user = Auth::user();
+
+        if ($user == null){
+            return  redirect('/newlogin');
+        }
+        $cart = $user->cart;
+        $cartItems = json_decode($cart->cart_items);
+        $finalCartItems = [];
+        $i = 1 ;
+        foreach ($cartItems as $cartItem){
+            if ($i == $id){
+
+            }else{
+                $product = Product::find(intval($cartItem->product->id));
+                $finalcartItem = new Product();
+                $finalcartItem->product = new ProductResource($product);
+                $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
+                array_push($finalCartItems,$finalcartItem);
+            }
+            $i++ ;
+        }
+        $cart->cart_items = json_encode($finalCartItems);
+        $cart->save();
+        return view('screens/myCard')->with(array(
+                'cartItems'=>$finalCartItems,
+                'ide'=>$cart->id,
+                'totale'=>number_format(doubleval($cart->total),2),)
+        );
     }
 
     /**
@@ -73,6 +130,9 @@ class CartController extends Controller
          *  @var Cart
          */
         //    $cart = $this->CheckCartStatus($user->cart) ;
+        if ($user == null){
+            return redirect('/newlogin');
+        }
         $cart = $user->cart ;
         if (is_null($cart)){
             $cart = new Cart();

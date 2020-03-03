@@ -2,37 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13897a47-42e2-4da9-85ee-a048c2f0b175" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/cardandCheckout/card.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/cardandCheckout/customCard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/cardandCheckout/images/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/cardandCheckout/images/p1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/cardandCheckout/images/payment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/modernizr-3.5.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/animation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/bicon.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/fakeloader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/fancybox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/fotorama.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/lightbox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/mainmenu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/material-design-iconic-font.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/nivo-preview-2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/nivo-slider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/owl.carousel.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/owl.theme.default.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/pe-icon-7-stroke.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/simple-line-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/plugins/slick.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/screens/checkout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/screens/myCard.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/screens/wishlist.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WishListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WishListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/pricipalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/pricipalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/newCss/newTmpl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/newCss/newTmpl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/screens/myCard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/screens/myCard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,23 +174,23 @@
       <recent name="C:\xampp\htdocs\bingoFinal\public\css" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -271,6 +252,9 @@
       <workItem from="1583007730545" duration="5256000" />
       <workItem from="1583035198701" duration="19543000" />
       <workItem from="1583055524108" duration="217000" />
+      <workItem from="1583151113703" duration="8895000" />
+      <workItem from="1583208742057" duration="10709000" />
+      <workItem from="1583251258436" duration="1216000" />
     </task>
     <servers />
   </component>
@@ -367,5 +351,16 @@
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1582984503931" />
     <state x="2387" y="186" width="672" height="561" key="search.everywhere.popup/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1583110534385" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/principal.blade.php</url>
+          <line>547</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
