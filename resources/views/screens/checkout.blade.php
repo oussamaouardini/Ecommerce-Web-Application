@@ -9,29 +9,29 @@
                         <div class="customar__field">
                             <div class="margin_between">
                                 <div class="input_box space_between">
-                                    <label>First name <span>*</span></label>
-                                    <input type="text">
+                                    <label>Country<span>*</span></label>
+                                    <select class="select__option">
+                                        <option>Select a country…</option>
+                                        <option>Afghanistan</option>
+                                        <option>American Samoa</option>
+                                        <option>Anguilla</option>
+                                        <option>American Samoa</option>
+                                        <option>Antarctica</option>
+                                        <option>Antigua and Barbuda</option>
+                                    </select>
                                 </div>
                                 <div class="input_box space_between">
-                                    <label>last name <span>*</span></label>
-                                    <input type="text">
+                                    <label>State<span>*</span></label>
+                                    <select class="select__option">
+                                        <option>Select a state…</option>
+                                        <option>Afghanistan</option>
+                                        <option>American Samoa</option>
+                                        <option>Anguilla</option>
+                                        <option>American Samoa</option>
+                                        <option>Antarctica</option>
+                                        <option>Antigua and Barbuda</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="input_box">
-                                <label>Company name <span>*</span></label>
-                                <input type="text">
-                            </div>
-                            <div class="input_box">
-                                <label>Country<span>*</span></label>
-                                <select class="select__option">
-                                    <option>Select a country…</option>
-                                    <option>Afghanistan</option>
-                                    <option>American Samoa</option>
-                                    <option>Anguilla</option>
-                                    <option>American Samoa</option>
-                                    <option>Antarctica</option>
-                                    <option>Antigua and Barbuda</option>
-                                </select>
                             </div>
                             <div class="input_box">
                                 <label>Address <span>*</span></label>
@@ -39,90 +39,6 @@
                             </div>
                             <div class="input_box">
                                 <input type="text" placeholder="Apartment, suite, unit etc. (optional)">
-                            </div>
-                            <div class="input_box">
-                                <label>District<span>*</span></label>
-                                <select class="select__option">
-                                    <option>Select a country…</option>
-                                    <option>Afghanistan</option>
-                                    <option>American Samoa</option>
-                                    <option>Anguilla</option>
-                                    <option>American Samoa</option>
-                                    <option>Antarctica</option>
-                                    <option>Antigua and Barbuda</option>
-                                </select>
-                            </div>
-                            <div class="input_box">
-                                <label>Postcode / ZIP <span>*</span></label>
-                                <input type="text">
-                            </div>
-                            <div class="margin_between">
-                                <div class="input_box space_between">
-                                    <label>Phone <span>*</span></label>
-                                    <input type="text">
-                                </div>
-
-                                <div class="input_box space_between">
-                                    <label>Email address <span>*</span></label>
-                                    <input type="email">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="create__account">
-                            <div class="account__field">
-                                <form action="#">
-                                    <label>Account password <span>*</span></label>
-                                    <input type="text" placeholder="password">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="customer_details mt--20">
-                        <div class="customar__field differt__form mt--40">
-                            <div class="margin_between">
-                                <div class="input_box space_between">
-                                    <label>First name <span>*</span></label>
-                                    <input type="text">
-                                </div>
-                                <div class="input_box space_between">
-                                    <label>last name <span>*</span></label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="input_box">
-                                <label>Company name <span>*</span></label>
-                                <input type="text">
-                            </div>
-                            <div class="input_box">
-                                <label>Country<span>*</span></label>
-                                <select class="select__option">
-                                    <option>Select a country…</option>
-                                    <option>Afghanistan</option>
-                                    <option>American Samoa</option>
-                                    <option>Anguilla</option>
-                                    <option>American Samoa</option>
-                                    <option>Antarctica</option>
-                                    <option>Antigua and Barbuda</option>
-                                </select>
-                            </div>
-                            <div class="input_box">
-                                <label>Address <span>*</span></label>
-                                <input type="text" placeholder="Street address">
-                            </div>
-                            <div class="input_box">
-                                <input type="text" placeholder="Apartment, suite, unit etc. (optional)">
-                            </div>
-                            <div class="input_box">
-                                <label>District<span>*</span></label>
-                                <select class="select__option">
-                                    <option>Select a country…</option>
-                                    <option>Afghanistan</option>
-                                    <option>American Samoa</option>
-                                    <option>Anguilla</option>
-                                    <option>American Samoa</option>
-                                    <option>Antarctica</option>
-                                    <option>Antigua and Barbuda</option>
-                                </select>
                             </div>
                             <div class="input_box">
                                 <label>Postcode / ZIP <span>*</span></label>
@@ -138,6 +54,31 @@
                                     <input type="email">
                                 </div>
                             </div>
+                            <div id="paypal-button-container"></div>
+                            <!-- Include the PayPal JavaScript SDK -->
+                            <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+                            <script>
+                                // Render the PayPal button into #paypal-button-container
+                                paypal.Buttons({
+                                    // Set up the transaction
+                                    createOrder: function(data, actions) {
+                                        return actions.order.create({
+                                            purchase_units: [{
+                                                amount: {
+                                                    value: '10.00'
+                                                }
+                                            }]
+                                        });
+                                    },
+                                    // Finalize the transaction
+                                    onApprove: function(data, actions) {
+                                        return actions.order.capture().then(function(details) {
+                                            // Show a success message to the buyer
+                                            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                        });
+                                    }
+                                }).render('#paypal-button-container');
+                            </script>
                         </div>
                     </div>
                 </div>

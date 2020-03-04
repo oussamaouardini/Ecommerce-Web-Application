@@ -15,11 +15,14 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double('amount');
-            $table->bigInteger('user_id');
-            $table->bigInteger('order_id');
-            $table->dateTime('paid_on');
-            $table->text('payment_reference');
+            $table->integer('user_id');
+            $table->integer('order_id');
+            $table->string('payment_id');
+            $table->string('payer_id');
+            $table->string('payer_email');
+            $table->float('amount', 10, 2);
+            $table->string('currency');
+            $table->string('payment_status');
             $table->timestamps();
         });
     }

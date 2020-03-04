@@ -142,6 +142,10 @@ Route::group(['auth'],function (){
     Route::get('checkout',function(){
         return view('screens/checkout');
     });
+    Route::get('payment', 'PaymentController@index');
+    Route::post('charge', 'PaymentController@charge');
+    Route::get('paymentsuccess', 'PaymentController@payment_success');
+    Route::get('paymenterror', 'PaymentController@payment_error');
     // TODO : Wishlist
     Route::get('wishlist',function(){
        return view('screens/wishlist');
