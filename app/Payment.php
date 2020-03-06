@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    protected $fillable = [
+    /*protected $fillable = [
         'amount','user_id','order_id','paid_on','payment_reference',
     ];
     public function customer(){
@@ -14,5 +14,5 @@ class Payment extends Model
     }
     public function order(){
        return $this->belongsTo(Order::class);
-    }
+    }*/
 }

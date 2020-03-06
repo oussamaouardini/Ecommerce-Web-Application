@@ -10,6 +10,8 @@
     <script src="{{asset("js/modernizr.custom.js")}}"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}" />
     <script src = "{{asset('js/bootstrap.js')}}"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
 
     <script>
 

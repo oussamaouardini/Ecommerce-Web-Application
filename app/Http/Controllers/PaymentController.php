@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Omnipay\Omnipay;
 use App\Payment;
 
@@ -72,8 +71,6 @@ class PaymentController extends Controller
                 {
                     $payment = new Payment;
                     $payment->payment_id = $arr_body['id'];
-                    $payment->user_id = Auth::user()->id;
-                    //$payment->order_id = id;
                     $payment->payer_id = $arr_body['payer']['payer_info']['payer_id'];
                     $payment->payer_email = $arr_body['payer']['payer_info']['email'];
                     $payment->amount = $arr_body['transactions'][0]['amount']['total'];
