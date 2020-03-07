@@ -57,12 +57,13 @@
                                 </div>
                             </div>
                             <div class="input_box">
-                                <label>Postcode / ZIP <span>*</span></label>
+                                <label>Amount <span>*</span></label>
                                 <input type="text" name="amount"/>
                             </div>
 
                             <div>
-                                <button class="btn col-lg" style="background-color: gold" name="submit">
+{{--                                <input class="btn col-lg" style="background-color: gold" name="submit" type="submit">--}}
+                                <button name="kk" class="btn col-lg" style="background-color: gold">
                                     <div id="paypal">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +159,7 @@
                                 <div class="payment-body">Pay with cash upon delivery.</div>
                             </div>
                         </div>
+
                         <div class="payment">
                             <div class="che__header" role="tab" id="headingFour">
                                 <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Omnipay\Omnipay;
 use App\Payment;
 
@@ -26,7 +28,8 @@ class PaymentController extends Controller
 
     public function charge(Request $request)
     {
-        if($request->input('submit'))
+
+        if(isset($request['kk']))
         {
             try {
                 $response = $this->gateway->purchase(array(
@@ -40,6 +43,7 @@ class PaymentController extends Controller
                     $response->redirect(); // this will automatically forward the customer
                 } else {
                     // not successful
+                    echo  "Failed";
                     return $response->getMessage();
                 }
             } catch(Exception $e) {
@@ -76,7 +80,16 @@ class PaymentController extends Controller
                     $payment->amount = $arr_body['transactions'][0]['amount']['total'];
                     $payment->currency = env('PAYPAL_CURRENCY');
                     $payment->payment_status = $arr_body['state'];
+                    $payment->user_id =  Auth::user()->id ;
                     $payment->save();
+
+                    // creating order row
+                    $order = new Order();
+                    $order->user_id = Auth::user()->id ;
+                    $order->payment_id=$arr_body['id'];
+                    $order->order_items = Auth::user()->cart->cart_items ;
+                    $order->save();
+
                 }
 
                 return "Payment is successful. Your transaction id is: ". $arr_body['id'];

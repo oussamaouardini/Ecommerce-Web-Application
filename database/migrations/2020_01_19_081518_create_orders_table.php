@@ -16,9 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->bigInteger('payment_id')->nullable();
-            $table->bigInteger('cart_id');
-            $table->dateTime('order_date');
+            $table->string('payment_id')->nullable();
+            $table->text('order_items');
             $table->timestamps();
         });
     }
