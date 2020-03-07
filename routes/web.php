@@ -139,9 +139,10 @@ Route::group(['auth'],function (){
        return view('screens/myCard');
     });
     // TODO : payments and shipping
-    Route::get('checkout',function(){
-        return view('screens/checkout');
-    });
+//    Route::get('checkout',function(){
+//        return view('screens/checkout');
+//    });
+    Route::get('checkout','CheckOutController@index');
     Route::get('payment', 'PaymentController@index');
     Route::post('charge', 'PaymentController@charge');
     Route::get('paymentsuccess', 'PaymentController@payment_success');

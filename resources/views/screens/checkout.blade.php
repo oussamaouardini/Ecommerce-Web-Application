@@ -12,53 +12,48 @@
                             <div class="margin_between">
                                 <div class="input_box space_between">
                                     <label>Country<span>*</span></label>
-                                    <select class="select__option">
-                                        <option>Select a country…</option>
-                                        <option>Afghanistan</option>
-                                        <option>American Samoa</option>
-                                        <option>Anguilla</option>
-                                        <option>American Samoa</option>
-                                        <option>Antarctica</option>
-                                        <option>Antigua and Barbuda</option>
+                                    <select class="select__option" required>
+                                        <option selected disabled >Select a country…</option>
+
+                                        @foreach($countries as $country)
+                                            <option>{{$country->name}}</option>
+                                            @endforeach
                                     </select>
                                 </div>
                                 <div class="input_box space_between">
                                     <label>State<span>*</span></label>
-                                    <select class="select__option">
-                                        <option>Select a state…</option>
-                                        <option>Afghanistan</option>
-                                        <option>American Samoa</option>
-                                        <option>Anguilla</option>
-                                        <option>American Samoa</option>
-                                        <option>Antarctica</option>
-                                        <option>Antigua and Barbuda</option>
+                                    <select class="select__option" required>
+                                        <option selected disabled >Select a state…</option>
+                                        @foreach($states as $state)
+                                            <option>{{$state->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="input_box">
                                 <label>Address <span>*</span></label>
-                                <input type="text" placeholder="Street address">
+                                <input type="text" placeholder="Street address" required>
                             </div>
                             <div class="input_box">
                                 <input type="text" placeholder="Apartment, suite, unit etc. (optional)">
                             </div>
                             <div class="input_box">
                                 <label>Postcode / ZIP <span>*</span></label>
-                                <input type="text">
+                                <input type="text" required>
                             </div>
                             <div class="margin_between">
                                 <div class="input_box space_between">
                                     <label>Phone <span>*</span></label>
-                                    <input type="text">
+                                    <input type="text" required>
                                 </div>
                                 <div class="input_box space_between">
                                     <label>Email address <span>*</span></label>
-                                    <input type="email">
+                                    <input type="email" required>
                                 </div>
                             </div>
-                            <div class="input_box">
+                            <div class="input_box" style="display: none;" >
                                 <label>Amount <span>*</span></label>
-                                <input type="text" name="amount"/>
+                                <input type="text" readonly name="amount" value={{$total+8}}  />
                             </div>
 
                             <div>
@@ -102,20 +97,21 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
-                    <div class="wn__order__box">
+                    <div class="wn__order__box" >
                         <h3 class="onder__title">Your order</h3>
                         <ul class="order__total">
                             <li>Product</li>
                             <li>Total</li>
                         </ul>
-                        <ul class="order_product">
-                            <li>Buscipit at magna × 1<span>$48.00</span></li>
-                            <li>Buscipit at magna × 1<span>$48.00</span></li>
-                            <li>Buscipit at magna × 1<span>$48.00</span></li>
-                            <li>Buscipit at magna × 1<span>$48.00</span></li>
+                        <ul class="order_product" style="overflow-y:scroll; height: 200px;">
+                            @foreach($cart_items as $cart_item)
+                                <li>{{$cart_item['product']->title}}× {{ (int)$cart_item['quantity'] }}<span>$ {{$cart_item['product']->price * (int)$cart_item['quantity'] }} </span></li>
+                                @endforeach
                         </ul>
                         <ul class="shipping__method">
-                            <li>Cart Subtotal <span>$48.00</span></li>
+                            <li>Cart Subtotal <span>@isset($total)
+                                        ${{$total}}
+                                    @endisset</span></li>
                             <li>Shipping
                                 <ul>
                                     <li>
@@ -125,7 +121,9 @@
                             </li>
                         </ul>
                         <ul class="total__amount">
-                            <li>Order Total <span>$223.00</span></li>
+                            <li>Order Total <span> @isset($total)
+                                        ${{$total+8}}
+                                    @endisset</span></li>
                         </ul>
                     </div>
                     <div id="accordion" class="checkout_accordion mt--30" role="tablist">
