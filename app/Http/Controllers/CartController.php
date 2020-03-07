@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\CartItem;
 use App\Http\Resources\ProductResource;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class CartController extends Controller
 {
@@ -18,80 +20,104 @@ class CartController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if ($user == null){
+        if ($user == null) {
             return  redirect('/newlogin');
         }
         $cart = $user->cart;
         $cartItems = json_decode($cart->cart_items);
         $finalCartItems = [];
-        foreach ($cartItems as $cartItem){
+        foreach ($cartItems as $cartItem) {
             $product = Product::find(intval($cartItem->product->id));
             $finalcartItem = new \stdClass();
             $finalcartItem->product = new ProductResource($product);
-            $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
-            array_push($finalCartItems,$finalcartItem);
+            $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
+            array_push($finalCartItems, $finalcartItem);
         }
         return [
-            'cart_items'=>$finalCartItems,
-            'id'=>$cart->id,
-            'total'=>number_format(doubleval($cart->total),2),
+            'cart_items' => $finalCartItems,
+            'id' => $cart->id,
+            'total' => number_format(doubleval($cart->total), 2),
         ];
-
     }
 
-    public function page(){
+    public function page()
+    {
         $user = Auth::user();
-        if ($user == null){
+        if ($user == null) {
             return  redirect('/newlogin');
         }
         $cart = $user->cart;
         $cartItems = json_decode($cart->cart_items);
         $finalCartItems = [];
-        foreach ($cartItems as $cartItem){
+        foreach ($cartItems as $cartItem) {
             $product = Product::find(intval($cartItem->product->id));
             $finalcartItem = new Product();
             $finalcartItem->product = new ProductResource($product);
-            $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
-            array_push($finalCartItems,$finalcartItem);
+            $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
+            array_push($finalCartItems, $finalcartItem);
         }
 
-        return view('screens/myCard')->with(array(
-                'cartItems'=>$finalCartItems,
-                'ide'=>$cart->id,
-                'totale'=>number_format(doubleval($cart->total),2),)
+        return view('screens/myCard')->with(
+            array(
+                'cartItems' => $finalCartItems,
+                'ide' => $cart->id,
+                'totale' => doubleval($cart->total),
+            )
         );
     }
-    public function remove($id){
+    public function remove($id)
+    {
         $user = Auth::user();
 
-        if ($user == null){
+        if ($user == null) {
             return  redirect('/newlogin');
         }
         $cart = $user->cart;
         $cartItems = json_decode($cart->cart_items);
         $finalCartItems = [];
-        $i = 1 ;
-        foreach ($cartItems as $cartItem){
-            if ($i == $id){
-
-            }else{
+        $i = 1;
+        foreach ($cartItems as $cartItem) {
+            if ($i == $id) {
+            } else {
                 $product = Product::find(intval($cartItem->product->id));
                 $finalcartItem = new Product();
                 $finalcartItem->product = new ProductResource($product);
-                $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
-                array_push($finalCartItems,$finalcartItem);
+                $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
+                array_push($finalCartItems, $finalcartItem);
             }
-            $i++ ;
+            $i++;
         }
         $cart->cart_items = json_encode($finalCartItems);
         $cart->save();
-        return view('screens/myCard')->with(array(
-                'cartItems'=>$finalCartItems,
-                'ide'=>$cart->id,
-                'totale'=>number_format(doubleval($cart->total),2),)
+        return view('screens/myCard')->with(
+            array(
+                'cartItems' => $finalCartItems,
+                'ide' => $cart->id,
+                'totale' => doubleval($cart->total),
+            )
         );
     }
-
+    public function submit(Request $request)
+    {
+        $user = Auth::user();
+        $cart = $user->cart;
+        $ca = Cart::find($user->cart->id);
+        $final = json_decode($ca->cart_items);
+        $i = 0;
+        $cartItms = [];
+        foreach ($final as $cartItem) {
+            $prod = Product::find($request->input('finalpId-')[$i]);
+            $newQte =  $request->input("finalQte")[$i];
+            $cartItm = new CartItem($prod, "$newQte");
+            array_push($cartItms, $cartItm);
+            $i++;
+        }
+        $newTotal = $request->input("finalTotal");
+        $ca->cart_items = json_encode($cartItms);
+        $ca->total = $newTotal;
+        $ca->save();
+        return view('screens/checkout');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -110,14 +136,15 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        return  $request ;
+        return  $request;
     }
 
-    public function addProductToCart(Request $request){
+    public function addProductToCart(Request $request)
+    {
 
         $request->validate([
-            'product_id'=>'required',
-            'quantity'=>'required',
+            'product_id' => 'required',
+            'quantity' => 'required',
         ]);
 
 
@@ -130,35 +157,35 @@ class CartController extends Controller
          *  @var Cart
          */
         //    $cart = $this->CheckCartStatus($user->cart) ;
-        if ($user == null){
+        if ($user == null) {
             return redirect('/newlogin');
         }
-        $cart = $user->cart ;
-        if (is_null($cart)){
+        $cart = $user->cart;
+        if (is_null($cart)) {
             $cart = new Cart();
-            $cart->cart_items = [] ;
-            $cart->total = 0 ;
-            $cart->user_id = Auth::user()->id ;
-            $user->cart_id = $cart->id ;
-
+            $cart->cart_items = [];
+            $cart->total = 0;
+            $cart->user_id = Auth::user()->id;
+            $user->cart_id = $cart->id;
         }
         /** Check if the product is already in cart */
 
-        if ($cart->inItems($product_id)){
+        if ($cart->inItems($product_id)) {
             /// Increase Quantity
-            $cart->increaseProductInCart($product , $quantity  );
-        }else{
+            $cart->increaseProductInCart($product, $quantity);
+        } else {
             /// add product to cart
-            $cart->addProductToCart($product , $quantity);
+            $cart->addProductToCart($product, $quantity);
         }
 
         $cart->save();
-        $user->cart_id = $cart->id ;
+        $user->cart_id = $cart->id;
         $user->save();
-        return redirect()->back() ;
+        return redirect()->back();
     }
 
-    public function RemoveProductFromCart( $id ){
+    public function RemoveProductFromCart($id)
+    {
         $product = Product::find($id);
         $user = Auth::user();
 
@@ -167,25 +194,24 @@ class CartController extends Controller
          *  @var Cart
          */
         //    $cart = $this->CheckCartStatus($user->cart) ;
-        $cart = $user->cart ;
-        if (is_null($cart)){
+        $cart = $user->cart;
+        if (is_null($cart)) {
             $cart = new Cart();
-            $cart->cart_items = [] ;
-            $cart->total = 0 ;
+            $cart->cart_items = [];
+            $cart->total = 0;
             $cart->user_id = $user->id;
-
         }
         /** Check if the product is already in cart */
 
-        if ($cart->inItems($id)){
+        if ($cart->inItems($id)) {
             /// Increase Quantity
             $cart->decrease($product);
         }
 
         $cart->save();
-        $user->cart_id = $cart->id ;
+        $user->cart_id = $cart->id;
         $user->save();
-        return $cart ;
+        return $cart;
     }
 
     /**

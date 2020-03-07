@@ -12,12 +12,18 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getStates(Country $country)
+    {
+        return $country->states()->select('id', 'name')->get();
+    }
+
     public function index()
     {
         $countries = Country::paginate(env('PAGINATION_COUNT'));
 
         return view('admin.countries.countries')->with([
-            'countries'=>$countries,
+            'countries' => $countries,
         ]);
     }
 
