@@ -100,4 +100,76 @@ class PaymentController extends Controller
     {
         return 'User is canceled the payment.';
     }
+
+    public function chargeWeb(Request $request)
+    {
+        if (isset($request['kk'])) {
+            try {
+                $response = $this->gateway->purchase(array(
+                    'amount' => $_POST['amount'],
+                    'currency' => env('PAYPAL_CURRENCY'),
+                    'returnUrl' => url('paymentsuccessWeb'),
+                    'cancelUrl' => url('paymenterror'),
+                ))->send();
+
+                if ($response->isRedirect()) {
+                    $response->redirect(); // this will automatically forward the customer
+                } else {
+                    // not successful
+                    echo  "Failed";
+                    return $response->getMessage();
+                }
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+    }
+
+    public function payment_successWeb(Request $request)
+    {
+        // Once the transaction has been approved, we need to complete it.
+        if ($request->input('paymentId') && $request->input('PayerID')) {
+            $transaction = $this->gateway->completePurchase(array(
+                'payer_id'             => $request->input('PayerID'),
+                'transactionReference' => $request->input('paymentId'),
+            ));
+            $response = $transaction->send();
+
+            if ($response->isSuccessful()) {
+                // The customer has successfully paid.
+                $arr_body = $response->getData();
+
+                // Insert transaction data into the database
+                $isPaymentExist = Payment::where('payment_id', $arr_body['id'])->first();
+
+                if (!$isPaymentExist) {
+                    $payment = new Payment;
+                    $payment->payment_id = $arr_body['id'];
+                    $payment->payer_id = $arr_body['payer']['payer_info']['payer_id'];
+                    $payment->payer_email = $arr_body['payer']['payer_info']['email'];
+                    $payment->amount = $arr_body['transactions'][0]['amount']['total'];
+                    $payment->currency = env('PAYPAL_CURRENCY');
+                    $payment->payment_status = $arr_body['state'];
+                    $payment->user_id =  Auth::user()->id;
+                    $payment->save();
+
+                    // creating order row
+                    $order = new Order();
+                    $order->user_id = Auth::user()->id;
+                    $order->payment_id = $arr_body['id'];
+                    $order->order_items = Auth::user()->cart->cart_items;
+                    $order->save();
+
+                    $userCard = Cart::find(Auth::user()->cart->id);
+                    $userCard->delete();
+                }
+
+                return "Payment is successful. Your transaction id is: " . $arr_body['id'];
+            } else {
+                return $response->getMessage();
+            }
+        } else {
+            return 'Transaction is declined';
+        }
+    }
 }

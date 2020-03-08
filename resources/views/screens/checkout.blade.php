@@ -6,7 +6,7 @@
             <div class="col-lg-6 col-12">
                 <div class="customer_details">
                     <h3>Billing details</h3>
-                    <form action="{{url('charge') }}" method="post">
+                    <form action="{{url('chargeWeb') }}" method="post">
                         {{ csrf_field() }}
                         <div class="customar__field">
                             <div class="margin_between">

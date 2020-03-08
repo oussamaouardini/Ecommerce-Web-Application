@@ -148,9 +148,12 @@ Route::group(['auth'], function () {
     //        return view('screens/checkout');
     //    });
     Route::get('checkout', 'CheckOutController@index');
+    // Route::get('webCharge', 'CheckOutController@webCharge');
     Route::get('payment', 'PaymentController@index');
     Route::get('charge/{amount}/{id}', 'PaymentController@charge');
+    Route::post('chargeWeb', 'PaymentController@chargeWeb');
     Route::get('paymentsuccess/{id}', 'PaymentController@payment_success');
+    Route::get('paymentsuccessWeb', 'PaymentController@payment_successWeb');
     Route::get('paymenterror', 'PaymentController@payment_error');
     // TODO : States and Countries
     Route::get('country/{country}/states', 'CountryController@getStates');
