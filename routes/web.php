@@ -149,8 +149,8 @@ Route::group(['auth'], function () {
     //    });
     Route::get('checkout', 'CheckOutController@index');
     Route::get('payment', 'PaymentController@index');
-    Route::post('charge', 'PaymentController@charge');
-    Route::get('paymentsuccess', 'PaymentController@payment_success');
+    Route::get('charge/{amount}/{id}', 'PaymentController@charge');
+    Route::get('paymentsuccess/{id}', 'PaymentController@payment_success');
     Route::get('paymenterror', 'PaymentController@payment_error');
     // TODO : States and Countries
     Route::get('country/{country}/states', 'CountryController@getStates');
