@@ -80,3 +80,6 @@ Route::post('addProduct', 'Api\Desktop\ProductController@store');
 Route::post('editProduct/{id}', 'Api\Desktop\ProductController@update');
 Route::post('hideProduct/{id}', 'Api\Desktop\ProductController@hide');
 Route::post('deleteProduct/{id}', 'Api\Desktop\ProductController@destroy');
+
+Route::get('nbproducts', 'Api\Desktop\ProductController@allProducts');
+Route::get('allcategories', 'Api\Desktop\ProductController@categories');

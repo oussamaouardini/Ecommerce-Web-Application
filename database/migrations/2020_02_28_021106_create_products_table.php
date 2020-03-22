@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->mediumText('description');
             $table->string('product_images')->nullable();
             $table->bigInteger('category_id');
-            $table->string('gender')->nullable();
+            $table->string('product_gender')->nullable();
             $table->string('product_brand')->nullable();
             $table->string('product_tags')->nullable();
             $table->double('price');
