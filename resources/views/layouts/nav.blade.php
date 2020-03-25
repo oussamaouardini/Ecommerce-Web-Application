@@ -224,15 +224,15 @@
                                 <div>
                                     <h4 class="titles">MEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/menpants?brand=adidas">Adidas</a></li>
-                                        <li class="subTitles"><a href="/shopFinal/menpants?brand=Nike">Nike</a></li>
-                                        <li class="subTitles"><a href="/shopFinal/menpants?brand=Puma">Puma</a></li>
-                                        <li class="subTitles"><a href="/shopFinal/menpants?brand=Reebok">Reabook</a>
+                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=adidas">Adidas</a></li>
+                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=Nike">Nike</a></li>
+                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=Puma">Puma</a></li>
+                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=Reebok">Reabook</a>
                                         </li>
-                                        <li class="subTitles"><a href="/shopFinal/menpants?brand=NewBalance">New
+                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=NewBalance">New
                                                 Balance</a></li>
                                         <li class="subTitles"><a
-                                                href="/shopFinal/menpants?brand=Balenciaga">Balenciaga</a></li>
+                                                href="/shopFinal/menPants?brand=Balenciaga">Balenciaga</a></li>
                                     </ul>
                                 </div>
                                 <div>

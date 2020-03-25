@@ -18,12 +18,25 @@ class pricipalController extends Controller
     public function index()
     {
         $falshsales = ProductResource::collection(Product::orderBy('nb_sales', 'DESC')->orderBy('title', 'ASC')->take(6)->get());
-        $womanproducts =  ProductResource::collection(Product::where('gender', 'woman')->orderBy('title', 'ASC')->take(6)->get());
-        $manproducts = ProductResource::collection(Product::where('gender', 'man')->orderBy('title', 'ASC')->take(6)->get());
-        $childproducts = ProductResource::collection(Product::where('gender', 'child')->orderBy('title', 'ASC')->take(6)->get());
+        $womanproducts =  ProductResource::collection(Product::where('product_gender', 'woman')->orderBy('title', 'ASC')->take(6)->get());
+        $manproducts = ProductResource::collection(Product::where('product_gender', 'man')->orderBy('title', 'ASC')->take(6)->get());
+        $childproducts = ProductResource::collection(Product::where('product_gender', 'child')->orderBy('title', 'ASC')->take(6)->get());
         $topsales = ProductResource::collection(Product::orderBy('nb_sales', 'DESC')->orderBy('title', 'ASC')->take(1)->get());
         $nblikes = 0;
         $nbcartitems = 0;
+
+        $womanimages = [];
+        $manimages = [];
+        $childimages = [];
+        $temp = [];
+        foreach ($womanproducts as $woman) {
+            $temp = json_decode($woman->product_images);
+            $womanimages[] = $temp[0];
+        }
+        foreach ($manproducts as $man) {
+            $temp = json_decode($man->product_images);
+            $manimages[] = $temp[0];
+        }
 
         /* user likes start*/
         $userlikes = [];
@@ -52,13 +65,13 @@ class pricipalController extends Controller
                     array_push($finalCartItems, $finalcartItem);
                 }
 
-                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'cart_items' => $finalCartItems, 'id' => $cart->id, 'total' => number_format(doubleval($cart->total), 2), 'nbcartitems' => $nbcartitems, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts, 'userLikes' => $wishlist, 'user' => Auth::user()));
+                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'cart_items' => $finalCartItems, 'id' => $cart->id, 'total' => number_format(doubleval($cart->total), 2), 'nbcartitems' => $nbcartitems, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts, 'womanimages' => $womanimages, 'manimages' => $manimages, 'userLikes' => $wishlist, 'user' => Auth::user()));
             } else {
                 $wishlist =  array();
-                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts));
+                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'womanimages' => $womanimages, 'manimages' => $manimages, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts));
             }
         } else {
-            return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts));
+            return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'womanimages' => $womanimages, 'manimages' => $manimages, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts));
         }
     }
 
