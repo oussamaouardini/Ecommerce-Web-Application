@@ -36,9 +36,6 @@ class ProductResource extends JsonResource
             'product_size'          => $this->product_size,
             'product_colors'        => $this->product_colors,
 
-
-
-
         ];
     }
 }

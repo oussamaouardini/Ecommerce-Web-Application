@@ -37,12 +37,18 @@ class ProductController extends Controller
             'nbproducts' => Product::all()->count(),
             'nbusers'    => User::all()->count(),
             'nbsales'    => $nb,
+            'women' => Product::all()->where('product_gender', 'Woman')->count(),
+            'men' => Product::all()->where('product_gender', 'Man')->count(),
+            'kids' => Product::all()->where('product_gender', 'Kids')->count(),
+            'access' => Product::all()->where('product_gender', 'Access')->count(),
         ];
     }
     public function categories()
     {
         return CategoryResource::collection(Category::all());
     }
+
+
 
     /**
      * Show the form for creating a new resource.
