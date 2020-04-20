@@ -8,7 +8,9 @@ use App\Http\Resources\ProductResource;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Isset_;
 
+use function Clue\StreamFilter\remove;
 
 class CartController extends Controller
 {
@@ -20,6 +22,8 @@ class CartController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $images = [];
+        $temp = [];
         if ($user == null) {
             return  redirect('/newlogin');
         }
@@ -28,20 +32,25 @@ class CartController extends Controller
         $finalCartItems = [];
         foreach ($cartItems as $cartItem) {
             $product = Product::find(intval($cartItem->product->id));
+            $temp = json_decode($product->product_images);
             $finalcartItem = new \stdClass();
             $finalcartItem->product = new ProductResource($product);
             $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
             array_push($finalCartItems, $finalcartItem);
+            array_push($images, $temp[0]);
         }
         return [
             'cart_items' => $finalCartItems,
             'id' => $cart->id,
             'total' => number_format(doubleval($cart->total), 2),
+            'images' => $images,
         ];
     }
 
     public function page()
     {
+        $images = [];
+        $temp = [];
         $user = Auth::user();
         if ($user == null) {
             return  redirect('/newlogin');
@@ -50,11 +59,14 @@ class CartController extends Controller
         $cartItems = json_decode($cart->cart_items);
         $finalCartItems = [];
         foreach ($cartItems as $cartItem) {
+            //return $cartItem->product->id;
             $product = Product::find(intval($cartItem->product->id));
+            $temp = json_decode($product->product_images);
             $finalcartItem = new Product();
             $finalcartItem->product = new ProductResource($product);
             $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
             array_push($finalCartItems, $finalcartItem);
+            array_push($images, $temp[0]);
         }
 
         return view('screens/myCard')->with(
@@ -62,40 +74,36 @@ class CartController extends Controller
                 'cartItems' => $finalCartItems,
                 'ide' => $cart->id,
                 'totale' => doubleval($cart->total),
+                'images' => $images,
             )
         );
     }
-    public function remove($id)
+    public function remove(Request $request)
     {
-        $user = Auth::user();
+        if (isset($_POST['deleted'])) {
+            $user = Auth::user();
+            $images = [];
+            $temp = [];
 
-        if ($user == null) {
-            return  redirect('/newlogin');
-        }
-        $cart = $user->cart;
-        $cartItems = json_decode($cart->cart_items);
-        $finalCartItems = [];
-        $i = 1;
-        foreach ($cartItems as $cartItem) {
-            if ($i == $id) {
-            } else {
-                $product = Product::find(intval($cartItem->product->id));
-                $finalcartItem = new Product();
-                $finalcartItem->product = new ProductResource($product);
-                $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
-                array_push($finalCartItems, $finalcartItem);
+            if ($user == null) {
+                return  redirect('/newlogin');
             }
-            $i++;
+            $cart = $user->cart;
+            $cartItems = json_decode($cart->cart_items);
+            $i = 0;
+            foreach ($cartItems as $cartItem) {
+                if ($cartItem->product->id == intval($request->input('deletId'))) {
+                    $cart->total -= $cartItem->product->price * $cartItem->quantity;
+                    unset($cartItems[$i]);
+                    break;
+                }
+                $i++;
+            }
+            $arr[] = array_values($cartItems);
+            $cart->cart_items = substr(json_encode($arr), 1, -1);
+            $cart->save();
+            return redirect('/creditCard');
         }
-        $cart->cart_items = json_encode($finalCartItems);
-        $cart->save();
-        return view('screens/myCard')->with(
-            array(
-                'cartItems' => $finalCartItems,
-                'ide' => $cart->id,
-                'totale' => doubleval($cart->total),
-            )
-        );
     }
     public function submit(Request $request)
     {

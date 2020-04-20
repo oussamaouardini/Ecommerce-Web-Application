@@ -90,11 +90,7 @@
                         <div class="pi-pic">
                             <img src="productImages/{{$womanimages[$i]}}" style="height:300px;"
                                 alt="{{$womanimages[$i]}}">
-                            <div class="icon">
-                                @isset($userLikes)
-                                <a id="id-{{$product->id}}" onclick="like({{$product->id}})">🤍</a>
-                                @endisset
-                            </div>
+
 
                             <ul>
                                 <span class="crtid" data-fid="{{$product->id}}" id="{{$product->id}}">
@@ -144,7 +140,8 @@
         <div class="col-lg-6 text-center">
             <div class="section-title">
                 <h2>Deal Of The Week</h2>
-                <p>This is  one of our elite products that we recommend to every client, due to it's effeciency and it's stylish looks in every circumstance. </p>
+                <p>This is one of our elite products that we recommend to every client, due to it's effeciency and it's
+                    stylish looks in every circumstance. </p>
                 <div class="product-price">
                     $35.00
                     <span>/ HanBag</span>
@@ -207,8 +204,7 @@
 
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="productImages/{{$manimages[$i]}}" style="height:300px;"
-                                alt="{{$manimages[$i]}}">
+                            <img src="productImages/{{$manimages[$i]}}" style="height:300px;" alt="{{$manimages[$i]}}">
                             <ul>
                                 <span class="crtid" data-fid="{{$product->id}}" id="{{$product->id}}">
                                     <li class="w-icon active  "><a href="#"><i class="icon_bag_alt "></i></a></li>
@@ -417,8 +413,7 @@
         @foreach($falshsales as $product)
         <div class="product-item">
             <div class="pi-pic">
-                <img src="productImages/{{$trendimages[$i]}}" style="height:400px;"
-                    alt="images/produit1.jpg">
+                <img src="productImages/{{$trendimages[$i]}}" style="height:400px;" alt="images/produit1.jpg">
 
                 <ul>
                     <span class="crtid" data-fid="{{$product->id}}" id="{{$product->id}}">
@@ -429,7 +424,7 @@
                 </ul>
             </div>
             <div class="pi-text">
-                <div class="catagory-name">{{$product->id}}  </div>
+                <div class="catagory-name">{{$product->id}} </div>
                 <a href="#">
                     <h5 style="overflow: hidden;height: 60px;"> {{$product->title}} </h5>
                 </a>
@@ -451,26 +446,28 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Bingo Team</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bingo Team</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Product Added Successfully .
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="closeModale"> Continue Shopping </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="goToCart()">Go To Cart
+                </button>
+
+            </div>
         </div>
-        <div class="modal-body">
-          Product Added Successfully .
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="closeModale"   > Continue Shopping </button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="goToCart()" >Go To Cart </button>
-          
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <script>
     function size1() {
@@ -548,8 +545,8 @@ document.location = "/creditCard";
         }
 
 
-        
-        
+
+
 
         $(document).ready(function(){
 
@@ -561,7 +558,7 @@ document.location = "/creditCard";
             $( "#closeModale" ).click(function() {
                 $('#exampleModal').modal('hide');
             });
-            
+
            // console.log(product_id);
            $( ".crtid" ).click(function() {
             var product_id = $(this)["context"].id;

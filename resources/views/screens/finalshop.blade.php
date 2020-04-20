@@ -103,13 +103,14 @@
                     </div>
                 </div>
                 <style>
-                    .pagination{
+                    .pagination {
                         background-color: white;
                         border: 1px solid white;
                     }
+
                     nav {
-                         background-color: white;
-                        }
+                        background-color: white;
+                    }
                 </style>
                 <div class="product-list">
                     <div class="row">
@@ -122,7 +123,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                <img src="{{asset("productImages/$images[$i]")}}" alt="{{$images[$i]}}" style="height:300px;"  >
+                                    <img src="{{asset("productImages/$images[$i]")}}" alt="{{$images[$i]}}"
+                                        style="height:300px;">
                                     <div class="sale pp-sale">Sale</div>
                                     <ul>
                                         <li class="quick-view"><a href="{{url('/shopFinal-single/'.$product->id.'')}}">+
@@ -130,7 +132,7 @@
                                     </ul>
                                 </div>
                                 <div class="pi-text">
-                                    <div class="catagory-name">{{$product->title }}  </div>
+                                    <div class="catagory-name">{{$product->title }} </div>
                                     <div class="product-price">
                                         ${{$product->price}}
                                         <span> ${{$product->old_price}}</span>

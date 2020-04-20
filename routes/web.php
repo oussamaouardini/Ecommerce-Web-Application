@@ -24,7 +24,7 @@ Route::get('products/search/{search}', 'ProductController@search');
 Route::get('/creditCard', 'CartController@page');
 
 // remove product from cart
-Route::get('/creditCard/remove/{id}', 'CartController@remove');
+Route::Post('creditCard/remove', 'CartController@remove');
 
 
 Route::get('/', function () {
