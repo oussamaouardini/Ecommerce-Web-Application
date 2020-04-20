@@ -67,7 +67,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
-                <div class="product-large set-bg" data-setbg="images/img/products/women-large.jpg">
+                <div class="product-large set-bg" data-setbg="images/BnnerWomen.png">
                     <h2>Women’s</h2>
                     <a href="#">Discover More</a>
                 </div>
@@ -75,9 +75,9 @@
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
@@ -88,31 +88,26 @@
                     @foreach($womanproducts as $product)
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="http://127.0.0.1:8000/productImages/{{$womanimages[$i]}}" alt="">
+                            <img src="productImages/{{$womanimages[$i]}}" style="height:300px;"
+                                alt="{{$womanimages[$i]}}">
                             <div class="icon">
                                 @isset($userLikes)
                                 <a id="id-{{$product->id}}" onclick="like({{$product->id}})">🤍</a>
                                 @endisset
                             </div>
+
                             <ul>
-                                <li class="w-icon active">
-                                    <form action="/addToCart" method="POST">
-                                        @csrf
-                                        <input class="pro-qty" type="hidden" min=1 value=1 name="quantity">
-                                        <input class="pro-qty" type="hidden" min=1
-                                            value={{isset($product)?$product->id : null}} name="product_id">
-                                        <button type="submit"> <i class="fa fa-cart-plus"></i> </button>
-                                    </form>
-                                </li>
-                                <li class="quick-view"><a href="{{url('/shopFinal-single/'.$product->id.'')}}">+ Quick
-                                        View</a></li>
+                                <span class="crtid" data-fid="{{$product->id}}" id="{{$product->id}}">
+                                    <li class="w-icon active  "><a href="#"><i class="icon_bag_alt "></i></a></li>
+                                </span>
+                                <li class="quick-view"><a href="#">+ Quick View</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
                             <div class="catagory-name">{{$product->id}}</div>
                             <a href="#">
-                                <h5 style="overflow: hidden;height: 40px;"> {{$product->description}} </h5>
+                                <h5 style="overflow: hidden;height: 60px;"> {{$product->title}} </h5>
                             </a>
                             <div class="product-price">
                                 ${{$product->price}}
@@ -143,107 +138,42 @@
         </svg>
     </div>
 </div>
-<div id="popular">
-    <div id="left">
-        <div id="slideprod">
-            <div>
-                <img src="images/produit.jpg" alt="image" />
-            </div>
-            <div>
-                <img src="images/produit.jpg" alt="image" />
-            </div>
-            <div>
-                <img src="images/produit.jpg" alt="image" />
-            </div>
-            <div>
-                <img src="images/produit.jpg" alt="image" />
-            </div>
-            <div>
-                <img src="images/produit.jpg" alt="image" />
-            </div>
-            <div>
-                <img src="images/produit.jpg" alt="image" />
-            </div>
-        </div>
-        <div class="navimg">
-            <span id="previmg">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7px"
-                    height="15px">
-                    <path fill-rule="evenodd" fill="rgb(0, 0, 0)"
-                        d="M7.009,0.008 L-0.010,7.499 L7.009,14.991 L7.009,0.008 Z" />
-                </svg>
-            </span>
-            <span id="currentprod">1</span>
-            <span>/</span>
-            <span id="maxprod">6</span>
-            <span id="nextimg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="7px" height="15px">
-                    <path fill-rule="evenodd" fill="rgb(0, 0, 0)"
-                        d="M-0.010,14.991 L7.010,7.499 L-0.010,0.008 L-0.010,14.991 Z" />
-                </svg>
-            </span>
-        </div>
-    </div>
-    @isset($topsales)
-    @foreach($topsales as $topsale)
-
-    <div id="right">
-        <div id="titleproduit">
-            {{  $topsale->title }}
-        </div>
-        <div id="price">
-            $ {{  $topsale->price }}
-        </div>
-
-        <div class="row-cols-2">
-            <div class="col">
-                <div id="size">
-                    SIZE :
+<!-- Deal Of The Week Section Begin-->
+<section class="deal-of-week set-bg spad mt-5 mb-5 " data-setbg="{{asset("images/time-bg.jpg")}}">
+    <div class="container">
+        <div class="col-lg-6 text-center">
+            <div class="section-title">
+                <h2>Deal Of The Week</h2>
+                <p>This is  one of our elite products that we recommend to every client, due to it's effeciency and it's stylish looks in every circumstance. </p>
+                <div class="product-price">
+                    $35.00
+                    <span>/ HanBag</span>
                 </div>
             </div>
-            <div class="col">
-                <ul id="menu">
-                    <li id="s1" class="bdr activee" onclick="size1()"> 45 </li>
-                    <li id="s2" class="bdr" onclick="size2()"> 40 </li>
-                    <li id="s3" class="bdr" onclick="size3()"> 38 </li>
-                    <li id="s4" class="bdr" onclick="size4()"> 33 </li>
-                </ul>
+            <div class="countdown-timer" id="countdown">
+                <div class="cd-item">
+                    <span>56</span>
+                    <p>Days</p>
+                </div>
+                <div class="cd-item">
+                    <span>12</span>
+                    <p>Hrs</p>
+                </div>
+                <div class="cd-item">
+                    <span>40</span>
+                    <p>Mins</p>
+                </div>
+                <div class="cd-item">
+                    <span>52</span>
+                    <p>Secs</p>
+                </div>
             </div>
-        </div>
-        <div id="productQte">
-            <div style="cursor: pointer;" id="minus"
-                onclick="if(parseInt($('#Qteproduct input').val())>1){$('#Qteproduct input').val(parseInt($('#Qteproduct input').val())-1);}">
-                -
-            </div>
-            <div id="Qteproduct"><input type="text" value="1" /></div>
-            <div style="cursor: pointer;" id="plus"
-                onclick="$('#Qteproduct input').val(parseInt($('#Qteproduct input').val())+1);">
-                +
-            </div>
-        </div>
-        <div id="buy">
-            @isset($total)
-            <div id="addtocard" style="cursor: pointer">
-                <form action="/addToCart" method="POST">
-                    @csrf
-                    <input class="pro-qty" type="hidden" min=1 value=1 name="quantity">
-                    <input class="pro-qty" type="hidden" min=1 value={{isset($product)?$product->id : null}}
-                        name="product_id">
-                    <button type="submit" style="background: none; border: none;"> Add to cart </button>
-                </form>
-            </div>
-            @endisset
-            <div id="buynow" style="cursor: pointer" onclick="byIt()">
-                Buy it now
-            </div>
+            <a href="#" class="primary-btn">Shop Now</a>
         </div>
     </div>
-    @endforeach
+</section>
+<!-- Deal Of The Week Section End -->
 
-
-    @endisset
-
-</div>
 <div id="video2">
     <video class="vid2" id="firstvideo2" src="videos/adidas - Feel the Boost.mp4" poster="images/imgvid2.jpg"
         onended="$('#play2').show();this.load();">
@@ -262,9 +192,9 @@
             <div class="col-lg-8">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
@@ -277,31 +207,18 @@
 
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="http://127.0.0.1:8000/productImages/{{$manimages[$i]}}" alt="">
-                            <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i id="heartIcon" class=" icon_heart_alt "></i>
-                            </div>
+                            <img src="productImages/{{$manimages[$i]}}" style="height:300px;"
+                                alt="{{$manimages[$i]}}">
                             <ul>
-                                <li class="w-icon active">
-                                    <form action="/addToCart" method="POST">
-                                        @csrf
-                                        <input class="pro-qty" type="hidden" min=1 value=1 name="quantity">
-                                        <input class="pro-qty" type="hidden" min=1
-                                            value={{isset($product)?$product->id : null}} name="product_id">
-                                        <button type="submit"> <i class="fa fa-cart-plus"></i> </button>
-                                    </form>
-                                </li>
-                                <li class="quick-view"><a href="{{url('/shopFinal-single/'.$product->id.'')}}">+ Quick
-                                        View</a></li>
+                                <span class="crtid" data-fid="{{$product->id}}" id="{{$product->id}}">
+                                    <li class="w-icon active  "><a href="#"><i class="icon_bag_alt "></i></a></li>
+                                </span>
+                                <li class="quick-view"><a href="#">+ Quick View</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
                             <div class="catagory-name">{{$product->title}}</div>
-                            <a href="#">
-                                <h5 style="overflow: hidden;height: 40px;"> {{$product->description}} </h5>
-                            </a>
                             <div class="product-price">
                                 ${{$product->price}}
                                 <span> ${{$product->old_price}}</span>
@@ -318,7 +235,7 @@
                 </div>
             </div>
             <div class="col-lg-3 offset-lg-1">
-                <div class="product-large set-bg m-large" data-setbg="images/img/products/man-large.jpg">
+                <div class="product-large set-bg m-large" data-setbg="images/kobe.png">
                     <h2>Men’s</h2>
                     <a href="#">Discover More</a>
                 </div>
@@ -490,24 +407,70 @@
     </div>
 </div>
 <div id="Tending">
-    <h1>Tending Now</h1>
-    <div class="produitslider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
+    <h1>Trending Now</h1>
+
+    <div class="product-slider owl-carousel">
         @isset($falshsales)
+        @php
+        $i = 0 ;
+        @endphp
         @foreach($falshsales as $product)
-        <div class="produit">
-            <div class="imageproduit">
-                <img src="images/produit1.jpg" alt="" />
+        <div class="product-item">
+            <div class="pi-pic">
+                <img src="productImages/{{$trendimages[$i]}}" style="height:400px;"
+                    alt="images/produit1.jpg">
+
+                <ul>
+                    <span class="crtid" data-fid="{{$product->id}}" id="{{$product->id}}">
+                        <li class="w-icon active  "><a href="#"><i class="icon_bag_alt "></i></a></li>
+                    </span>
+                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                </ul>
             </div>
-            <div class="details">
-                <h6>{{$product->title}}</h6>
-                <span>{{$product->description}} <br /></span>
-                <span>{{$product->price}} $ </span>
+            <div class="pi-text">
+                <div class="catagory-name">{{$product->id}}  </div>
+                <a href="#">
+                    <h5 style="overflow: hidden;height: 60px;"> {{$product->title}} </h5>
+                </a>
+                <div class="product-price">
+                    ${{$product->price}}
+                    <span> ${{$product->old_price}}</span>
+                </div>
             </div>
         </div>
+        @php
+        $i++
+        @endphp
+
         @endforeach
         @endisset
     </div>
+
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Bingo Team</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Product Added Successfully .
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="closeModale"   > Continue Shopping </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="goToCart()" >Go To Cart </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
     function size1() {
@@ -578,5 +541,67 @@
 
             window.location.href = "/addwishuser";
         }
+
+        function goToCart(){
+document.location = "/creditCard";
+
+        }
+
+
+        
+        
+
+        $(document).ready(function(){
+
+
+
+
+
+
+            $( "#closeModale" ).click(function() {
+                $('#exampleModal').modal('hide');
+            });
+            
+           // console.log(product_id);
+           $( ".crtid" ).click(function() {
+            var product_id = $(this)["context"].id;
+            console.log(product_id);
+
+            //send value by ajax to server
+           $.ajax({
+                url:"{{ url('addToCartAjax') }}",
+                type:'POST',
+                data:{
+                    product_id: product_id,
+                    quantity : '1',
+                    "_token": "{{ csrf_token() }}",
+                },
+            }).done(function(response) {
+
+                console.log(response);
+                if(response['status']==40400){
+                    document.location = "newlogin";
+                }else if(response['status']==20020){
+
+                    console.log(response);
+                    $("#mycrt").html(response['cartHtml']);
+                    $("#mycrtnb").html(response['qte']);
+                    $("#mycrttotal").html((response['total']).toFixed(2));
+                    $("#mycrttotalh").html((response['total']).toFixed(2));
+
+                    $('#exampleModal').modal('show');
+
+                }
+              //  document.getElementById("status-"+product_id).value = response['status'];
+            //success
+            }).fail(function(error){
+                console.log(error);
+            });
+
+
+
+
+        });
+        });
 </script>
 @endsection

@@ -28,6 +28,9 @@
         });
 
 
+
+
+
         function addnumb() {
             const input = document.querySelector("#Qteproduct");
             const BIRTHNUMBER_ALLOWED_CHARS_REGEXP = /[0-9]+/;
@@ -134,7 +137,11 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="/principal">
-                                <img src="{{asset('images/logo.png')}}" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="111" height="40" viewBox="0 0 111 40">
+                                    <image id="Sports_Style" data-name="Sports Style" width="111" height="40"
+                                        xlink:href="data:img/png;base64,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" />
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -150,25 +157,19 @@
                     </div>
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
-                            <li class="heart-icon"><a href="#">
-                                    <i id="hrtIcon" class="icon_heart_alt"></i>
-                                    @isset($nbcartitems)
-                                    <span> {{$nbcartitems}}</span>
-                                    @endisset
-                                </a>
-                            </li>
                             <li class="cart-icon"><a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    @isset($nbcartitems)
-                                    <span> {{$nbcartitems}} </span>
-                                    @endisset
+                                    <span id="mycrtnb"> @isset($nbcartitems)
+                                        {{$nbcartitems}}
+                                    @endisset  </span>
                                 </a>
-                                @isset($cart_items)
+
                                 <div class="cart-hover">
-                                    <div class="select-items">
+                                    <div class="select-items" id="mycrt">
                                         <table id="cardTable">
                                             <tbody>
 
+                                                @isset($cart_items)
                                                 @foreach($cart_items as $cart_item)
 
                                                 <tr>
@@ -181,13 +182,11 @@
                                                             <h6>{{$cart_item['product']->title}}</h6>
                                                         </div>
                                                     </td>
-                                                    <!--
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                            -->
                                                 </tr>
                                                 @endforeach
+                                                @endisset
+
+                                                
 
                                             </tbody>
                                         </table>
@@ -195,7 +194,7 @@
                                     <div class="select-total">
                                         <span>total:</span>
                                         @isset($total)
-                                        <h5>${{$total}}</h5>
+                                        <h5 id="mycrttotalh">${{$total}}</h5>
                                         @endisset
                                     </div>
                                     <div class="select-button">
@@ -204,9 +203,9 @@
                                     </div>
                                 </div>
                             </li>
-                            @endisset
+
                             <li class="cart-price">@isset($total)
-                                <h5>${{$total}}</h5>
+                                <h5 id="mycrttotal">${{$total}}</h5>
                                 @endisset</li>
                         </ul>
                     </div>
@@ -629,8 +628,8 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;<script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This Store is made with <i class="fa fa-heart-o"
-                                    aria-hidden="true"></i> by <a href="#" target="_blank">Bingo - Team</a>
+                                </script> All rights reserved | This Store is made by <a href="#" target="_blank">Bingo - Team</a> <i class="fa fa-heart-o"
+                                    aria-hidden="true"></i>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </div>
                             <div class="payment-pic">
@@ -659,7 +658,7 @@
     <script src="{{asset('js/newJs/main.js')}}"></script>
     <script src="{{asset('js/cbpHorizontalMenu.min.js')}}"></script>
 
-    <script src="{{asset('js/home.js')}}"></script>
+    
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
@@ -686,6 +685,8 @@
             window.location.pathname = '/shopFinal/search/'+val.value ;
         }
     }
+
+
     </script>
     @yield('scripts')
 </body>

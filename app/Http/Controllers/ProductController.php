@@ -61,6 +61,7 @@ class ProductController extends Controller
 
     public function filter($filter)
     {
+
         $category = Category::where('name', $filter)->first();
 
         if (isset($_GET['categories'])) {
@@ -80,14 +81,27 @@ class ProductController extends Controller
         }
 
         $products = ProductResource::collection($product);
-        return view('screens/finalshop', compact('products'));
+        $images = [];
+        $temp = [];
+        foreach ($products as $product) {
+            $temp = json_decode($product->product_images);
+            $images[] = $temp[0];
+        }
+        return view('screens/finalshop')->with(array('products' => $products, 'images' => $images));
+        // return view('screens/finalshop', compact('products'));
     }
 
     public function general()
     {
         $product = Product::paginate(15);
         $products = ProductResource::collection($product);
-        return view('screens/finalshop', compact('products'));
+        $images = [];
+        $temp = [];
+        foreach ($products as $product) {
+            $temp = json_decode($product->product_images);
+            $images[] = $temp[0];
+        }
+        return view('screens/finalshop')->with(array('products' => $products, 'images' => $images));
     }
     public function singlePage($id)
     {

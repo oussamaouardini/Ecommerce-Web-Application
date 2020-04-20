@@ -51,6 +51,7 @@ Route::Post('/addComment', 'ReviewController@store')->name('addComment');
 
 // addToCart
 Route::Post('/addToCart', 'CartController@addProductToCart')->name('addToCart');
+Route::Post('/addToCartAjax', 'CartController@addProductToCartAjax')->name('addToCartAjax');
 
 // like
 Route::get('removewishuser/{id}/{id_product}', 'WishListController@remove');
@@ -61,8 +62,15 @@ Route::get('addwishuser/{id}/{id_product}', 'WishListController@add');
 
 
 
-Route::get('/shopFinal', function () {
-    return view('screens/finalshop');
+Route::get('/shopFinal/', function () {
+    // return view('screens/finalshop');
+
+    $products = Product::paginate(15);
+    foreach ($products as $product) {
+        $temp = json_decode($product->product_images);
+        $images[] = $temp[0];
+    }
+    return view('screens/finalshop')->with(array('products' => $products, 'images' => $images));
 });
 Route::get('/product', function () {
     return view('screens/productClick');

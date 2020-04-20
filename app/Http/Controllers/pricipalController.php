@@ -18,9 +18,9 @@ class pricipalController extends Controller
     public function index()
     {
         $falshsales = ProductResource::collection(Product::orderBy('nb_sales', 'DESC')->orderBy('title', 'ASC')->take(6)->get());
-        $womanproducts =  ProductResource::collection(Product::where('product_gender', 'woman')->orderBy('title', 'ASC')->take(6)->get());
-        $manproducts = ProductResource::collection(Product::where('product_gender', 'man')->orderBy('title', 'ASC')->take(6)->get());
-        $childproducts = ProductResource::collection(Product::where('product_gender', 'child')->orderBy('title', 'ASC')->take(6)->get());
+        $womanproducts =  ProductResource::collection(Product::where('product_gender', 'Woman')->orderBy('title', 'ASC')->take(6)->get());
+        $manproducts = ProductResource::collection(Product::where('product_gender', 'Man')->orderBy('title', 'ASC')->take(6)->get());
+        $childproducts = ProductResource::collection(Product::where('product_gender', 'Kid')->orderBy('title', 'ASC')->take(6)->get());
         $topsales = ProductResource::collection(Product::orderBy('nb_sales', 'DESC')->orderBy('title', 'ASC')->take(1)->get());
         $nblikes = 0;
         $nbcartitems = 0;
@@ -28,6 +28,7 @@ class pricipalController extends Controller
         $womanimages = [];
         $manimages = [];
         $childimages = [];
+        $trendimages = [];
         $temp = [];
         foreach ($womanproducts as $woman) {
             $temp = json_decode($woman->product_images);
@@ -38,6 +39,10 @@ class pricipalController extends Controller
             $manimages[] = $temp[0];
         }
 
+        foreach ($falshsales as $image) {
+            $temp = json_decode($image->product_images);
+            $trendimages[] = $temp[0];
+        }
         /* user likes start*/
         $userlikes = [];
 
@@ -65,13 +70,13 @@ class pricipalController extends Controller
                     array_push($finalCartItems, $finalcartItem);
                 }
 
-                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'cart_items' => $finalCartItems, 'id' => $cart->id, 'total' => number_format(doubleval($cart->total), 2), 'nbcartitems' => $nbcartitems, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts, 'womanimages' => $womanimages, 'manimages' => $manimages, 'userLikes' => $wishlist, 'user' => Auth::user()));
+                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'cart_items' => $finalCartItems, 'id' => $cart->id, 'total' => number_format(doubleval($cart->total), 2), 'nbcartitems' => $nbcartitems, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts, 'womanimages' => $womanimages, 'manimages' => $manimages, 'userLikes' => $wishlist, 'user' => Auth::user(), 'trendimages' => $trendimages));
             } else {
                 $wishlist =  array();
-                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'womanimages' => $womanimages, 'manimages' => $manimages, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts));
+                return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'womanimages' => $womanimages, 'manimages' => $manimages, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts, 'trendimages' => $trendimages));
             }
         } else {
-            return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'womanimages' => $womanimages, 'manimages' => $manimages, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts));
+            return view('principal')->with(array('falshsales' => $falshsales, 'topsales' => $topsales, 'login' => true, 'nblikes' => $nblikes, 'womanimages' => $womanimages, 'manimages' => $manimages, 'nbcartitems' => $nbcartitems, 'total' => 0, 'womanproducts' => $womanproducts, 'manproducts' => $manproducts, 'childproducts' => $childproducts, 'trendimages' => $trendimages));
         }
     }
 

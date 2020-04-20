@@ -6857,5 +6857,8 @@
         "search": "",
         "gridSize": 16
     },
-    "externalSets": []
+    "externalSets": [],
+    "dependencies": {
+        "sweetalert2": "^9.10.12"
+    }
 }

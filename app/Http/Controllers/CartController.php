@@ -184,6 +184,71 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    public function addProductToCartAjax(Request $request)
+    {
+
+        $request->validate([
+            'product_id' => 'required',
+            'quantity' => 'required',
+        ]);
+
+
+        $user = Auth::user();
+        $product_id = $request->input('product_id');
+        $quantity = $request->input('quantity');
+        $product = Product::findOrFail($product_id);
+        // Get the user cart ;
+        /**
+         *  @var Cart
+         */
+        //    $cart = $this->CheckCartStatus($user->cart) ;
+        if ($user == null) {
+            return response()->json(['detail' => 'you are not logged', 'status' => '40400']);
+        }
+        $cart = $user->cart;
+        if (is_null($cart)) {
+            $cart = new Cart();
+            $cart->cart_items = [];
+            $cart->total = 0;
+            $cart->user_id = Auth::user()->id;
+            $user->cart_id = $cart->id;
+        }
+        /** Check if the product is already in cart */
+
+        if ($cart->inItems($product_id)) {
+            /// Increase Quantity
+            $cart->increaseProductInCart($product, $quantity);
+        } else {
+            /// add product to cart
+            $cart->addProductToCart($product, $quantity);
+        }
+
+        $cart->save();
+        $user->cart_id = $cart->id;
+        $user->save();
+        $cartItems = json_decode($cart->cart_items);
+        $cartHtml = '<table id="cardTable">
+        <tbody>';
+        foreach ($cartItems as $cartItem) {
+
+            $cartHtml .= '<tr>
+            <td class="si-pic"><img src="images/img/select-product-1.jpg"
+                    alt=""></td>
+            <td class="si-text">
+                <div class="product-selected">
+                    <p>$ ' . $cartItem->product->price . ' x
+                        ' . (int) $cartItem->quantity . '</p>
+                    <h6>' . $cartItem->product->title . '</h6>
+                </div>
+            </td>
+         </tr>';
+        }
+
+        $cartHtml .= '</tbody>
+        </table>';
+        return response()->json(['detail' => 'Added successfully', 'status' => '20020', 'cart' => $cart, 'cartHtml' => $cartHtml, 'qte' => count($cartItems), 'total' => $cart->total]);
+    }
+
     public function RemoveProductFromCart($id)
     {
         $product = Product::find($id);
