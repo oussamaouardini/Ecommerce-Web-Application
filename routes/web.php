@@ -27,9 +27,9 @@ Route::get('/creditCard', 'CartController@page');
 Route::Post('creditCard/remove', 'CartController@remove');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('principal');
+// });
 
 Route::get('/shopFinal/{filter}', 'ProductController@filter');
 Route::get('/shopFinal-single/{id}', 'ProductController@singlePage');
@@ -58,10 +58,6 @@ Route::get('removewishuser/{id}/{id_product}', 'WishListController@remove');
 
 Route::get('addwishuser/{id}/{id_product}', 'WishListController@add');
 
-
-
-
-
 Route::get('/shopFinal/', function () {
     // return view('screens/finalshop');
 
@@ -89,6 +85,7 @@ Route::get('/produit', function () {
 });
 
 Route::get('/principal', 'pricipalController@index');
+Route::get('/', 'pricipalController@index');
 
 
 
@@ -131,6 +128,16 @@ Route::get('/tagtest', function () {
     return $role->users;
 })->middleware(['auth', 'user_is_support']);
 
+Route::post('/sendMail', function () {
+
+    if (isset($_POST['sendNews']) && filter_var(($_POST['userEmail']), FILTER_VALIDATE_EMAIL)) {
+        Mail::send(['text' => 'emails.mail'], ['name' => 'Bingo Team'], function ($message) {
+            $message->to($_POST["userEmail"], 'Bingo Team')->subject('Test Email');
+            $message->from($_POST["userEmail"], 'Bingo Team');
+        });
+        return redirect('/principal');
+    }
+});
 
 //user_is_admin
 Route::group(['auth'], function () {

@@ -20,7 +20,7 @@ $factory->define(Product::class, function (Faker $faker) {
             '["52202004181347325475.jpg","53202004181347325485.jpg","12345.jpg"]'
         ]),
         'product_sku'           => 'BLU-SHT-SM',
-        'product_brand'         => $faker->randomElement(['Adidas', 'Nike', 'Reebok', 'NewBalance']),
+        'product_brand'         => $faker->randomElement(['Adidas', 'Nike', 'Reebook', 'NewBalance']),
         'old_price'             => $faker->randomFloat(2, 10, 500),
         'cost_per_item'             => $faker->randomFloat(2, 10, 500),
         'profit_margin'             => $faker->randomFloat(2, 10, 500),

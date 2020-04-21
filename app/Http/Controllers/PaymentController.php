@@ -106,7 +106,7 @@ class PaymentController extends Controller
         if (isset($request['kk'])) {
             try {
                 $response = $this->gateway->purchase(array(
-                    'amount' => $_POST['amount'],
+                    'amount' => doubleval($_POST['amount']),
                     'currency' => env('PAYPAL_CURRENCY'),
                     'returnUrl' => url('paymentsuccessWeb'),
                     'cancelUrl' => url('paymenterror'),

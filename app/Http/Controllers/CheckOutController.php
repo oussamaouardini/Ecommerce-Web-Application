@@ -20,30 +20,27 @@ class CheckOutController extends Controller
     public function index()
     {
         $nbcartitems = 0;
-        $country =  Country::all();
-        $state = State::all();
         $user = Auth::user();
-        if($user != null){
-            if($user->cart != null ){
+        if ($user != null) {
+            if ($user->cart != null) {
                 $cart = $user->cart;
                 $cartItems = json_decode($cart->cart_items);
                 $finalCartItems = [];
-                foreach ($cartItems as $cartItem){
-                    $nbcartitems++ ;
+                foreach ($cartItems as $cartItem) {
+                    $nbcartitems++;
                     $product = Product::find(intval($cartItem->product->id));
                     $finalcartItem = new Product();
                     $finalcartItem->product = new ProductResource($product);
-                    $finalcartItem->quantity =number_format(doubleval($cartItem->quantity),2);
-                    array_push($finalCartItems,$finalcartItem);
+                    $finalcartItem->quantity = number_format(doubleval($cartItem->quantity), 2);
+                    array_push($finalCartItems, $finalcartItem);
                 }
 
-                return view('/screens/checkout')->with(array('cart_items'=>$finalCartItems,'id'=>$cart->id,'total'=>number_format(doubleval($cart->total),2),'nbcartitems'=>$nbcartitems,'user'=>Auth::user(),'states'=>$state,'countries'=>$country));
-            }else{
+                return view('/screens/checkout')->with(array('cart_items' => $finalCartItems, 'id' => $cart->id, 'total' => number_format(doubleval($cart->total), 2), 'nbcartitems' => $nbcartitems, 'user' => Auth::user()));
+            } else {
 
-                return view('/screens/checkout')->with(array('login'=>true,'nbcartitems'=>$nbcartitems,'total'=>0,'states'=>$state,'countries'=>$country));
+                return view('/screens/checkout')->with(array('login' => true, 'nbcartitems' => $nbcartitems, 'total' => 0));
             }
-
-        }else{
+        } else {
             return  redirect('/newlogin');
         }
     }

@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class,50)->create();
-        factory(\App\Product::class,50)->create();
-        factory(\App\Image::class,50)->create();
-        factory(\App\Review::class,50)->create();
-       // factory(\App\Category::class,50)->create();
-        factory(\App\ContactSupport::class,50)->create();
-        factory(\App\WishList::class,50)->create();
+        factory(User::class, 50)->create();
+        factory(\App\Product::class, 50)->create();
+        factory(\App\Image::class, 50)->create();
+        factory(\App\Review::class, 50)->create();
+        //factory(\App\Category::class, 38)->create();
+        factory(\App\ContactSupport::class, 50)->create();
+        factory(\App\WishList::class, 50)->create();
     }
 }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\Desktop;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\DesktopReviewRes;
 use App\Product;
+use App\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\Desktop\Input;
 use App\Http\Resources\CategoryResource;
@@ -24,6 +26,27 @@ class ProductController extends Controller
         // return response()->json($stock);
         $stock = Product::paginate(20);
         return $stock->getCollection();
+    }
+
+    public function allReviews()
+    {
+        $review = DesktopReviewRes::collection(Review::paginate(25)->where("replied", 0));
+        return response()->json($review);
+    }
+
+    public function replayReview($id)
+    {
+        $review = Review::find($id);
+        $review->replied = 1;
+        $review->save();
+        return 200;
+    }
+
+    public function deleteReview($id)
+    {
+        $review = Review::find($id);
+        $review->delete();
+        return 200;
     }
 
     public function allProducts()

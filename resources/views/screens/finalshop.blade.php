@@ -24,17 +24,17 @@
                     <div class="fw-brand-check">
                         <div class="bc-item">
                             <label for="bc-Men">
-                                <a href="?categories=man">Men</a>
+                                <a href="?categories=Man">Men</a>
                             </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-Women">
-                                <a href="?categories=woman">Women</a>
+                                <a href="?categories=Woman">Women</a>
                             </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-Kids">
-                                <a href="?categories=child">Kids</a>
+                                <a href="?categories=Kid">Kids</a>
                             </label>
                         </div>
                     </div>

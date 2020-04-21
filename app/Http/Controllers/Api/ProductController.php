@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ReviewResource;
 use App\Product;
+use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Integer;
@@ -22,7 +23,6 @@ class ProductController extends Controller
     public function index()
     {
         return ProductResource::collection(Product::paginate(10));
-
     }
 
     /**
@@ -35,6 +35,10 @@ class ProductController extends Controller
         //
     }
 
+    public function sale($id)
+    {
+        return $id;
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -56,24 +60,31 @@ class ProductController extends Controller
     {
         return new ProductResource(Product::find($id));
     }
-    public function review($id){
+    public function review($id)
+    {
         $prod = Product::find($id);
-        $review = $prod->reviews()->paginate(10) ;
+        $review = $prod->reviews()->paginate(10);
         return  ReviewResource::collection($review);
     }
-    public function filter(Request $request){
+
+    public function allReviews()
+    {
+        $review = Review::paginate(25);
+        return  ReviewResource::collection($review);
+    }
+    public function filter(Request $request)
+    {
 
         $array = json_decode($request['tab']);
-        $allproducts =array();
-      //  $category = Category::where('name','Men\'s Sneakers' )->first();
-        foreach($array as $item)
-        {
-            $category = Category::where('name',$item )->first();
-            array_push($allproducts,$category->products()->paginate(15));
+        $allproducts = array();
+        //  $category = Category::where('name','Men\'s Sneakers' )->first();
+        foreach ($array as $item) {
+            $category = Category::where('name', $item)->first();
+            array_push($allproducts, $category->products()->paginate(15));
             // return $category->products ;
         }
 
-        return $allproducts ;
+        return $allproducts;
     }
 
     /**
@@ -88,22 +99,22 @@ class ProductController extends Controller
     }
     public function search($search)
     {
-       $products = Product::query()->where('title', 'LIKE', "%{$search}%")->get();
-       return  ProductResource::collection($products) ;
+        $products = Product::query()->where('title', 'LIKE', "%{$search}%")->get();
+        return  ProductResource::collection($products);
     }
     public function sales($id)
     {
         $product = Product::find($id);
-        $product->nb_sales += 1  ;
+        $product->nb_sales += 1;
         $product->save();
-        return $product ;
+        return $product;
     }
 
     public function flash()
     {
 
-        $product = Product::orderBy('nb_sales','DESC')->orderBy('title', 'ASC')->take(6)->get();
-        return  ProductResource::collection($product) ;
+        $product = Product::orderBy('nb_sales', 'DESC')->orderBy('title', 'ASC')->take(6)->get();
+        return  ProductResource::collection($product);
     }
 
     /**

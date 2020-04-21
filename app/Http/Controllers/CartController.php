@@ -124,7 +124,7 @@ class CartController extends Controller
         $ca->cart_items = json_encode($cartItms);
         $ca->total = $newTotal;
         $ca->save();
-        return view('screens/checkout');
+        return redirect('/checkout');
     }
     /**
      * Show the form for creating a new resource.

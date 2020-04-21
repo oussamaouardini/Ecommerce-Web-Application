@@ -28,7 +28,6 @@ Route::get('products/{id}', 'Api\ProductController@show');
 // product review
 Route::get('product/{id}/review', 'Api\ProductController@review');
 
-
 /// general routes
 
 Route::get('countries', 'Api\CountryController@index');
@@ -70,7 +69,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('charge/{amount}', 'PaymentController@charge');
 });
 
-
+Route::get('sale/{id}', 'Api\ProductController@sale');
 
 
 ///////////////////////////////////////////////////////////// DESKTOP ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +79,10 @@ Route::post('addProduct', 'Api\Desktop\ProductController@store');
 Route::post('editProduct/{id}', 'Api\Desktop\ProductController@update');
 Route::post('hideProduct/{id}', 'Api\Desktop\ProductController@hide');
 Route::post('deleteProduct/{id}', 'Api\Desktop\ProductController@destroy');
+
+Route::get('review', 'Api\Desktop\ProductController@allReviews');
+Route::post('replayed/{id}', 'Api\Desktop\ProductController@replayReview');
+Route::post('deleteReview/{id}', 'Api\Desktop\ProductController@deleteReview');
 
 Route::get('nbproducts', 'Api\Desktop\ProductController@allProducts');
 Route::get('allcategories', 'Api\Desktop\ProductController@categories');

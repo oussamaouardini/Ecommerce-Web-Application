@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="single-banner">
-                    <img src="images/img/banner-1.jpg" alt="">
+                    <img src="images/img/FootB.png" alt="">
                     <div class="inner-text">
                         <h4> <a href="/shopFinal/Football">Foot Ball</a></h4>
                     </div>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="single-banner">
-                    <img src="images/img/banner-2.jpg" alt="">
+                    <img src="images/img/Run.png" alt="">
                     <div class="inner-text">
                         <h4> <a href="/shopFinal/Running">Running</a></h4>
                     </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="single-banner">
-                    <img src="images/img/banner-3.jpg" alt="">
+                    <img src="images/img/cardx.png" alt="">
                     <div class="inner-text">
                         <h4> <a href="/shopFinal/Cardio">Cardio</a></h4>
                     </div>
@@ -240,37 +240,37 @@
     </div>
 </section>
 <div class="instagram-photo">
-    <div class="insta-item set-bg" data-setbg="images/img/insta-1.jpg">
+    <div class="insta-item set-bg" data-setbg="images/insta/1.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">Bingo_Collection</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="images/img/insta-2.jpg">
+    <div class="insta-item set-bg" data-setbg="images/insta/2.png">
         <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">Bingo_Collection</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="images/img/insta-3.jpg">
+    <div class="insta-item set-bg" data-setbg="images/insta/3.png">
         <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">Bingo_Collection</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="images/img/insta-4.jpg">
+    <div class="insta-item set-bg" data-setbg="images/insta/4.png">
         <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">Bingo_Collection</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="images/img/insta-5.jpg">
+    <div class="insta-item set-bg" data-setbg="images/insta/5.png">
         <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">Bingo_Collection</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="images/img/insta-6.jpg">
+    <div class="insta-item set-bg" data-setbg="images/insta/6.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">Bingo_Collection</a></h5>
@@ -288,26 +288,14 @@
                 <div>
                     <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             width="42px" height="73px">
-                            <image x="0px" y="32px" width="42px" height="41px"
-                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAQAAADpXnN+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkAQsELTCqmp8aAAACRElEQVRIx+3WS0hUURzH8c88KFMxoajGKKxNQY9FlBSUGBGBRAXVomgTQtHKRdALgjauWrUxCKI2EUHQrijalBERBK7ssRCSsgjKIst0Rk+LeTTjzKijQht/d3HvOf/f/Z57Hvd/Dvna5adQcA3bYbwadI9zBWfzDdEC+0q14wDzNBRBF1lUVLcmnxQvCCWlxP3RZUCdbRYiVQQYk0TKC/2qbbYMw4IyOiYp+GAVEl4KgoNFrnV6Bd80o8o9QXBVpFz3sxo1FQWMlvrCUtCIGGL5bZd1xUsRoipXmMwwObQUYuI+TAAdMgiWFEWq1SPlT+XQAW/BAQvGRVrVo09f5dAx96Ww27kC1wGnwSP9lUO57yGiLuq0UZ0ajU67rg4f3Sj/YnwCaMoZG6wUcdI+r41otBb8dta7qULHkD+3PdrctBwJiVztsAtu5Uppd8EaKex+lQiSGTg8ttdtnwyBpK+6HHElFx+VBDXlvjSiWQx9vufVdjsqoclqMf1eZdZEViPeg02W+lxqKFoMCILLKtEhQ4Kk9lLBLZms9EVTRdA6zwTBJ4f/DWatnU7o1JfJ4ZcqQkKrQUHwy13t9kvQYShvW7hWlPunolN+5Agp93ieK77VVvRLTlUtnuQ4vTwVBK+dt2qawLTqHfdYEPTItNAxI2BWe9LQ7HxVzQo0Mx9ZaGTaoBKaznYyB52DzkH/CzQ5K7SR9C27m66wdcZJZdj69ENEl+0YMzpjaBAVw5vsSTg6i6M7P+6OxWryziQzUwQP/gIkgbc/BOFjpgAAAABJRU5ErkJggg==" />
-                            <path fill-rule="evenodd" fill="rgb(0, 0, 0)"
-                                d="M26.110,12.363 C27.416,13.904 28.897,15.650 28.897,19.028 C28.897,22.405 27.416,24.152 26.110,25.692 C25.748,26.119 25.113,26.168 24.692,25.802 C24.270,25.436 24.221,24.794 24.583,24.368 C25.818,22.911 26.885,21.652 26.885,19.028 C26.885,16.403 25.818,15.145 24.583,13.688 C23.276,12.147 21.795,10.400 21.795,7.023 C21.795,3.645 23.276,1.899 24.583,0.358 C24.944,-0.068 25.579,-0.117 26.001,0.249 C26.423,0.614 26.471,1.257 26.110,1.683 C24.874,3.140 23.807,4.398 23.807,7.023 C23.807,9.647 24.874,10.906 26.110,12.363 ZM20.608,12.363 C21.915,13.904 23.396,15.650 23.396,19.028 C23.396,22.405 21.915,24.152 20.608,25.692 C20.247,26.119 19.612,26.168 19.190,25.802 C18.768,25.436 18.720,24.794 19.082,24.368 C20.317,22.911 21.384,21.653 21.384,19.028 C21.384,16.403 20.317,15.145 19.082,13.688 C17.775,12.147 16.294,10.400 16.294,7.023 C16.294,3.645 17.775,1.899 19.082,0.358 C19.443,-0.068 20.078,-0.117 20.500,0.249 C20.921,0.614 20.970,1.257 20.608,1.683 C19.373,3.140 18.306,4.398 18.306,7.023 C18.306,9.647 19.373,10.906 20.608,12.363 ZM15.107,12.363 C16.414,13.904 17.894,15.650 17.894,19.028 C17.894,22.405 16.414,24.152 15.107,25.692 C14.746,26.119 14.111,26.168 13.689,25.802 C13.267,25.436 13.219,24.794 13.580,24.368 C14.816,22.911 15.883,21.653 15.883,19.028 C15.883,16.403 14.816,15.145 13.580,13.688 C12.274,12.147 10.793,10.400 10.793,7.023 C10.793,3.645 12.274,1.899 13.580,0.359 C13.942,-0.068 14.577,-0.117 14.998,0.249 C15.420,0.614 15.469,1.257 15.107,1.683 L15.107,1.683 C13.872,3.140 12.805,4.398 12.805,7.023 C12.805,9.647 13.872,10.906 15.107,12.363 Z" />
                         </svg>
                         HEAT</span>
                     <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             width="42px" height="73px">
-                            <image x="0px" y="32px" width="42px" height="41px"
-                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAQAAADpXnN+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkAQsELTCqmp8aAAACRElEQVRIx+3WS0hUURzH8c88KFMxoajGKKxNQY9FlBSUGBGBRAXVomgTQtHKRdALgjauWrUxCKI2EUHQrijalBERBK7ssRCSsgjKIst0Rk+LeTTjzKijQht/d3HvOf/f/Z57Hvd/Dvna5adQcA3bYbwadI9zBWfzDdEC+0q14wDzNBRBF1lUVLcmnxQvCCWlxP3RZUCdbRYiVQQYk0TKC/2qbbYMw4IyOiYp+GAVEl4KgoNFrnV6Bd80o8o9QXBVpFz3sxo1FQWMlvrCUtCIGGL5bZd1xUsRoipXmMwwObQUYuI+TAAdMgiWFEWq1SPlT+XQAW/BAQvGRVrVo09f5dAx96Ww27kC1wGnwSP9lUO57yGiLuq0UZ0ajU67rg4f3Sj/YnwCaMoZG6wUcdI+r41otBb8dta7qULHkD+3PdrctBwJiVztsAtu5Uppd8EaKex+lQiSGTg8ttdtnwyBpK+6HHElFx+VBDXlvjSiWQx9vufVdjsqoclqMf1eZdZEViPeg02W+lxqKFoMCILLKtEhQ4Kk9lLBLZms9EVTRdA6zwTBJ4f/DWatnU7o1JfJ4ZcqQkKrQUHwy13t9kvQYShvW7hWlPunolN+5Agp93ieK77VVvRLTlUtnuQ4vTwVBK+dt2qawLTqHfdYEPTItNAxI2BWe9LQ7HxVzQo0Mx9ZaGTaoBKaznYyB52DzkH/CzQ5K7SR9C27m66wdcZJZdj69ENEl+0YMzpjaBAVw5vsSTg6i6M7P+6OxWryziQzUwQP/gIkgbc/BOFjpgAAAABJRU5ErkJggg==" />
-                            <path fill-rule="evenodd" fill="rgb(0, 0, 0)"
-                                d="M26.110,12.363 C27.416,13.904 28.897,15.650 28.897,19.028 C28.897,22.405 27.416,24.152 26.110,25.692 C25.748,26.119 25.113,26.168 24.692,25.802 C24.270,25.436 24.221,24.794 24.583,24.368 C25.818,22.911 26.885,21.652 26.885,19.028 C26.885,16.403 25.818,15.145 24.583,13.688 C23.276,12.147 21.795,10.400 21.795,7.023 C21.795,3.645 23.276,1.899 24.583,0.358 C24.944,-0.068 25.579,-0.117 26.001,0.249 C26.423,0.614 26.471,1.257 26.110,1.683 C24.874,3.140 23.807,4.398 23.807,7.023 C23.807,9.647 24.874,10.906 26.110,12.363 ZM20.608,12.363 C21.915,13.904 23.396,15.650 23.396,19.028 C23.396,22.405 21.915,24.152 20.608,25.692 C20.247,26.119 19.612,26.168 19.190,25.802 C18.768,25.436 18.720,24.794 19.082,24.368 C20.317,22.911 21.384,21.653 21.384,19.028 C21.384,16.403 20.317,15.145 19.082,13.688 C17.775,12.147 16.294,10.400 16.294,7.023 C16.294,3.645 17.775,1.899 19.082,0.358 C19.443,-0.068 20.078,-0.117 20.500,0.249 C20.921,0.614 20.970,1.257 20.608,1.683 C19.373,3.140 18.306,4.398 18.306,7.023 C18.306,9.647 19.373,10.906 20.608,12.363 ZM15.107,12.363 C16.414,13.904 17.894,15.650 17.894,19.028 C17.894,22.405 16.414,24.152 15.107,25.692 C14.746,26.119 14.111,26.168 13.689,25.802 C13.267,25.436 13.219,24.794 13.580,24.368 C14.816,22.911 15.883,21.653 15.883,19.028 C15.883,16.403 14.816,15.145 13.580,13.688 C12.274,12.147 10.793,10.400 10.793,7.023 C10.793,3.645 12.274,1.899 13.580,0.359 C13.942,-0.068 14.577,-0.117 14.998,0.249 C15.420,0.614 15.469,1.257 15.107,1.683 L15.107,1.683 C13.872,3.140 12.805,4.398 12.805,7.023 C12.805,9.647 13.872,10.906 15.107,12.363 Z" />
                         </svg>
                         SHAPE</span>
                     <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             width="42px" height="73px">
-                            <image x="0px" y="32px" width="42px" height="41px"
-                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAQAAADpXnN+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkAQsELTCqmp8aAAACRElEQVRIx+3WS0hUURzH8c88KFMxoajGKKxNQY9FlBSUGBGBRAXVomgTQtHKRdALgjauWrUxCKI2EUHQrijalBERBK7ssRCSsgjKIst0Rk+LeTTjzKijQht/d3HvOf/f/Z57Hvd/Dvna5adQcA3bYbwadI9zBWfzDdEC+0q14wDzNBRBF1lUVLcmnxQvCCWlxP3RZUCdbRYiVQQYk0TKC/2qbbYMw4IyOiYp+GAVEl4KgoNFrnV6Bd80o8o9QXBVpFz3sxo1FQWMlvrCUtCIGGL5bZd1xUsRoipXmMwwObQUYuI+TAAdMgiWFEWq1SPlT+XQAW/BAQvGRVrVo09f5dAx96Ww27kC1wGnwSP9lUO57yGiLuq0UZ0ajU67rg4f3Sj/YnwCaMoZG6wUcdI+r41otBb8dta7qULHkD+3PdrctBwJiVztsAtu5Uppd8EaKex+lQiSGTg8ttdtnwyBpK+6HHElFx+VBDXlvjSiWQx9vufVdjsqoclqMf1eZdZEViPeg02W+lxqKFoMCILLKtEhQ4Kk9lLBLZms9EVTRdA6zwTBJ4f/DWatnU7o1JfJ4ZcqQkKrQUHwy13t9kvQYShvW7hWlPunolN+5Agp93ieK77VVvRLTlUtnuQ4vTwVBK+dt2qawLTqHfdYEPTItNAxI2BWe9LQ7HxVzQo0Mx9ZaGTaoBKaznYyB52DzkH/CzQ5K7SR9C27m66wdcZJZdj69ENEl+0YMzpjaBAVw5vsSTg6i6M7P+6OxWryziQzUwQP/gIkgbc/BOFjpgAAAABJRU5ErkJggg==" />
-                            <path fill-rule="evenodd" fill="rgb(0, 0, 0)"
-                                d="M26.110,12.363 C27.416,13.904 28.897,15.650 28.897,19.028 C28.897,22.405 27.416,24.152 26.110,25.692 C25.748,26.119 25.113,26.168 24.692,25.802 C24.270,25.436 24.221,24.794 24.583,24.368 C25.818,22.911 26.885,21.652 26.885,19.028 C26.885,16.403 25.818,15.145 24.583,13.688 C23.276,12.147 21.795,10.400 21.795,7.023 C21.795,3.645 23.276,1.899 24.583,0.358 C24.944,-0.068 25.579,-0.117 26.001,0.249 C26.423,0.614 26.471,1.257 26.110,1.683 C24.874,3.140 23.807,4.398 23.807,7.023 C23.807,9.647 24.874,10.906 26.110,12.363 ZM20.608,12.363 C21.915,13.904 23.396,15.650 23.396,19.028 C23.396,22.405 21.915,24.152 20.608,25.692 C20.247,26.119 19.612,26.168 19.190,25.802 C18.768,25.436 18.720,24.794 19.082,24.368 C20.317,22.911 21.384,21.653 21.384,19.028 C21.384,16.403 20.317,15.145 19.082,13.688 C17.775,12.147 16.294,10.400 16.294,7.023 C16.294,3.645 17.775,1.899 19.082,0.358 C19.443,-0.068 20.078,-0.117 20.500,0.249 C20.921,0.614 20.970,1.257 20.608,1.683 C19.373,3.140 18.306,4.398 18.306,7.023 C18.306,9.647 19.373,10.906 20.608,12.363 ZM15.107,12.363 C16.414,13.904 17.894,15.650 17.894,19.028 C17.894,22.405 16.414,24.152 15.107,25.692 C14.746,26.119 14.111,26.168 13.689,25.802 C13.267,25.436 13.219,24.794 13.580,24.368 C14.816,22.911 15.883,21.653 15.883,19.028 C15.883,16.403 14.816,15.145 13.580,13.688 C12.274,12.147 10.793,10.400 10.793,7.023 C10.793,3.645 12.274,1.899 13.580,0.359 C13.942,-0.068 14.577,-0.117 14.998,0.249 C15.420,0.614 15.469,1.257 15.107,1.683 L15.107,1.683 C13.872,3.140 12.805,4.398 12.805,7.023 C12.805,9.647 13.872,10.906 15.107,12.363 Z" />
                         </svg>
                         COMFORT</span>
                 </div>

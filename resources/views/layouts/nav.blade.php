@@ -13,7 +13,6 @@
     <script src="{{asset('js/bootstrap.js')}}"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
-
     <script>
         $(document).ready(function(){
             console.log("ready");
@@ -26,11 +25,6 @@
                 }
             });
         });
-
-
-
-
-
         function addnumb() {
             const input = document.querySelector("#Qteproduct");
             const BIRTHNUMBER_ALLOWED_CHARS_REGEXP = /[0-9]+/;
@@ -40,8 +34,6 @@
                 document.getElementById("Qteproduct").value = "0";
             }
         }
-
-
     </script>
 
 
@@ -93,10 +85,7 @@
     {{--new navbar--}}
     <div class="bigNavBar" id="bigNavBar">
         <div id="topnav" class="d-flex justify-content-between">
-            <div class="lang lang1">
-                <img src="{{asset('images/EN.png')}}" alt="ENG">
-                <span>English</span>
-            </div>
+
             <div class="contact">
                 FREE Staff Support on orders within te US over +(212) 567 498 409
             </div>
@@ -106,7 +95,7 @@
                 <h5 style="display: inline"> <a style="color: white;" href="/newlogin">{{ __('Login') }} </a></h5>
                 @else
                 <li class=" dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color: white; href=" #" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} <span
                             class="caret"></span>
@@ -125,10 +114,7 @@
                 @endguest
             </div>
 
-            <div class="lang lang2">
-                <span>French </span>
-                <img src="{{asset('images/FR.png')}}" alt="FR">
-            </div>
+
         </div>
 
         <div class="container">
@@ -161,7 +147,7 @@
                                     <i class="icon_bag_alt"></i>
                                     <span id="mycrtnb"> @isset($nbcartitems)
                                         {{$nbcartitems}}
-                                    @endisset  </span>
+                                        @endisset </span>
                                 </a>
 
                                 <div class="cart-hover">
@@ -186,7 +172,7 @@
                                                 @endforeach
                                                 @endisset
 
-                                                
+
 
                                             </tbody>
                                         </table>
@@ -223,7 +209,7 @@
                                 <div>
                                     <h4 class="titles">MEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=adidas">Adidas</a></li>
+                                        <li class="subTitles"><a href="/shopFinal/menPants?brand=Adidas">Adidas</a></li>
                                         <li class="subTitles"><a href="/shopFinal/menPants?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/menPants?brand=Puma">Puma</a></li>
                                         <li class="subTitles"><a href="/shopFinal/menPants?brand=Reebok">Reabook</a>
@@ -237,7 +223,7 @@
                                 <div>
                                     <h4 class="titles">WOMEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/womenPants?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/womenPants?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/womenPants?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/womenPants?brand=Puma">Puma</a></li>
@@ -252,7 +238,7 @@
                                 <div>
                                     <h4 class="titles">Kids</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/childPants?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/childPants?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/childPants?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/childPants?brand=Puma">Puma</a></li>
@@ -274,7 +260,7 @@
                                 <div>
                                     <h4 class="titles">MEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/menSneakers?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/menSneakers?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/menSneakers?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/menSneakers?brand=Puma">Puma</a></li>
@@ -289,7 +275,7 @@
                                 <div>
                                     <h4 class="titles">WOMEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/womenSneakers?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/womenSneakers?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/womenSneakers?brand=Nike">Nike</a>
                                         </li>
@@ -306,7 +292,7 @@
                                 <div>
                                     <h4 class="titles">Kids</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/childSneakers?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/childSneakers?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/childSneakers?brand=Nike">Nike</a>
                                         </li>
@@ -330,7 +316,7 @@
                                 <div>
                                     <h4 class="titles">MEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/menT-Shirts?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/menT-Shirts?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/menT-Shirts?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/menT-Shirts?brand=Puma">Puma</a></li>
@@ -345,7 +331,7 @@
                                 <div>
                                     <h4 class="titles">WOMEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/womenT-Shirts?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/womenT-Shirts?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/womenT-Shirts?brand=Nike">Nike</a>
                                         </li>
@@ -362,7 +348,7 @@
                                 <div>
                                     <h4 class="titles">Kids</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/childT-Shirts?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/childT-Shirts?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/childT-Shirts?brand=Nike">Nike</a>
                                         </li>
@@ -386,7 +372,7 @@
                                 <div>
                                     <h4 class="titles">MEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/menFootwar?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/menFootwar?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/menFootwar?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/menFootwar?brand=Puma">Puma</a></li>
@@ -401,7 +387,7 @@
                                 <div>
                                     <h4 class="titles">WOMEN</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/womenFootwar?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/womenFootwar?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/womenFootwar?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/womenFootwar?brand=Puma">Puma</a></li>
@@ -416,7 +402,7 @@
                                 <div>
                                     <h4 class="titles">Kids</h4>
                                     <ul>
-                                        <li class="subTitles"><a href="/shopFinal/childFootwar?brand=adidas">Adidas</a>
+                                        <li class="subTitles"><a href="/shopFinal/childFootwar?brand=Adidas">Adidas</a>
                                         </li>
                                         <li class="subTitles"><a href="/shopFinal/childFootwar?brand=Nike">Nike</a></li>
                                         <li class="subTitles"><a href="/shopFinal/childFootwar?brand=Puma">Puma</a></li>
@@ -431,12 +417,7 @@
                             </div><!-- /cbp-hrsub-inner -->
                         </div><!-- /cbp-hrsub -->
                     </li>
-                    <li>
-                        <a href="/shopFinal" class="exo">SHOP</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/newlogin') }}" class="exo">LOGIN</a>
-                    </li>
+
                     <div id="carddiv">
                         <div id="card" style="top: 0px;">
                             <div>
@@ -536,27 +517,27 @@
                 <div class="logo-carousel owl-carousel">
                     <div class="logo-item">
                         <div class="tablecell-inner">
-                            <img src="images/img/logo-carousel/logo-1.png" alt="">
+                            <img src="images/img/logo-carousel/adidLogo.png" alt="">
                         </div>
                     </div>
                     <div class="logo-item">
                         <div class="tablecell-inner">
-                            <img src="images/img/logo-carousel/logo-2.png" alt="">
+                            <img src="images/img/logo-carousel/nike.png" alt="">
                         </div>
                     </div>
                     <div class="logo-item">
                         <div class="tablecell-inner">
-                            <img src="images/img/logo-carousel/logo-3.png" alt="">
+                            <img src="images/img/logo-carousel/puma.png" alt="">
                         </div>
                     </div>
                     <div class="logo-item">
                         <div class="tablecell-inner">
-                            <img src="images/img/logo-carousel/logo-4.png" alt="">
+                            <img src="images/img/logo-carousel/newBalance.png" alt="">
                         </div>
                     </div>
                     <div class="logo-item">
                         <div class="tablecell-inner">
-                            <img src="images/img/logo-carousel/logo-5.png" alt="">
+                            <img src="images/img/logo-carousel/rbook.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -571,40 +552,44 @@
                     <div class="col-lg-3">
                         <div class="footer-left">
                             <div class="footer-logo">
-                                <a href="#"><img src="images/img/footer-logo.png" alt=""></a>
+                                <a href="/"><img src="images/img/logoFooter.png" alt=""></a>
                             </div>
                             <ul>
-                                <li>Address: 60-49 Road 11378 New York</li>
-                                <li>Phone: +65 11.188.888</li>
-                                <li>Email: hello.colorlib@gmail.com</li>
+                                <li>Address: 60-49 Aourir 113 Agadir</li>
+                                <li>Phone: +212 767-498-409</li>
+                                <li>Email: gi.forum99@gmail.com</li>
                             </ul>
                             <div class="footer-social">
-                                <a href="#" style="padding-top: 10px;"><i class="fa fa-facebook"></i></a>
-                                <a href="#" style="padding-top: 10px;"><i class="fa fa-instagram"></i></a>
-                                <a href="#" style="padding-top: 10px;"><i class="fa fa-twitter"></i></a>
-                                <a href="#" style="padding-top: 10px;"><i class="fa fa-pinterest"></i></a>
+                                <a href="https://www.facebook.com/mohaoublla/" style="padding-top: 10px;"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/mohamed_ouballa10/" style="padding-top: 10px;"><i
+                                        class="fa fa-instagram"></i></a>
+                                <a href="https://www.pinterest.com/honeiknone/" style="padding-top: 10px;"><i
+                                        class="fa fa-twitter"></i></a>
+                                <a href="https://twitter.com/MohamedBerber16" style="padding-top: 10px;"><i
+                                        class="fa fa-pinterest"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-2 offset-lg-1">
                         <div class="footer-widget">
-                            <h5>Information</h5>
+                            <h5></h5>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Checkout</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Serivius</a></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="footer-widget">
-                            <h5>My Account</h5>
+                            <h5></h5>
                             <ul>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Shopping Cart</a></li>
-                                <li><a href="#">Shop</a></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </div>
                     </div>
@@ -612,9 +597,10 @@
                         <div class="newslatter-item">
                             <h5>Join Our Newsletter Now</h5>
                             <p>Get E-mail updates about our latest shop and special offers.</p>
-                            <form action="#" class="subscribe-form">
-                                <input type="text" placeholder="Enter Your Mail">
-                                <button type="button">Subscribe</button>
+                            <form action="{{url('/sendMail')}}" class="subscribe-form" method="POST">
+                                @csrf
+                                <input type="text" placeholder="Enter Your Mail" name="userEmail">
+                                <button type="submit" name="sendNews">Subscribe</button>
                             </form>
                         </div>
                     </div>
@@ -628,8 +614,8 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;<script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This Store is made by <a href="#" target="_blank">Bingo - Team</a> <i class="fa fa-heart-o"
-                                    aria-hidden="true"></i>
+                                </script> All rights reserved | This Store is made by <a href="#" target="_blank">Bingo
+                                    - Team</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </div>
                             <div class="payment-pic">
@@ -658,7 +644,7 @@
     <script src="{{asset('js/newJs/main.js')}}"></script>
     <script src="{{asset('js/cbpHorizontalMenu.min.js')}}"></script>
 
-    
+
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
