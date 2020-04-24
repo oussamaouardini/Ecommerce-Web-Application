@@ -111,13 +111,9 @@ class ProductController extends Controller
         $product->product_carrier = $request->input('product_carrier');
         $product->product_size = $request->input('product_size');
         $product->product_colors = $request->input('product_colors');
-        // $fileName = "user_image.jpg";
-        // $path = $request->file('photo')->move(public_path("/"), $fileName);
-        // $photoUrl = url('/' . $fileName);
-        // return response()->json(['url' => $photoUrl], 200);
-
+        $product->local = $request->input('local');
         $product->save();
-        return $request->all();
+        return $product;
 
         //TODO : We have to agree on this structure and adapt every thing upon it !
     }
@@ -161,25 +157,27 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->title = $request->input('product_title');
-        $product->escription = $request->input('product_description');
+        $product->description = $request->input('product_description');
         $product->product_images = $request->input('product_images');
         $product->category_id = $request->input('product_category');
-        $product->gender = $request->input('gender');
+        $product->product_gender = $request->input('product_gender');
         $product->product_brand = $request->input('product_brand');
         $product->product_tags = $request->input('product_tags');
-        $product->price = $request->input('product_net_price');
+        $product->price = $request->input('product_profit_price');
         $product->old_price = $request->input('product_compare_to_price');
-        $product->cost_per_item = $request->input('product_price_profit');
-        $product->profit_margin = $request->input('profit_margin');
+        $product->cost_per_item = $request->input('cost_per_item');
+        $product->profit_margin = $request->input('product_profit_margin');
         $product->product_barcode = $request->input('product_barcode');
         $product->product_sku = $request->input('product_sku');
         $product->product_quantity = $request->input('product_quantity');
-        $product->product_wheight = $request->input('product_wheight');
+        $product->product_weight = $request->input('product_weight');
         $product->product_height = $request->input('product_height');
         $product->product_carrier = $request->input('product_carrier');
         $product->product_size = $request->input('product_size');
         $product->product_colors = $request->input('product_colors');
+        $product->local = $request->input('local');
         $product->save();
+        return $product;
     }
 
     /**

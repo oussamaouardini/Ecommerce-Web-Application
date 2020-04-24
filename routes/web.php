@@ -87,10 +87,7 @@ Route::get('/produit', function () {
 Route::get('/principal', 'pricipalController@index');
 Route::get('/', 'pricipalController@index');
 
-
-
 Route::get('products/{filter}', 'ProductController@navbar');
-
 
 // man
 Route::get('products/man', 'ProductController@navbar');

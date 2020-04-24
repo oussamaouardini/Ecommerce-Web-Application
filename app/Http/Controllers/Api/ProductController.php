@@ -35,9 +35,12 @@ class ProductController extends Controller
         //
     }
 
-    public function sale($id)
+    public function sale($barcode)
     {
-        return $id;
+        $product = Product::where("product_barcode", $barcode)->get()->first();
+        $product->nb_sales = $product->nb_sales + 1;
+        $product->save();
+        return $product->price;
     }
     /**
      * Store a newly created resource in storage.

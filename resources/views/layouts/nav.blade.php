@@ -149,18 +149,17 @@
                                         {{$nbcartitems}}
                                         @endisset </span>
                                 </a>
-
                                 <div class="cart-hover">
                                     <div class="select-items" id="mycrt">
                                         <table id="cardTable">
                                             <tbody>
-
                                                 @isset($cart_items)
                                                 @foreach($cart_items as $cart_item)
-
                                                 <tr>
-                                                    <td class="si-pic"><img src="images/img/select-product-1.jpg"
-                                                            alt=""></td>
+                                                    <td class="si-pic"><img
+                                                            src="productImages/{{$cart_item['product']->product_images}}"
+                                                            alt="">
+                                                    </td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
                                                             <p>$ {{$cart_item['product']->price}} x
@@ -171,9 +170,6 @@
                                                 </tr>
                                                 @endforeach
                                                 @endisset
-
-
-
                                             </tbody>
                                         </table>
                                     </div>

@@ -163,8 +163,8 @@ class PaymentController extends Controller
                     $userCard = Cart::find(Auth::user()->cart->id);
                     $userCard->delete();
                 }
-
-                return "Payment is successful. Your transaction id is: " . $arr_body['id'];
+                // return "Payment is successful. Your transaction id is: " . $arr_body['id'];
+                return view("paymentDone", ["array_body['id']" => $arr_body['id']]);
             } else {
                 return $response->getMessage();
             }
