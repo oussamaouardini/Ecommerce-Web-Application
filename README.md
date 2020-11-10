@@ -10,5 +10,5 @@ first of all clone the repository then open the project then duplicate .env.exam
 after that migrate the database and finally serve the project
 
 ## Screens
-
+![webClient](https://user-images.githubusercontent.com/51085405/98637208-709e0400-2328-11eb-8181-fab594f83cb2.gif)
 
